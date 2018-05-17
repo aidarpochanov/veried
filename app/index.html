@@ -1,109 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+    <head>
+        <title>VeriEd</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/anime.css">
+        <link rel="stylesheet" type="text/css" href="css/anime-theme.css">
+        <link rel="stylesheet" type="text/css" href="css/documentation.css"> 
+        <link rel="stylesheet" type="text/css" href="css/joint.css">
+        <script src="js/jquery.js"></script>
+        <script>
+            try {
+                $ = jQuery = module.exports;
+                // If you want module.exports to be empty, uncomment:
+                // module.exports = {};
+            } catch(e) {}
+        </script>
+        
+        
+    </head>
 
-<head>
-    <title>Simple Fable App</title>
-    
-</head>
 
-
-<body>
-    <nav class="navbar">
-        <div class="navbar-start">
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link" href="#">
-                    File
-                </a>
-                <div class="navbar-dropdown">
-                    <a class="navbar-item" id="act-open-folder" href="#">
-                        Open folder
-                    </a>
-                    <a class="navbar-item" id="act-quit" href="#">
-                        Quit
-                    </a>
+    <body>
+        <h1 id="title">VeriEd</h1>
+        <div id="main">
+            <p id="editor" class="floating"></p>
+            <div id="container">
+                <div id="paper" class="floating" style="overflow-y: auto">
                 </div>
             </div>
-            <a class="navbar-item" id="act-about" href="#">
-                About
-            </a>
-        </div>
-    </nav>
+            <!-- <webview src="https://www.google.com/" autosize="on" minwidth="576" minheight="432"></webview> -->
+       </div>
+    </body>
 
-    <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul id="address-bar"></ul>
-    </nav>
 
-    <div class="columns">
-
-        <div class="column">
-            <nav class="panel">
-                <p class="panel-heading">
-                    Quick access
-                </p>
-                <a class="panel-block" data-quick-access="desktop">
-                    <span class="panel-icon">
-                        <i class="fa fa-desktop"></i>
-                    </span>
-                    Desktop
-                </a>
-                <a class="panel-block" data-quick-access="home">
-                    <span class="panel-icon">
-                        <i class="fa fa-home"></i>
-                    </span>
-                    Home
-                </a>
-                <a class="panel-block" data-quick-access="documents">
-                    <span class="panel-icon">
-                        <i class="fa fa-book"></i>
-                    </span>
-                    Documents
-                </a>
-                <a class="panel-block" data-quick-access="pictures">
-                    <span class="panel-icon">
-                        <i class="fa fa-picture-o"></i>
-                    </span>
-                    Pictures
-                </a>
-                <a class="panel-block" data-quick-access="videos">
-                    <span class="panel-icon">
-                        <i class="fa fa-video-camera"></i>
-                    </span>
-                    Videos
-                </a>
-                <a class="panel-block" data-quick-access="music">
-                    <span class="panel-icon">
-                        <i class="fa fa-music"></i>
-                    </span>
-                    Musics
-                </a>
-                <a class="panel-block" data-quick-access="downloads">
-                    <span class="panel-icon">
-                        <i class="fa fa-download"></i>
-                    </span>
-                    Downloads
-                </a>
-            </nav>
-        </div>
-
-        <div class="column is-three-quarters">
-            <table class="table is-narrow is-striped is-fullwidth" id="explorer">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Date</th>
-                        <th>Type</th>
-                        <th>Size</th>
-                    </tr>
-                </thead>
-                <tbody id="files-list">
-                </tbody>
-            </table>
-        </div>
-
-    </div>
-
-    <script src="js/renderer.js"></script>
-</body>
+    <script>
+		// Monaco uses a custom amd loader that overrides node's require.
+		// Keep a reference to node's require so we can restore it after executing the amd loader file.
+		var nodeRequire = global.require;
+	</script>
+	<script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
+	<script src="js/editor.js"></script>
+	<script src="js/renderer.js"></script>
 
 </html>
