@@ -19,7 +19,7 @@ let createMainWindow () =
 
     // Load the index.html of the app.
     let opts = createEmpty<Node.Url.Url<obj>>
-    opts.pathname <- Some <| Path.join(Node.Globals.__dirname, "../index.html")
+    opts.pathname <- Some <| Path.join(Node.Globals.__dirname, "../index1.html")
     opts.protocol <- Some "file:"
     window.loadURL(Url.format(opts))
 

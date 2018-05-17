@@ -1135,7 +1135,7 @@ function createMainWindow() {
     options.autoHideMenuBar = true;
     var window = new __WEBPACK_IMPORTED_MODULE_1_electron___default.a.BrowserWindow(options);
     var opts = {};
-    opts.pathname = __WEBPACK_IMPORTED_MODULE_2_path__["join"](__dirname, "../index.html");
+    opts.pathname = __WEBPACK_IMPORTED_MODULE_2_path__["join"](__dirname, "../index1.html");
     opts.protocol = "file:";
     window.loadURL(__WEBPACK_IMPORTED_MODULE_3_url__["format"](opts));
     __WEBPACK_IMPORTED_MODULE_4_fs__["watch"](__WEBPACK_IMPORTED_MODULE_2_path__["join"](__dirname, "renderer.js"), function (_arg2, _arg1) {
