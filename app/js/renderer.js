@@ -70,9 +70,10 @@
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Renderer_fs__ = __webpack_require__(1);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "ysReady", function() { return __WEBPACK_IMPORTED_MODULE_0__Renderer_fs__["c"]; });
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "synth", function() { return __WEBPACK_IMPORTED_MODULE_0__Renderer_fs__["a"]; });
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "ys", function() { return __WEBPACK_IMPORTED_MODULE_0__Renderer_fs__["b"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "printToConsole", function() { return __WEBPACK_IMPORTED_MODULE_0__Renderer_fs__["a"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "ysReady", function() { return __WEBPACK_IMPORTED_MODULE_0__Renderer_fs__["d"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "synth", function() { return __WEBPACK_IMPORTED_MODULE_0__Renderer_fs__["b"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "ys", function() { return __WEBPACK_IMPORTED_MODULE_0__Renderer_fs__["c"]; });
 
 
 /***/ }),
@@ -80,21 +81,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["c"] = ysReady;
-/* harmony export (immutable) */ __webpack_exports__["a"] = synth;
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ys; });
+/* harmony export (immutable) */ __webpack_exports__["a"] = printToConsole;
+/* harmony export (immutable) */ __webpack_exports__["d"] = ysReady;
+/* harmony export (immutable) */ __webpack_exports__["b"] = synth;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return ys; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Yosys_fs__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Button_fs__ = __webpack_require__(127);
 
 
 YosysJS.load_viz();
+function printToConsole(c) {
+    var nodeConsole = __webpack_require__(144);
+
+    var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
+    return myConsole.log(c);
+}
 function ysReady() {
     document.getElementById("popup").style.visibility = "hidden";
     document.getElementById("popupmsg").style.visibility = "Please wait...";
 }
 function synth() {
     var work = function work() {
-        ys.write_file("input.v", document.getElementById("code").value);
+        var code = editor.getValue();
+        printToConsole(code);
+        ys.write_file("input.v", code);
         ys.run("design -reset; read_verilog input.v; synth -run coarse; show -stretch");
         YosysJS.dot_into_svg(ys.read_file("show.dot"), "svg");
         document.getElementById("popup").style.visibility = "hidden";
@@ -1221,6 +1231,9 @@ module.exports = { "default": __webpack_require__(115), __esModule: true };
 "use strict";
 /* unused harmony export Init */
 /* unused harmony export Synthesizer */
+/* unused harmony export alterString */
+/* unused harmony export check */
+/* unused harmony export ed */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__ = __webpack_require__(45);
@@ -1260,7 +1273,6 @@ var Synthesizer = function () {
                 type: "Yosys.Synthesizer",
                 properties: {
                     getSvg: __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["a" /* Any */],
-                    run: __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["a" /* Any */],
                     setTimeout: __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["a" /* Any */],
                     ys: __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["a" /* Any */]
                 }
@@ -1275,6 +1287,62 @@ var Synthesizer = function () {
     return Synthesizer;
 }();
 Object(__WEBPACK_IMPORTED_MODULE_2__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["b" /* setType */])("Yosys.Synthesizer", Synthesizer);
+var alterString = function () {
+    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default()(alterString, [{
+        key: __WEBPACK_IMPORTED_MODULE_2__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["a" /* default */].reflection,
+        value: function value() {
+            return {
+                type: "Yosys.alterString",
+                properties: {}
+            };
+        }
+    }]);
+
+    function alterString() {
+        __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default()(this, alterString);
+    }
+
+    return alterString;
+}();
+Object(__WEBPACK_IMPORTED_MODULE_2__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["b" /* setType */])("Yosys.alterString", alterString);
+var check = function () {
+    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default()(check, [{
+        key: __WEBPACK_IMPORTED_MODULE_2__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["a" /* default */].reflection,
+        value: function value() {
+            return {
+                type: "Yosys.check",
+                properties: {
+                    getConsole: __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["a" /* Any */]
+                }
+            };
+        }
+    }]);
+
+    function check() {
+        __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default()(this, check);
+    }
+
+    return check;
+}();
+Object(__WEBPACK_IMPORTED_MODULE_2__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["b" /* setType */])("Yosys.check", check);
+var ed = function () {
+    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default()(ed, [{
+        key: __WEBPACK_IMPORTED_MODULE_2__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["a" /* default */].reflection,
+        value: function value() {
+            return {
+                type: "Yosys.ed",
+                properties: {}
+            };
+        }
+    }]);
+
+    function ed() {
+        __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default()(this, ed);
+    }
+
+    return ed;
+}();
+Object(__WEBPACK_IMPORTED_MODULE_2__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["b" /* setType */])("Yosys.ed", ed);
 
 /***/ }),
 /* 69 */
@@ -3287,6 +3355,28 @@ function getElement(arg00) {
   return document.getElementById(arg00);
 }
 var previewBtn = getElement("btn");
+
+/***/ }),
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */
+/***/ (function(module, exports) {
+
+module.exports = require("console");
 
 /***/ })
 /******/ ]);

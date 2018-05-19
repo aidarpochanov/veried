@@ -140,12 +140,8 @@ amdRequire(['vs/editor/editor.main'], function () {
 
 
   var editor = monaco.editor.create(document.getElementById('editor'), {
-    value: [
-      'output [9:0] out;',
-      'input in;',
-      'input aaa;'
-    ].join('\n'),
-    language: 'verilog',
+    value: "output out;\rasdasd;\r",
+    language: 'javascript',
     theme: 'vs-dark',
     renderWhitespace: 'none',
     roundedSelection: true,
@@ -155,7 +151,7 @@ amdRequire(['vs/editor/editor.main'], function () {
   });
 
   // var mevent = new CustomEvent("monaco-ready", { "detail": "ready now!" });
-
+  // document.getElementById("test").innerText = window.editor.getValue()
   // // Dispatch/Trigger/Fire the event
   // document.dispatchEvent(mevent);
 });

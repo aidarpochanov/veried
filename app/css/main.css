@@ -1,19 +1,29 @@
 #editor{
-
     width:  30%;
     height: 600px;
     border: 1px solid #ccc;
-    float:  left;
+    position: absolute;
     margin: 2%
 }
 
 #container{
-    width:  60%;
+    width:  65%;
     height: 600px;
     float:  right;
     margin: 2%;
     border: 1px solid #ccc;
 }
+
+
+/* #svg{ */
+    /* width:  60%;
+    height: 600px; */
+    /* border: 1px solid #ccc; */
+    /* position: absolute; */
+    /* margin: 2%;
+    float:  right; */
+/* } */
+
 
 .floating{
     display: inline-block;
