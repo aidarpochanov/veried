@@ -1174,10 +1174,7 @@ module.exports = { "default": __webpack_require__(115), __esModule: true };
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Renderer_fs__ = __webpack_require__(67);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "printToConsole", function() { return __WEBPACK_IMPORTED_MODULE_0__Renderer_fs__["a"]; });
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "ysReady", function() { return __WEBPACK_IMPORTED_MODULE_0__Renderer_fs__["d"]; });
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "synth", function() { return __WEBPACK_IMPORTED_MODULE_0__Renderer_fs__["b"]; });
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "ys", function() { return __WEBPACK_IMPORTED_MODULE_0__Renderer_fs__["c"]; });
+/* empty harmony namespace reexport */
 
 
 /***/ }),
@@ -1185,46 +1182,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = printToConsole;
-/* harmony export (immutable) */ __webpack_exports__["d"] = ysReady;
-/* harmony export (immutable) */ __webpack_exports__["b"] = synth;
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return ys; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Yosys_fs__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Button_fs__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Functions_fs__ = __webpack_require__(129);
 
-
-YosysJS.load_viz();
-function printToConsole(c) {
-    var nodeConsole = __webpack_require__(128);
-
-    var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
-    return myConsole.log(c);
-}
-function ysReady() {
-    document.getElementById("popup").style.visibility = "hidden";
-    document.getElementById("popupmsg").style.visibility = "Please wait...";
-}
-function synth() {
-    var work = function work() {
-        var code = monaco.editor.getModels()[0].getValue();
-        printToConsole(code);
-        ys.write_file("input.v", code);
-        ys.run("design -reset; read_verilog input.v; synth -run coarse; show -stretch");
-        var dotfile = ys.read_file("show.dot");
-        printToConsole(dotfile);
-        YosysJS.dot_into_svg(ys.read_file("show.dot"), "svg");
-        document.getElementById("popup").style.visibility = "hidden";
-    };
-
-    document.getElementById("popup").style.visibility = "visible";
-    return window.setTimeout(work, 100);
-}
-var ys = YosysJS.create("ys", ysReady);
-ys.verbose = true;
-ys.echo = true;
-__WEBPACK_IMPORTED_MODULE_1__Button_fs__["a" /* previewBtn */].addEventListener("click", function (_arg1) {
-    return synth();
-});
+Object(__WEBPACK_IMPORTED_MODULE_0__Functions_fs__["a" /* init */])();
 
 /***/ }),
 /* 68 */
@@ -3353,16 +3313,69 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 "use strict";
 /* unused harmony export getElement */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return previewBtn; });
+/* unused harmony export save */
+/* unused harmony export explore */
 function getElement(arg00) {
   return document.getElementById(arg00);
 }
 var previewBtn = getElement("btn");
+var save = getElement("save");
+var explore = getElement("explore");
 
 /***/ }),
 /* 128 */
 /***/ (function(module, exports) {
 
 module.exports = require("console");
+
+/***/ }),
+/* 129 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = init;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Yosys_fs__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Button_fs__ = __webpack_require__(127);
+
+
+function init() {
+    YosysJS.load_viz();
+
+    var printToConsole = function printToConsole(c) {
+        var nodeConsole = __webpack_require__(128);
+
+        var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
+        return myConsole.log(c);
+    };
+
+    var ysReady = function ysReady() {
+        document.getElementById("popup").style.visibility = "hidden";
+        document.getElementById("popupmsg").style.visibility = "Please wait...";
+    };
+
+    var synth = function synth() {
+        var work = function work() {
+            var code = monaco.editor.getModels()[0].getValue();
+            printToConsole(code);
+            ys.write_file("input.v", code);
+            ys.run("design -reset; read_verilog input.v; synth -run coarse; show -stretch");
+            var dotfile = ys.read_file("show.dot");
+            printToConsole(dotfile);
+            YosysJS.dot_into_svg(ys.read_file("show.dot"), "svg");
+            document.getElementById("popup").style.visibility = "hidden";
+        };
+
+        document.getElementById("popup").style.visibility = "visible";
+        return window.setTimeout(work, 100);
+    };
+
+    var ys = YosysJS.create("ys", ysReady);
+    ys.verbose = true;
+    ys.echo = true;
+    __WEBPACK_IMPORTED_MODULE_1__Button_fs__["a" /* previewBtn */].addEventListener("click", function (_arg1) {
+        return synth();
+    });
+}
 
 /***/ })
 /******/ ]);

@@ -10,3 +10,5 @@ open Microsoft.FSharp.Collections
 let getElement = Browser.document.getElementById
 
 let previewBtn = getElement "btn" :?> HTMLButtonElement
+let save = getElement "save" :?> HTMLButtonElement
+let explore = getElement "explore" :?> HTMLButtonElement
