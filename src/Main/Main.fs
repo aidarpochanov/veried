@@ -38,6 +38,10 @@ let createMainWindow () =
         mainWindow <- Option.None
     )) |> ignore
 
+    let template = ResizeArray<MenuItemOptions> [
+                        createEmpty<MenuItemOptions>
+                    ]
+    electron.Menu.setApplicationMenu(electron.Menu.buildFromTemplate(template))
     // Maximize the window
     window.maximize()
 

@@ -1113,49 +1113,58 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return mainWindow; });
 /* harmony export (immutable) */ __webpack_exports__["a"] = createMainWindow;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_electron__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_electron__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_path__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_path___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_path__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_url__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_url___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_url__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_fs__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_fs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_fs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_electron__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_electron__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_path__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_path___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_path__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_url__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_url___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_url__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_fs__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_fs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_fs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__ = __webpack_require__(133);
 
 
 
 
 
-var mainWindow = Object(__WEBPACK_IMPORTED_MODULE_0__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["a" /* createAtom */])(null);
+
+
+var mainWindow = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["b" /* createAtom */])(null);
 function createMainWindow() {
     var options = {};
     options.width = 800;
     options.height = 600;
     options.autoHideMenuBar = true;
-    var window = new __WEBPACK_IMPORTED_MODULE_1_electron___default.a.BrowserWindow(options);
+    var window = new __WEBPACK_IMPORTED_MODULE_2_electron___default.a.BrowserWindow(options);
     var opts = {};
-    opts.pathname = __WEBPACK_IMPORTED_MODULE_2_path__["join"](__dirname, "../index1.html");
+    opts.pathname = __WEBPACK_IMPORTED_MODULE_3_path__["join"](__dirname, "../index1.html");
     opts.protocol = "file:";
-    window.loadURL(__WEBPACK_IMPORTED_MODULE_3_url__["format"](opts));
-    __WEBPACK_IMPORTED_MODULE_4_fs__["watch"](__WEBPACK_IMPORTED_MODULE_2_path__["join"](__dirname, "renderer.js"), function (_arg2, _arg1) {
+    window.loadURL(__WEBPACK_IMPORTED_MODULE_4_url__["format"](opts));
+    __WEBPACK_IMPORTED_MODULE_5_fs__["watch"](__WEBPACK_IMPORTED_MODULE_3_path__["join"](__dirname, "renderer.js"), function (_arg2, _arg1) {
         window.webContents.reloadIgnoringCache();
     });
     window.on("closed", function () {
         return mainWindow(null);
     });
+
+    var template = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from___default()(Object(__WEBPACK_IMPORTED_MODULE_6__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["a" /* ofArray */])([{}]));
+
+    __WEBPACK_IMPORTED_MODULE_2_electron___default.a.Menu.setApplicationMenu(__WEBPACK_IMPORTED_MODULE_2_electron___default.a.Menu.buildFromTemplate(template));
     window.maximize();
     return mainWindow(window);
 }
-__WEBPACK_IMPORTED_MODULE_1_electron___default.a.app.on("ready", function () {
+__WEBPACK_IMPORTED_MODULE_2_electron___default.a.app.on("ready", function () {
     createMainWindow();
 });
-__WEBPACK_IMPORTED_MODULE_1_electron___default.a.app.on("window-all-closed", function () {
+__WEBPACK_IMPORTED_MODULE_2_electron___default.a.app.on("window-all-closed", function () {
     if (process.platform !== "darwin") {
-        __WEBPACK_IMPORTED_MODULE_1_electron___default.a.app.quit();
+        __WEBPACK_IMPORTED_MODULE_2_electron___default.a.app.quit();
     }
 });
-__WEBPACK_IMPORTED_MODULE_1_electron___default.a.app.on("activate", function () {
+__WEBPACK_IMPORTED_MODULE_2_electron___default.a.app.on("activate", function () {
     if (function () {
         return mainWindow() == null;
     }()) {
@@ -1184,17 +1193,17 @@ __WEBPACK_IMPORTED_MODULE_1_electron___default.a.app.on("activate", function () 
 /* unused harmony export hasInterface */
 /* unused harmony export getPropertyNames */
 /* unused harmony export isArray */
-/* unused harmony export toString */
+/* harmony export (immutable) */ __webpack_exports__["d"] = toString;
 /* unused harmony export hash */
-/* unused harmony export equals */
+/* harmony export (immutable) */ __webpack_exports__["c"] = equals;
 /* unused harmony export comparePrimitives */
-/* unused harmony export compare */
+/* harmony export (immutable) */ __webpack_exports__["a"] = compare;
 /* unused harmony export equalsRecords */
 /* unused harmony export compareRecords */
 /* unused harmony export equalsUnions */
 /* unused harmony export compareUnions */
 /* unused harmony export createDisposable */
-/* harmony export (immutable) */ __webpack_exports__["a"] = createAtom;
+/* harmony export (immutable) */ __webpack_exports__["b"] = createAtom;
 /* unused harmony export createObj */
 /* unused harmony export toPlainJsObj */
 /* unused harmony export round */
@@ -3258,6 +3267,2210 @@ module.exports = require("url");
 /***/ (function(module, exports) {
 
 module.exports = require("fs");
+
+/***/ }),
+/* 130 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export Enumerator */
+/* unused harmony export getEnumerator */
+/* unused harmony export toIterator */
+/* harmony export (immutable) */ __webpack_exports__["f"] = toList;
+/* unused harmony export ofList */
+/* unused harmony export ofArray */
+/* unused harmony export append */
+/* unused harmony export average */
+/* unused harmony export averageBy */
+/* unused harmony export concat */
+/* unused harmony export collect */
+/* unused harmony export choose */
+/* harmony export (immutable) */ __webpack_exports__["a"] = compareWith;
+/* unused harmony export delay */
+/* unused harmony export empty */
+/* unused harmony export enumerateWhile */
+/* unused harmony export enumerateThenFinally */
+/* unused harmony export enumerateUsing */
+/* unused harmony export exactlyOne */
+/* unused harmony export except */
+/* unused harmony export exists */
+/* unused harmony export exists2 */
+/* unused harmony export filter */
+/* unused harmony export where */
+/* harmony export (immutable) */ __webpack_exports__["b"] = fold;
+/* harmony export (immutable) */ __webpack_exports__["c"] = foldBack;
+/* unused harmony export fold2 */
+/* unused harmony export foldBack2 */
+/* unused harmony export forAll */
+/* unused harmony export forAll2 */
+/* unused harmony export tryHead */
+/* unused harmony export head */
+/* unused harmony export initialize */
+/* unused harmony export initializeInfinite */
+/* unused harmony export tryItem */
+/* unused harmony export item */
+/* unused harmony export iterate */
+/* unused harmony export iterate2 */
+/* unused harmony export iterateIndexed */
+/* unused harmony export iterateIndexed2 */
+/* unused harmony export isEmpty */
+/* unused harmony export tryLast */
+/* unused harmony export last */
+/* unused harmony export count */
+/* harmony export (immutable) */ __webpack_exports__["d"] = map;
+/* unused harmony export mapIndexed */
+/* unused harmony export indexed */
+/* unused harmony export map2 */
+/* unused harmony export mapIndexed2 */
+/* unused harmony export map3 */
+/* unused harmony export chunkBySize */
+/* unused harmony export mapFold */
+/* unused harmony export mapFoldBack */
+/* unused harmony export max */
+/* unused harmony export maxBy */
+/* unused harmony export min */
+/* unused harmony export minBy */
+/* unused harmony export pairwise */
+/* unused harmony export permute */
+/* unused harmony export rangeStep */
+/* unused harmony export rangeChar */
+/* unused harmony export range */
+/* unused harmony export readOnly */
+/* unused harmony export reduce */
+/* unused harmony export reduceBack */
+/* unused harmony export replicate */
+/* unused harmony export reverse */
+/* unused harmony export scan */
+/* unused harmony export scanBack */
+/* unused harmony export singleton */
+/* unused harmony export skip */
+/* unused harmony export skipWhile */
+/* unused harmony export sortWith */
+/* unused harmony export sum */
+/* unused harmony export sumBy */
+/* unused harmony export tail */
+/* unused harmony export take */
+/* unused harmony export truncate */
+/* unused harmony export takeWhile */
+/* unused harmony export tryFind */
+/* unused harmony export find */
+/* unused harmony export tryFindBack */
+/* unused harmony export findBack */
+/* unused harmony export tryFindIndex */
+/* unused harmony export findIndex */
+/* unused harmony export tryFindIndexBack */
+/* unused harmony export findIndexBack */
+/* harmony export (immutable) */ __webpack_exports__["g"] = tryPick;
+/* harmony export (immutable) */ __webpack_exports__["e"] = pick;
+/* unused harmony export unfold */
+/* unused harmony export zip */
+/* unused harmony export zip3 */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_classCallCheck__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_createClass__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Array__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ListClass__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Util__ = __webpack_require__(65);
+
+
+
+
+
+
+
+
+
+
+
+
+var Enumerator = function () {
+    function Enumerator(iter) {
+        __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_classCallCheck___default()(this, Enumerator);
+
+        this.iter = iter;
+    }
+
+    __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_createClass___default()(Enumerator, [{
+        key: "MoveNext",
+        value: function MoveNext() {
+            var cur = this.iter.next();
+            this.current = cur.value;
+            return !cur.done;
+        }
+    }, {
+        key: "Reset",
+        value: function Reset() {
+            throw new Error("JS iterators cannot be reset");
+        }
+    }, {
+        key: "Dispose",
+        value: function Dispose() {
+            return;
+        }
+    }, {
+        key: "Current",
+        get: function get() {
+            return this.current;
+        }
+    }]);
+
+    return Enumerator;
+}();
+function getEnumerator(o) {
+    return typeof o.GetEnumerator === "function" ? o.GetEnumerator() : new Enumerator(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(o));
+}
+function toIterator(en) {
+    return {
+        next: function next() {
+            return en.MoveNext() ? { done: false, value: en.Current } : { done: true, value: null };
+        }
+    };
+}
+function __failIfNone(res) {
+    if (res == null) {
+        throw new Error("Seq did not contain any matching element");
+    }
+    return res;
+}
+function toList(xs) {
+    return foldBack(function (x, acc) {
+        return new __WEBPACK_IMPORTED_MODULE_8__ListClass__["a" /* default */](x, acc);
+    }, xs, new __WEBPACK_IMPORTED_MODULE_8__ListClass__["a" /* default */]());
+}
+function ofList(xs) {
+    return delay(function () {
+        return unfold(function (x) {
+            return x.tail != null ? [x.head, x.tail] : null;
+        }, xs);
+    });
+}
+function ofArray(xs) {
+    return delay(function () {
+        return unfold(function (i) {
+            return i < xs.length ? [xs[i], i + 1] : null;
+        }, 0);
+    });
+}
+function append(xs, ys) {
+    return delay(function () {
+        var firstDone = false;
+        var i = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        var iters = [i, null];
+        return unfold(function () {
+            var cur = void 0;
+            if (!firstDone) {
+                cur = iters[0].next();
+                if (!cur.done) {
+                    return [cur.value, iters];
+                } else {
+                    firstDone = true;
+                    iters = [null, __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(ys)];
+                }
+            }
+            cur = iters[1].next();
+            return !cur.done ? [cur.value, iters] : null;
+        }, iters);
+    });
+}
+function average(xs) {
+    var count = 1;
+    var sum = reduce(function (acc, x) {
+        count++;
+        return acc + x;
+    }, xs);
+    return sum / count;
+}
+function averageBy(f, xs) {
+    var count = 1;
+    var sum = reduce(function (acc, x) {
+        count++;
+        return (count === 2 ? f(acc) : acc) + f(x);
+    }, xs);
+    return sum / count;
+}
+function concat(xs) {
+    return delay(function () {
+        var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        var output = { value: null };
+        return unfold(function (innerIter) {
+            var hasFinished = false;
+            while (!hasFinished) {
+                if (innerIter == null) {
+                    var cur = iter.next();
+                    if (!cur.done) {
+                        innerIter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(cur.value);
+                    } else {
+                        hasFinished = true;
+                    }
+                } else {
+                    var _cur = innerIter.next();
+                    if (!_cur.done) {
+                        output = { value: _cur.value };
+                        hasFinished = true;
+                    } else {
+                        innerIter = null;
+                    }
+                }
+            }
+            return innerIter != null && output != null ? [output.value, innerIter] : null;
+        }, null);
+    });
+}
+function collect(f, xs) {
+    return concat(map(f, xs));
+}
+function choose(f, xs) {
+    return delay(function () {
+        return unfold(function (iter) {
+            var cur = iter.next();
+            while (!cur.done) {
+                var y = f(cur.value);
+                if (y != null) {
+                    return [y, iter];
+                }
+                cur = iter.next();
+            }
+            return null;
+        }, __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs));
+    });
+}
+function compareWith(f, xs, ys) {
+    var nonZero = tryFind(function (i) {
+        return i !== 0;
+    }, map2(function (x, y) {
+        return f(x, y);
+    }, xs, ys));
+    return nonZero != null ? nonZero : count(xs) - count(ys);
+}
+function delay(f) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty___default()({}, __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator___default.a, function () {
+        return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(f());
+    });
+}
+function empty() {
+    return unfold(function () {
+        return void 0;
+    });
+}
+function enumerateWhile(cond, xs) {
+    return concat(unfold(function () {
+        return cond() ? [xs, true] : null;
+    }));
+}
+function enumerateThenFinally(xs, finalFn) {
+    return delay(function () {
+        var iter = void 0;
+        try {
+            iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        } catch (err) {
+            return void 0;
+        } finally {
+            finalFn();
+        }
+        return unfold(function (it) {
+            try {
+                var cur = it.next();
+                return !cur.done ? [cur.value, it] : null;
+            } catch (err) {
+                return void 0;
+            } finally {
+                finalFn();
+            }
+        }, iter);
+    });
+}
+function enumerateUsing(disp, work) {
+    var isDisposed = false;
+    var disposeOnce = function disposeOnce() {
+        if (!isDisposed) {
+            isDisposed = true;
+            disp.Dispose();
+        }
+    };
+    try {
+        return enumerateThenFinally(work(disp), disposeOnce);
+    } catch (err) {
+        return void 0;
+    } finally {
+        disposeOnce();
+    }
+}
+function exactlyOne(xs) {
+    var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    var fst = iter.next();
+    if (fst.done) {
+        throw new Error("Seq was empty");
+    }
+    var snd = iter.next();
+    if (!snd.done) {
+        throw new Error("Seq had multiple items");
+    }
+    return fst.value;
+}
+function except(itemsToExclude, source) {
+    var exclusionItems = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(itemsToExclude);
+    var testIsNotInExclusionItems = function testIsNotInExclusionItems(element) {
+        return !exclusionItems.some(function (excludedItem) {
+            return Object(__WEBPACK_IMPORTED_MODULE_9__Util__["c" /* equals */])(excludedItem, element);
+        });
+    };
+    return filter(testIsNotInExclusionItems, source);
+}
+function exists(f, xs) {
+    var cur = void 0;
+    for (var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);;) {
+        cur = iter.next();
+        if (cur.done) {
+            break;
+        }
+        if (f(cur.value)) {
+            return true;
+        }
+    }
+    return false;
+}
+function exists2(f, xs, ys) {
+    var cur1 = void 0;
+    var cur2 = void 0;
+    for (var iter1 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs), iter2 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(ys);;) {
+        cur1 = iter1.next();
+        cur2 = iter2.next();
+        if (cur1.done || cur2.done) {
+            break;
+        }
+        if (f(cur1.value, cur2.value)) {
+            return true;
+        }
+    }
+    return false;
+}
+function filter(f, xs) {
+    return delay(function () {
+        return unfold(function (iter) {
+            var cur = iter.next();
+            while (!cur.done) {
+                if (f(cur.value)) {
+                    return [cur.value, iter];
+                }
+                cur = iter.next();
+            }
+            return null;
+        }, __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs));
+    });
+}
+function where(f, xs) {
+    return filter(f, xs);
+}
+function fold(f, acc, xs) {
+    if (Array.isArray(xs) || ArrayBuffer.isView(xs)) {
+        return xs.reduce(f, acc);
+    } else {
+        var cur = void 0;
+        for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+            cur = iter.next();
+            if (cur.done) {
+                break;
+            }
+            acc = f(acc, cur.value, i);
+        }
+        return acc;
+    }
+}
+function foldBack(f, xs, acc) {
+    var arr = Array.isArray(xs) || ArrayBuffer.isView(xs) ? xs : __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs);
+    for (var i = arr.length - 1; i >= 0; i--) {
+        acc = f(arr[i], acc, i);
+    }
+    return acc;
+}
+function fold2(f, acc, xs, ys) {
+    var iter1 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    var iter2 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(ys);
+    var cur1 = void 0;
+    var cur2 = void 0;
+    for (var i = 0;; i++) {
+        cur1 = iter1.next();
+        cur2 = iter2.next();
+        if (cur1.done || cur2.done) {
+            break;
+        }
+        acc = f(acc, cur1.value, cur2.value, i);
+    }
+    return acc;
+}
+function foldBack2(f, xs, ys, acc) {
+    var ar1 = Array.isArray(xs) || ArrayBuffer.isView(xs) ? xs : __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs);
+    var ar2 = Array.isArray(ys) || ArrayBuffer.isView(ys) ? ys : __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(ys);
+    for (var i = ar1.length - 1; i >= 0; i--) {
+        acc = f(ar1[i], ar2[i], acc, i);
+    }
+    return acc;
+}
+function forAll(f, xs) {
+    return fold(function (acc, x) {
+        return acc && f(x);
+    }, true, xs);
+}
+function forAll2(f, xs, ys) {
+    return fold2(function (acc, x, y) {
+        return acc && f(x, y);
+    }, true, xs, ys);
+}
+function tryHead(xs) {
+    var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    var cur = iter.next();
+    return cur.done ? null : cur.value;
+}
+function head(xs) {
+    return __failIfNone(tryHead(xs));
+}
+function initialize(n, f) {
+    return delay(function () {
+        return unfold(function (i) {
+            return i < n ? [f(i), i + 1] : null;
+        }, 0);
+    });
+}
+function initializeInfinite(f) {
+    return delay(function () {
+        return unfold(function (i) {
+            return [f(i), i + 1];
+        }, 0);
+    });
+}
+function tryItem(i, xs) {
+    if (i < 0) {
+        return null;
+    }
+    if (Array.isArray(xs) || ArrayBuffer.isView(xs)) {
+        return i < xs.length ? xs[i] : null;
+    }
+    for (var j = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; j++) {
+        var cur = iter.next();
+        if (cur.done) {
+            return null;
+        }
+        if (j === i) {
+            return cur.value;
+        }
+    }
+}
+function item(i, xs) {
+    return __failIfNone(tryItem(i, xs));
+}
+function iterate(f, xs) {
+    fold(function (_, x) {
+        return f(x);
+    }, null, xs);
+}
+function iterate2(f, xs, ys) {
+    fold2(function (_, x, y) {
+        return f(x, y);
+    }, null, xs, ys);
+}
+function iterateIndexed(f, xs) {
+    fold(function (_, x, i) {
+        return f(i, x);
+    }, null, xs);
+}
+function iterateIndexed2(f, xs, ys) {
+    fold2(function (_, x, y, i) {
+        return f(i, x, y);
+    }, null, xs, ys);
+}
+function isEmpty(xs) {
+    var i = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    return i.next().done;
+}
+function tryLast(xs) {
+    try {
+        return reduce(function (_, x) {
+            return x;
+        }, xs);
+    } catch (err) {
+        return null;
+    }
+}
+function last(xs) {
+    return __failIfNone(tryLast(xs));
+}
+// A export function 'length' method causes problems in JavaScript -- https://github.com/Microsoft/TypeScript/issues/442
+function count(xs) {
+    return Array.isArray(xs) || ArrayBuffer.isView(xs) ? xs.length : fold(function (acc, x) {
+        return acc + 1;
+    }, 0, xs);
+}
+function map(f, xs) {
+    return delay(function () {
+        return unfold(function (iter) {
+            var cur = iter.next();
+            return !cur.done ? [f(cur.value), iter] : null;
+        }, __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs));
+    });
+}
+function mapIndexed(f, xs) {
+    return delay(function () {
+        var i = 0;
+        return unfold(function (iter) {
+            var cur = iter.next();
+            return !cur.done ? [f(i++, cur.value), iter] : null;
+        }, __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs));
+    });
+}
+function indexed(xs) {
+    return mapIndexed(function (i, x) {
+        return [i, x];
+    }, xs);
+}
+function map2(f, xs, ys) {
+    return delay(function () {
+        var iter1 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        var iter2 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(ys);
+        return unfold(function () {
+            var cur1 = iter1.next();
+            var cur2 = iter2.next();
+            return !cur1.done && !cur2.done ? [f(cur1.value, cur2.value), null] : null;
+        });
+    });
+}
+function mapIndexed2(f, xs, ys) {
+    return delay(function () {
+        var i = 0;
+        var iter1 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        var iter2 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(ys);
+        return unfold(function () {
+            var cur1 = iter1.next();
+            var cur2 = iter2.next();
+            return !cur1.done && !cur2.done ? [f(i++, cur1.value, cur2.value), null] : null;
+        });
+    });
+}
+function map3(f, xs, ys, zs) {
+    return delay(function () {
+        var iter1 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        var iter2 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(ys);
+        var iter3 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(zs);
+        return unfold(function () {
+            var cur1 = iter1.next();
+            var cur2 = iter2.next();
+            var cur3 = iter3.next();
+            return !cur1.done && !cur2.done && !cur3.done ? [f(cur1.value, cur2.value, cur3.value), null] : null;
+        });
+    });
+}
+function chunkBySize(size, xs) {
+    var result = Object(__WEBPACK_IMPORTED_MODULE_7__Array__["a" /* chunkBySize */])(size, __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs));
+    return ofArray(result.map(ofArray));
+}
+function mapFold(f, acc, xs, transform) {
+    var result = [];
+    var r = void 0;
+    var cur = void 0;
+    for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+        cur = iter.next();
+        if (cur.done) {
+            break;
+        }
+
+        var _f = f(acc, cur.value);
+
+        var _f2 = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray___default()(_f, 2);
+
+        r = _f2[0];
+        acc = _f2[1];
+
+        result.push(r);
+    }
+    return transform !== void 0 ? [transform(result), acc] : [result, acc];
+}
+function mapFoldBack(f, xs, acc, transform) {
+    var arr = Array.isArray(xs) || ArrayBuffer.isView(xs) ? xs : __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs);
+    var result = [];
+    var r = void 0;
+    for (var i = arr.length - 1; i >= 0; i--) {
+        var _f3 = f(arr[i], acc);
+
+        var _f4 = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray___default()(_f3, 2);
+
+        r = _f4[0];
+        acc = _f4[1];
+
+        result.push(r);
+    }
+    return transform !== void 0 ? [transform(result), acc] : [result, acc];
+}
+function max(xs) {
+    return reduce(function (acc, x) {
+        return Object(__WEBPACK_IMPORTED_MODULE_9__Util__["a" /* compare */])(acc, x) === 1 ? acc : x;
+    }, xs);
+}
+function maxBy(f, xs) {
+    return reduce(function (acc, x) {
+        return Object(__WEBPACK_IMPORTED_MODULE_9__Util__["a" /* compare */])(f(acc), f(x)) === 1 ? acc : x;
+    }, xs);
+}
+function min(xs) {
+    return reduce(function (acc, x) {
+        return Object(__WEBPACK_IMPORTED_MODULE_9__Util__["a" /* compare */])(acc, x) === -1 ? acc : x;
+    }, xs);
+}
+function minBy(f, xs) {
+    return reduce(function (acc, x) {
+        return Object(__WEBPACK_IMPORTED_MODULE_9__Util__["a" /* compare */])(f(acc), f(x)) === -1 ? acc : x;
+    }, xs);
+}
+function pairwise(xs) {
+    return skip(2, scan(function (last, next) {
+        return [last[1], next];
+    }, [0, 0], xs));
+}
+function permute(f, xs) {
+    return ofArray(Object(__WEBPACK_IMPORTED_MODULE_7__Array__["b" /* permute */])(f, __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs)));
+}
+function rangeStep(first, step, last) {
+    if (step === 0) {
+        throw new Error("Step cannot be 0");
+    }
+    return delay(function () {
+        return unfold(function (x) {
+            return step > 0 && x <= last || step < 0 && x >= last ? [x, x + step] : null;
+        }, first);
+    });
+}
+function rangeChar(first, last) {
+    return delay(function () {
+        return unfold(function (x) {
+            return x <= last ? [x, String.fromCharCode(x.charCodeAt(0) + 1)] : null;
+        }, first);
+    });
+}
+function range(first, last) {
+    return rangeStep(first, 1, last);
+}
+function readOnly(xs) {
+    return map(function (x) {
+        return x;
+    }, xs);
+}
+function reduce(f, xs) {
+    if (Array.isArray(xs) || ArrayBuffer.isView(xs)) {
+        return xs.reduce(f);
+    }
+    var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    var cur = iter.next();
+    if (cur.done) {
+        throw new Error("Seq was empty");
+    }
+    var acc = cur.value;
+    while (true) {
+        cur = iter.next();
+        if (cur.done) {
+            break;
+        }
+        acc = f(acc, cur.value);
+    }
+    return acc;
+}
+function reduceBack(f, xs) {
+    var ar = Array.isArray(xs) || ArrayBuffer.isView(xs) ? xs : __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs);
+    if (ar.length === 0) {
+        throw new Error("Seq was empty");
+    }
+    var acc = ar[ar.length - 1];
+    for (var i = ar.length - 2; i >= 0; i--) {
+        acc = f(ar[i], acc, i);
+    }
+    return acc;
+}
+function replicate(n, x) {
+    return initialize(n, function () {
+        return x;
+    });
+}
+function reverse(xs) {
+    var ar = Array.isArray(xs) || ArrayBuffer.isView(xs) ? xs.slice(0) : __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs);
+    return ofArray(ar.reverse());
+}
+function scan(f, seed, xs) {
+    return delay(function () {
+        var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        return unfold(function (acc) {
+            if (acc == null) {
+                return [seed, seed];
+            }
+            var cur = iter.next();
+            if (!cur.done) {
+                acc = f(acc, cur.value);
+                return [acc, acc];
+            }
+            return void 0;
+        }, null);
+    });
+}
+function scanBack(f, xs, seed) {
+    return reverse(scan(function (acc, x) {
+        return f(x, acc);
+    }, seed, reverse(xs)));
+}
+function singleton(y) {
+    return unfold(function (x) {
+        return x != null ? [x, null] : null;
+    }, y);
+}
+function skip(n, xs) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty___default()({}, __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator___default.a, function () {
+        var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        for (var i = 1; i <= n; i++) {
+            if (iter.next().done) {
+                throw new Error("Seq has not enough elements");
+            }
+        }
+        return iter;
+    });
+}
+function skipWhile(f, xs) {
+    return delay(function () {
+        var hasPassed = false;
+        return filter(function (x) {
+            return hasPassed || (hasPassed = !f(x));
+        }, xs);
+    });
+}
+function sortWith(f, xs) {
+    var ys = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs);
+    return ofArray(ys.sort(f));
+}
+function sum(xs) {
+    return fold(function (acc, x) {
+        return acc + x;
+    }, 0, xs);
+}
+function sumBy(f, xs) {
+    return fold(function (acc, x) {
+        return acc + f(x);
+    }, 0, xs);
+}
+function tail(xs) {
+    var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    var cur = iter.next();
+    if (cur.done) {
+        throw new Error("Seq was empty");
+    }
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty___default()({}, __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator___default.a, function () {
+        return iter;
+    });
+}
+function take(n, xs) {
+    var truncate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+    return delay(function () {
+        var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        return unfold(function (i) {
+            if (i < n) {
+                var cur = iter.next();
+                if (!cur.done) {
+                    return [cur.value, i + 1];
+                }
+                if (!truncate) {
+                    throw new Error("Seq has not enough elements");
+                }
+            }
+            return void 0;
+        }, 0);
+    });
+}
+function truncate(n, xs) {
+    return take(n, xs, true);
+}
+function takeWhile(f, xs) {
+    return delay(function () {
+        var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        return unfold(function (i) {
+            var cur = iter.next();
+            if (!cur.done && f(cur.value)) {
+                return [cur.value, null];
+            }
+            return void 0;
+        }, 0);
+    });
+}
+function tryFind(f, xs, defaultValue) {
+    for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+        var cur = iter.next();
+        if (cur.done) {
+            return defaultValue === void 0 ? null : defaultValue;
+        }
+        if (f(cur.value, i)) {
+            return cur.value;
+        }
+    }
+}
+function find(f, xs) {
+    return __failIfNone(tryFind(f, xs));
+}
+function tryFindBack(f, xs, defaultValue) {
+    var match = null;
+    for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+        var cur = iter.next();
+        if (cur.done) {
+            return match === null ? defaultValue === void 0 ? null : defaultValue : match;
+        }
+        if (f(cur.value, i)) {
+            match = cur.value;
+        }
+    }
+}
+function findBack(f, xs) {
+    return __failIfNone(tryFindBack(f, xs));
+}
+function tryFindIndex(f, xs) {
+    for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+        var cur = iter.next();
+        if (cur.done) {
+            return null;
+        }
+        if (f(cur.value, i)) {
+            return i;
+        }
+    }
+}
+function findIndex(f, xs) {
+    return __failIfNone(tryFindIndex(f, xs));
+}
+function tryFindIndexBack(f, xs) {
+    var match = -1;
+    for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+        var cur = iter.next();
+        if (cur.done) {
+            return match === -1 ? null : match;
+        }
+        if (f(cur.value, i)) {
+            match = i;
+        }
+    }
+}
+function findIndexBack(f, xs) {
+    return __failIfNone(tryFindIndexBack(f, xs));
+}
+function tryPick(f, xs) {
+    for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+        var cur = iter.next();
+        if (cur.done) {
+            break;
+        }
+        var y = f(cur.value, i);
+        if (y != null) {
+            return y;
+        }
+    }
+    return void 0;
+}
+function pick(f, xs) {
+    return __failIfNone(tryPick(f, xs));
+}
+function unfold(f, acc) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty___default()({}, __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator___default.a, function () {
+        return {
+            next: function next() {
+                var res = f(acc);
+                if (res != null) {
+                    acc = res[1];
+                    return { done: false, value: res[0] };
+                }
+                return { done: true };
+            }
+        };
+    });
+}
+function zip(xs, ys) {
+    return map2(function (x, y) {
+        return [x, y];
+    }, xs, ys);
+}
+function zip3(xs, ys, zs) {
+    return map3(function (x, y, z) {
+        return [x, y, z];
+    }, xs, ys, zs);
+}
+
+/***/ }),
+/* 131 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["b"] = ofArray;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_array_from__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_array_from___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_array_from__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_createClass__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Symbol__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Util__ = __webpack_require__(65);
+
+
+
+
+
+
+
+
+
+// This module is split from List.ts to prevent cyclic dependencies
+function ofArray(args, base) {
+    var acc = base || new List();
+    for (var i = args.length - 1; i >= 0; i--) {
+        acc = new List(args[i], acc);
+    }
+    return acc;
+}
+
+var List = function () {
+    function List(head, tail) {
+        __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck___default()(this, List);
+
+        this.head = head;
+        this.tail = tail;
+    }
+
+    __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_createClass___default()(List, [{
+        key: "ToString",
+        value: function ToString() {
+            return "[" + __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_array_from___default()(this).map(function (x) {
+                return Object(__WEBPACK_IMPORTED_MODULE_6__Util__["d" /* toString */])(x);
+            }).join("; ") + "]";
+        }
+    }, {
+        key: "Equals",
+        value: function Equals(x) {
+            // Optimization if they are referencially equal
+            if (this === x) {
+                return true;
+            } else {
+                var iter1 = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator___default()(this);
+                var iter2 = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator___default()(x);
+                while (true) {
+                    var cur1 = iter1.next();
+                    var cur2 = iter2.next();
+                    if (cur1.done) {
+                        return cur2.done ? true : false;
+                    } else if (cur2.done) {
+                        return false;
+                    } else if (!Object(__WEBPACK_IMPORTED_MODULE_6__Util__["c" /* equals */])(cur1.value, cur2.value)) {
+                        return false;
+                    }
+                }
+            }
+        }
+    }, {
+        key: "CompareTo",
+        value: function CompareTo(x) {
+            // Optimization if they are referencially equal
+            if (this === x) {
+                return 0;
+            } else {
+                var acc = 0;
+                var iter1 = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator___default()(this);
+                var iter2 = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator___default()(x);
+                while (true) {
+                    var cur1 = iter1.next();
+                    var cur2 = iter2.next();
+                    if (cur1.done) {
+                        return cur2.done ? acc : -1;
+                    } else if (cur2.done) {
+                        return 1;
+                    } else {
+                        acc = Object(__WEBPACK_IMPORTED_MODULE_6__Util__["a" /* compare */])(cur1.value, cur2.value);
+                        if (acc !== 0) {
+                            return acc;
+                        }
+                    }
+                }
+            }
+        }
+    }, {
+        key: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator___default.a,
+        value: function value() {
+            var cur = this;
+            return {
+                next: function next() {
+                    var tmp = cur;
+                    cur = cur.tail;
+                    return { done: tmp.tail == null, value: tmp.head };
+                }
+            };
+        }
+        //   append(ys: List<T>): List<T> {
+        //     return append(this, ys);
+        //   }
+        //   choose<U>(f: (x: T) => U, xs: List<T>): List<U> {
+        //     return choose(f, this);
+        //   }
+        //   collect<U>(f: (x: T) => List<U>): List<U> {
+        //     return collect(f, this);
+        //   }
+        //   filter(f: (x: T) => boolean): List<T> {
+        //     return filter(f, this);
+        //   }
+        //   where(f: (x: T) => boolean): List<T> {
+        //     return filter(f, this);
+        //   }
+        //   map<U>(f: (x: T) => U): List<U> {
+        //     return map(f, this);
+        //   }
+        //   mapIndexed<U>(f: (i: number, x: T) => U): List<U> {
+        //     return mapIndexed(f, this);
+        //   }
+        //   partition(f: (x: T) => boolean): [List<T>, List<T>] {
+        //     return partition(f, this) as [List<T>, List<T>];
+        //   }
+        //   reverse(): List<T> {
+        //     return reverse(this);
+        //   }
+        //   slice(lower: number, upper: number): List<T> {
+        //     return slice(lower, upper, this);
+        //   }
+
+    }, {
+        key: __WEBPACK_IMPORTED_MODULE_5__Symbol__["a" /* default */].reflection,
+        value: function value() {
+            return {
+                type: "Microsoft.FSharp.Collections.FSharpList",
+                interfaces: ["System.IEquatable", "System.IComparable"]
+            };
+        }
+    }, {
+        key: "length",
+        get: function get() {
+            var cur = this;
+            var acc = 0;
+            while (cur.tail != null) {
+                cur = cur.tail;
+                acc++;
+            }
+            return acc;
+        }
+    }]);
+
+    return List;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (List);
+
+/***/ }),
+/* 132 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export map */
+/* unused harmony export mapIndexed */
+/* unused harmony export indexed */
+/* unused harmony export addRangeInPlace */
+/* unused harmony export copyTo */
+/* unused harmony export partition */
+/* harmony export (immutable) */ __webpack_exports__["b"] = permute;
+/* unused harmony export removeInPlace */
+/* unused harmony export setSlice */
+/* unused harmony export sortInPlaceBy */
+/* unused harmony export unzip */
+/* unused harmony export unzip3 */
+/* harmony export (immutable) */ __webpack_exports__["a"] = chunkBySize;
+/* unused harmony export getSubArray */
+/* unused harmony export fill */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_get_iterator__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_get_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_get_iterator__);
+
+function map(f, source, target) {
+    for (var i = 0; i < source.length; i++) {
+        target[i] = f(source[i]);
+    }
+    return target;
+}
+function mapIndexed(f, source, target) {
+    for (var i = 0; i < source.length; i++) {
+        target[i] = f(i, source[i]);
+    }
+    return target;
+}
+function indexed(source, target) {
+    return mapIndexed(function (i, x) {
+        return [i, x];
+    }, source, target);
+}
+function addRangeInPlace(range, xs) {
+    var iter = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_get_iterator___default()(range);
+    var cur = iter.next();
+    while (!cur.done) {
+        xs.push(cur.value);
+        cur = iter.next();
+    }
+}
+function copyTo(source, sourceIndex, target, targetIndex, count) {
+    while (count--) {
+        target[targetIndex++] = source[sourceIndex++];
+    }
+}
+function partition(f, xs) {
+    var ys = [];
+    var zs = [];
+    var j = 0;
+    var k = 0;
+    for (var i = 0; i < xs.length; i++) {
+        if (f(xs[i])) {
+            ys[j++] = xs[i];
+        } else {
+            zs[k++] = xs[i];
+        }
+    }
+    return [ys, zs];
+}
+function permute(f, xs) {
+    // Keep the type of the array
+    var ys = xs.map(function () {
+        return null;
+    });
+    var checkFlags = new Array(xs.length);
+    for (var i = 0; i < xs.length; i++) {
+        var j = f(i);
+        if (j < 0 || j >= xs.length) {
+            throw new Error("Not a valid permutation");
+        }
+        ys[j] = xs[i];
+        checkFlags[j] = 1;
+    }
+    for (var _i = 0; _i < xs.length; _i++) {
+        if (checkFlags[_i] !== 1) {
+            throw new Error("Not a valid permutation");
+        }
+    }
+    return ys;
+}
+function removeInPlace(item, xs) {
+    var i = xs.indexOf(item);
+    if (i > -1) {
+        xs.splice(i, 1);
+        return true;
+    }
+    return false;
+}
+function setSlice(target, lower, upper, source) {
+    var length = (upper || target.length - 1) - lower;
+    if (ArrayBuffer.isView(target) && source.length <= length) {
+        target.set(source, lower);
+    } else {
+        for (var i = lower | 0, j = 0; j <= length; i++, j++) {
+            target[i] = source[j];
+        }
+    }
+}
+function sortInPlaceBy(f, xs) {
+    var dir = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+
+    return xs.sort(function (x, y) {
+        x = f(x);
+        y = f(y);
+        return (x < y ? -1 : x === y ? 0 : 1) * dir;
+    });
+}
+function unzip(xs) {
+    var bs = new Array(xs.length);
+    var cs = new Array(xs.length);
+    for (var i = 0; i < xs.length; i++) {
+        bs[i] = xs[i][0];
+        cs[i] = xs[i][1];
+    }
+    return [bs, cs];
+}
+function unzip3(xs) {
+    var bs = new Array(xs.length);
+    var cs = new Array(xs.length);
+    var ds = new Array(xs.length);
+    for (var i = 0; i < xs.length; i++) {
+        bs[i] = xs[i][0];
+        cs[i] = xs[i][1];
+        ds[i] = xs[i][2];
+    }
+    return [bs, cs, ds];
+}
+function chunkBySize(size, xs) {
+    if (size < 1) {
+        throw new Error("The input must be positive. parameter name: chunkSize");
+    }
+    if (xs.length === 0) {
+        return [[]];
+    }
+    var result = [];
+    // add each chunk to the result
+    for (var x = 0; x < Math.ceil(xs.length / size); x++) {
+        var start = x * size;
+        var end = start + size;
+        result.push(xs.slice(start, end));
+    }
+    return result;
+}
+function getSubArray(xs, startIndex, count) {
+    return xs.slice(startIndex, startIndex + count);
+}
+function fill(target, targetIndex, count, value) {
+    target.fill(value, targetIndex, targetIndex + count);
+}
+
+/***/ }),
+/* 133 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export append */
+/* unused harmony export choose */
+/* unused harmony export collect */
+/* unused harmony export concat */
+/* unused harmony export filter */
+/* unused harmony export where */
+/* unused harmony export initialize */
+/* unused harmony export map */
+/* unused harmony export mapIndexed */
+/* unused harmony export indexed */
+/* unused harmony export partition */
+/* unused harmony export replicate */
+/* unused harmony export reverse */
+/* unused harmony export singleton */
+/* unused harmony export slice */
+/* unused harmony export unzip */
+/* unused harmony export unzip3 */
+/* unused harmony export groupBy */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ListClass__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Map__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Seq__ = __webpack_require__(130);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__ListClass__["b"]; });
+
+
+
+
+
+
+/* unused harmony default export */ var _unused_webpack_default_export = (__WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */]);
+
+function append(xs, ys) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        return new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, acc);
+    }, ys, reverse(xs));
+}
+function choose(f, xs) {
+    var r = Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        var y = f(x);
+        return y != null ? new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](y, acc) : acc;
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs);
+    return reverse(r);
+}
+function collect(f, xs) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        return append(acc, f(x));
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs);
+}
+// TODO: should be xs: Iterable<List<T>>
+function concat(xs) {
+    return collect(function (x) {
+        return x;
+    }, xs);
+}
+function filter(f, xs) {
+    return reverse(Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        return f(x) ? new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, acc) : acc;
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs));
+}
+function where(f, xs) {
+    return filter(f, xs);
+}
+function initialize(n, f) {
+    if (n < 0) {
+        throw new Error("List length must be non-negative");
+    }
+    var xs = new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */]();
+    for (var i = 1; i <= n; i++) {
+        xs = new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](f(n - i), xs);
+    }
+    return xs;
+}
+function map(f, xs) {
+    return reverse(Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        return new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](f(x), acc);
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs));
+}
+function mapIndexed(f, xs) {
+    return reverse(Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x, i) {
+        return new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](f(i, x), acc);
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs));
+}
+function indexed(xs) {
+    return mapIndexed(function (i, x) {
+        return [i, x];
+    }, xs);
+}
+function partition(f, xs) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        var lacc = acc[0];
+        var racc = acc[1];
+        return f(x) ? [new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, lacc), racc] : [lacc, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, racc)];
+    }, [new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */]()], reverse(xs));
+}
+function replicate(n, x) {
+    return initialize(n, function () {
+        return x;
+    });
+}
+function reverse(xs) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        return new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, acc);
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs);
+}
+function singleton(x) {
+    return new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */]());
+}
+function slice(lower, upper, xs) {
+    var noLower = lower == null;
+    var noUpper = upper == null;
+    return reverse(Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x, i) {
+        return (noLower || lower <= i) && (noUpper || i <= upper) ? new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, acc) : acc;
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs));
+}
+/* ToDo: instance unzip() */
+function unzip(xs) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["c" /* foldBack */])(function (xy, acc) {
+        return [new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](xy[0], acc[0]), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](xy[1], acc[1])];
+    }, xs, [new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */]()]);
+}
+/* ToDo: instance unzip3() */
+function unzip3(xs) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["c" /* foldBack */])(function (xyz, acc) {
+        return [new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](xyz[0], acc[0]), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](xyz[1], acc[1]), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](xyz[2], acc[2])];
+    }, xs, [new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */]()]);
+}
+function groupBy(f, xs) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["f" /* toList */])(Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["d" /* map */])(function (k) {
+        return [k[0], Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["f" /* toList */])(k[1])];
+    }, Object(__WEBPACK_IMPORTED_MODULE_1__Map__["a" /* groupBy */])(f, xs)));
+}
+
+/***/ }),
+/* 134 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = groupBy;
+/* unused harmony export countBy */
+/* unused harmony export MapTree */
+/* unused harmony export create */
+/* unused harmony export add */
+/* unused harmony export remove */
+/* unused harmony export containsValue */
+/* unused harmony export tryGetValue */
+/* unused harmony export exists */
+/* unused harmony export find */
+/* unused harmony export tryFind */
+/* unused harmony export filter */
+/* unused harmony export fold */
+/* unused harmony export foldBack */
+/* unused harmony export forAll */
+/* unused harmony export isEmpty */
+/* unused harmony export iterate */
+/* unused harmony export map */
+/* unused harmony export partition */
+/* unused harmony export findKey */
+/* unused harmony export tryFindKey */
+/* unused harmony export pick */
+/* unused harmony export tryPick */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Comparer__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ListClass__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Seq__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Symbol__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Util__ = __webpack_require__(65);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------
+// These functions belong to Seq.ts but are
+// implemented here to prevent cyclic dependencies
+function groupBy(f, xs) {
+    var keys = [];
+    var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    var acc = create();
+    var cur = iter.next();
+    while (!cur.done) {
+        var k = f(cur.value);
+        var vs = tryFind(k, acc);
+        if (vs == null) {
+            keys.push(k);
+            acc = add(k, [cur.value], acc);
+        } else {
+            vs.push(cur.value);
+        }
+        cur = iter.next();
+    }
+    return keys.map(function (k) {
+        return [k, acc.get(k)];
+    });
+}
+function countBy(f, xs) {
+    return groupBy(f, xs).map(function (kv) {
+        return [kv[0], kv[1].length];
+    });
+}
+var MapTree = function MapTree(tag, data) {
+    __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck___default()(this, MapTree);
+
+    this.tag = tag | 0;
+    this.data = data;
+};
+function tree_sizeAux(acc, m) {
+    sizeAux: while (true) {
+        if (m.tag === 1) {
+            return acc + 1 | 0;
+        } else if (m.tag === 2) {
+            acc = tree_sizeAux(acc + 1, m.data[2]);
+            m = m.data[3];
+            continue sizeAux;
+        } else {
+            return acc | 0;
+        }
+    }
+}
+function tree_size(x) {
+    return tree_sizeAux(0, x);
+}
+function tree_empty() {
+    return new MapTree(0);
+}
+function tree_height(_arg1) {
+    return _arg1.tag === 1 ? 1 : _arg1.tag === 2 ? _arg1.data[4] : 0;
+}
+function tree_isEmpty(m) {
+    return m.tag === 0 ? true : false;
+}
+function tree_mk(l, k, v, r) {
+    var matchValue = l.tag === 0 ? r.tag === 0 ? 0 : 1 : 1;
+    switch (matchValue) {
+        case 0:
+            return new MapTree(1, [k, v]);
+        case 1:
+            var hl = tree_height(l) | 0;
+            var hr = tree_height(r) | 0;
+            var m = (hl < hr ? hr : hl) | 0;
+            return new MapTree(2, [k, v, l, r, m + 1]);
+    }
+    throw new Error("internal error: Map.tree_mk");
+}
+function tree_rebalance(t1, k, v, t2) {
+    var t1h = tree_height(t1);
+    var t2h = tree_height(t2);
+    if (t2h > t1h + 2) {
+        if (t2.tag === 2) {
+            if (tree_height(t2.data[2]) > t1h + 1) {
+                if (t2.data[2].tag === 2) {
+                    return tree_mk(tree_mk(t1, k, v, t2.data[2].data[2]), t2.data[2].data[0], t2.data[2].data[1], tree_mk(t2.data[2].data[3], t2.data[0], t2.data[1], t2.data[3]));
+                } else {
+                    throw new Error("rebalance");
+                }
+            } else {
+                return tree_mk(tree_mk(t1, k, v, t2.data[2]), t2.data[0], t2.data[1], t2.data[3]);
+            }
+        } else {
+            throw new Error("rebalance");
+        }
+    } else {
+        if (t1h > t2h + 2) {
+            if (t1.tag === 2) {
+                if (tree_height(t1.data[3]) > t2h + 1) {
+                    if (t1.data[3].tag === 2) {
+                        return tree_mk(tree_mk(t1.data[2], t1.data[0], t1.data[1], t1.data[3].data[2]), t1.data[3].data[0], t1.data[3].data[1], tree_mk(t1.data[3].data[3], k, v, t2));
+                    } else {
+                        throw new Error("rebalance");
+                    }
+                } else {
+                    return tree_mk(t1.data[2], t1.data[0], t1.data[1], tree_mk(t1.data[3], k, v, t2));
+                }
+            } else {
+                throw new Error("rebalance");
+            }
+        } else {
+            return tree_mk(t1, k, v, t2);
+        }
+    }
+}
+function tree_add(comparer, k, v, m) {
+    if (m.tag === 1) {
+        var c = comparer.Compare(k, m.data[0]);
+        if (c < 0) {
+            return new MapTree(2, [k, v, new MapTree(0), m, 2]);
+        } else if (c === 0) {
+            return new MapTree(1, [k, v]);
+        }
+        return new MapTree(2, [k, v, m, new MapTree(0), 2]);
+    } else if (m.tag === 2) {
+        var _c = comparer.Compare(k, m.data[0]);
+        if (_c < 0) {
+            return tree_rebalance(tree_add(comparer, k, v, m.data[2]), m.data[0], m.data[1], m.data[3]);
+        } else if (_c === 0) {
+            return new MapTree(2, [k, v, m.data[2], m.data[3], m.data[4]]);
+        }
+        return tree_rebalance(m.data[2], m.data[0], m.data[1], tree_add(comparer, k, v, m.data[3]));
+    }
+    return new MapTree(1, [k, v]);
+}
+function tree_find(comparer, k, m) {
+    var res = tree_tryFind(comparer, k, m);
+    if (res != null) {
+        return res;
+    }
+    throw new Error("key not found");
+}
+function tree_tryFind(comparer, k, m) {
+    tryFind: while (true) {
+        if (m.tag === 1) {
+            var c = comparer.Compare(k, m.data[0]) | 0;
+            if (c === 0) {
+                return m.data[1];
+            } else {
+                return null;
+            }
+        } else if (m.tag === 2) {
+            var c_1 = comparer.Compare(k, m.data[0]) | 0;
+            if (c_1 < 0) {
+                comparer = comparer;
+                k = k;
+                m = m.data[2];
+                continue tryFind;
+            } else if (c_1 === 0) {
+                return m.data[1];
+            } else {
+                comparer = comparer;
+                k = k;
+                m = m.data[3];
+                continue tryFind;
+            }
+        } else {
+            return null;
+        }
+    }
+}
+function tree_partition1(comparer, f, k, v, acc1, acc2) {
+    return f(k, v) ? [tree_add(comparer, k, v, acc1), acc2] : [acc1, tree_add(comparer, k, v, acc2)];
+}
+function tree_partitionAux(comparer, f, s, acc_0, acc_1) {
+    var acc = [acc_0, acc_1];
+    if (s.tag === 1) {
+        return tree_partition1(comparer, f, s.data[0], s.data[1], acc[0], acc[1]);
+    } else if (s.tag === 2) {
+        var acc_2 = tree_partitionAux(comparer, f, s.data[3], acc[0], acc[1]);
+        var acc_3 = tree_partition1(comparer, f, s.data[0], s.data[1], acc_2[0], acc_2[1]);
+        return tree_partitionAux(comparer, f, s.data[2], acc_3[0], acc_3[1]);
+    }
+    return acc;
+}
+function tree_partition(comparer, f, s) {
+    return tree_partitionAux(comparer, f, s, tree_empty(), tree_empty());
+}
+function tree_filter1(comparer, f, k, v, acc) {
+    return f(k, v) ? tree_add(comparer, k, v, acc) : acc;
+}
+function tree_filterAux(comparer, f, s, acc) {
+    return s.tag === 1 ? tree_filter1(comparer, f, s.data[0], s.data[1], acc) : s.tag === 2 ? tree_filterAux(comparer, f, s.data[3], tree_filter1(comparer, f, s.data[0], s.data[1], tree_filterAux(comparer, f, s.data[2], acc))) : acc;
+}
+function tree_filter(comparer, f, s) {
+    return tree_filterAux(comparer, f, s, tree_empty());
+}
+function tree_spliceOutSuccessor(m) {
+    if (m.tag === 1) {
+        return [m.data[0], m.data[1], new MapTree(0)];
+    } else if (m.tag === 2) {
+        if (m.data[2].tag === 0) {
+            return [m.data[0], m.data[1], m.data[3]];
+        } else {
+            var kvl = tree_spliceOutSuccessor(m.data[2]);
+            return [kvl[0], kvl[1], tree_mk(kvl[2], m.data[0], m.data[1], m.data[3])];
+        }
+    }
+    throw new Error("internal error: Map.spliceOutSuccessor");
+}
+function tree_remove(comparer, k, m) {
+    if (m.tag === 1) {
+        var c = comparer.Compare(k, m.data[0]);
+        if (c === 0) {
+            return new MapTree(0);
+        } else {
+            return m;
+        }
+    } else if (m.tag === 2) {
+        var _c2 = comparer.Compare(k, m.data[0]);
+        if (_c2 < 0) {
+            return tree_rebalance(tree_remove(comparer, k, m.data[2]), m.data[0], m.data[1], m.data[3]);
+        } else if (_c2 === 0) {
+            if (m.data[2].tag === 0) {
+                return m.data[3];
+            } else {
+                if (m.data[3].tag === 0) {
+                    return m.data[2];
+                } else {
+                    var input = tree_spliceOutSuccessor(m.data[3]);
+                    return tree_mk(m.data[2], input[0], input[1], input[2]);
+                }
+            }
+        } else {
+            return tree_rebalance(m.data[2], m.data[0], m.data[1], tree_remove(comparer, k, m.data[3]));
+        }
+    } else {
+        return tree_empty();
+    }
+}
+function tree_mem(comparer, k, m) {
+    mem: while (true) {
+        if (m.tag === 1) {
+            return comparer.Compare(k, m.data[0]) === 0;
+        } else if (m.tag === 2) {
+            var c = comparer.Compare(k, m.data[0]) | 0;
+            if (c < 0) {
+                comparer = comparer;
+                k = k;
+                m = m.data[2];
+                continue mem;
+            } else if (c === 0) {
+                return true;
+            } else {
+                comparer = comparer;
+                k = k;
+                m = m.data[3];
+                continue mem;
+            }
+        } else {
+            return false;
+        }
+    }
+}
+function tree_iter(f, m) {
+    if (m.tag === 1) {
+        f(m.data[0], m.data[1]);
+    } else if (m.tag === 2) {
+        tree_iter(f, m.data[2]);
+        f(m.data[0], m.data[1]);
+        tree_iter(f, m.data[3]);
+    }
+}
+function tree_tryPick(f, m) {
+    if (m.tag === 1) {
+        return f(m.data[0], m.data[1]);
+    } else if (m.tag === 2) {
+        var matchValue = tree_tryPick(f, m.data[2]);
+        if (matchValue == null) {
+            var matchValue_1 = f(m.data[0], m.data[1]);
+            if (matchValue_1 == null) {
+                return tree_tryPick(f, m.data[3]);
+            } else {
+                var res = matchValue_1;
+                return res;
+            }
+        } else {
+            return matchValue;
+        }
+    } else {
+        return null;
+    }
+}
+function tree_exists(f, m) {
+    return m.tag === 1 ? f(m.data[0], m.data[1]) : m.tag === 2 ? (tree_exists(f, m.data[2]) ? true : f(m.data[0], m.data[1])) ? true : tree_exists(f, m.data[3]) : false;
+}
+function tree_forall(f, m) {
+    return m.tag === 1 ? f(m.data[0], m.data[1]) : m.tag === 2 ? (tree_forall(f, m.data[2]) ? f(m.data[0], m.data[1]) : false) ? tree_forall(f, m.data[3]) : false : true;
+}
+function tree_mapi(f, m) {
+    return m.tag === 1 ? new MapTree(1, [m.data[0], f(m.data[0], m.data[1])]) : m.tag === 2 ? new MapTree(2, [m.data[0], f(m.data[0], m.data[1]), tree_mapi(f, m.data[2]), tree_mapi(f, m.data[3]), m.data[4]]) : tree_empty();
+}
+function tree_foldBack(f, m, x) {
+    return m.tag === 1 ? f(m.data[0], m.data[1], x) : m.tag === 2 ? tree_foldBack(f, m.data[2], f(m.data[0], m.data[1], tree_foldBack(f, m.data[3], x))) : x;
+}
+function tree_fold(f, x, m) {
+    return m.tag === 1 ? f(x, m.data[0], m.data[1]) : m.tag === 2 ? tree_fold(f, f(tree_fold(f, x, m.data[2]), m.data[0], m.data[1]), m.data[3]) : x;
+}
+// function tree_foldFromTo(
+//     comparer: IComparer<any>, lo: any, hi: any,
+//     f: (k:any, v: any, acc: any) => any, m: MapTree, x: any): any {
+//   if (m.tag === 1) {
+//     var cLoKey = comparer.Compare(lo, m.data[0]);
+//     var cKeyHi = comparer.Compare(m.data[0], hi);
+//     var x_1 = (cLoKey <= 0 ? cKeyHi <= 0 : false) ? f(m.data[0], m.data[1], x) : x;
+//     return x_1;
+//   } else if (m.tag === 2) {
+//     var cLoKey = comparer.Compare(lo, m.data[0]);
+//     var cKeyHi = comparer.Compare(m.data[0], hi);
+//     var x_1 = cLoKey < 0 ? tree_foldFromTo(comparer, lo, hi, f, m.data[2], x) : x;
+//     var x_2 = (cLoKey <= 0 ? cKeyHi <= 0 : false) ? f(m.data[0], m.data[1], x_1) : x_1;
+//     var x_3 = cKeyHi < 0 ? tree_foldFromTo(comparer, lo, hi, f, m.data[3], x_2) : x_2;
+//     return x_3;
+//   }
+//   return x;
+// }
+// function tree_foldSection(
+//     comparer: IComparer<any>, lo: any, hi: any,
+//     f: (k: any, v: any, acc: any) => any, m: MapTree, x: any) {
+//   return comparer.Compare(lo, hi) === 1 ? x : tree_foldFromTo(comparer, lo, hi, f, m, x);
+// }
+// function tree_loop(m: MapTree, acc: any): List<[any,any]> {
+//   return m.tag === 1
+//     ? new List([m.data[0], m.data[1]], acc)
+//     : m.tag === 2
+//       ? tree_loop(m.data[2], new List([m.data[0], m.data[1]], tree_loop(m.data[3], acc)))
+//       : acc;
+// }
+// function tree_toList(m: MapTree) {
+//   return tree_loop(m, new List());
+// }
+// function tree_toArray(m: MapTree) {
+//   return Array.from(tree_toList(m));
+// }
+// function tree_ofList(comparer: IComparer<any>, l: List<[any,any]>) {
+//   return Seq.fold((acc: MapTree, tupledArg: [any, any]) => {
+//     return tree_add(comparer, tupledArg[0], tupledArg[1], acc);
+//   }, tree_empty(), l);
+// }
+function tree_mkFromEnumerator(comparer, acc, e) {
+    var cur = e.next();
+    while (!cur.done) {
+        acc = tree_add(comparer, cur.value[0], cur.value[1], acc);
+        cur = e.next();
+    }
+    return acc;
+}
+// function tree_ofArray(comparer: IComparer<any>, arr: ArrayLike<[any,any]>) {
+//   var res = tree_empty();
+//   for (var i = 0; i <= arr.length - 1; i++) {
+//     res = tree_add(comparer, arr[i][0], arr[i][1], res);
+//   }
+//   return res;
+// }
+function tree_ofSeq(comparer, c) {
+    var ie = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(c);
+    return tree_mkFromEnumerator(comparer, tree_empty(), ie);
+}
+// function tree_copyToArray(s: MapTree, arr: ArrayLike<any>, i: number) {
+//   tree_iter((x, y) => { arr[i++] = [x, y]; }, s);
+// }
+function tree_collapseLHS(stack) {
+    if (stack.tail != null) {
+        if (stack.head.tag === 1) {
+            return stack;
+        } else if (stack.head.tag === 2) {
+            return tree_collapseLHS(Object(__WEBPACK_IMPORTED_MODULE_6__ListClass__["b" /* ofArray */])([stack.head.data[2], new MapTree(1, [stack.head.data[0], stack.head.data[1]]), stack.head.data[3]], stack.tail));
+        } else {
+            return tree_collapseLHS(stack.tail);
+        }
+    } else {
+        return new __WEBPACK_IMPORTED_MODULE_6__ListClass__["a" /* default */]();
+    }
+}
+function tree_mkIterator(s) {
+    return { stack: tree_collapseLHS(new __WEBPACK_IMPORTED_MODULE_6__ListClass__["a" /* default */](s, new __WEBPACK_IMPORTED_MODULE_6__ListClass__["a" /* default */]())), started: false };
+}
+function tree_moveNext(i) {
+    function current(it) {
+        if (it.stack.tail == null) {
+            return null;
+        } else if (it.stack.head.tag === 1) {
+            return [it.stack.head.data[0], it.stack.head.data[1]];
+        }
+        throw new Error("Please report error: Map iterator, unexpected stack for current");
+    }
+    if (i.started) {
+        if (i.stack.tail == null) {
+            return { done: true, value: null };
+        } else {
+            if (i.stack.head.tag === 1) {
+                i.stack = tree_collapseLHS(i.stack.tail);
+                return {
+                    done: i.stack.tail == null,
+                    value: current(i)
+                };
+            } else {
+                throw new Error("Please report error: Map iterator, unexpected stack for moveNext");
+            }
+        }
+    } else {
+        i.started = true;
+        return {
+            done: i.stack.tail == null,
+            value: current(i)
+        };
+    }
+}
+
+var FableMap = function () {
+    /** Do not call, use Map.create instead. */
+    function FableMap() {
+        __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck___default()(this, FableMap);
+
+        return;
+    }
+
+    __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(FableMap, [{
+        key: "ToString",
+        value: function ToString() {
+            return "map [" + __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(this).map(function (x) {
+                return Object(__WEBPACK_IMPORTED_MODULE_9__Util__["d" /* toString */])(x);
+            }).join("; ") + "]";
+        }
+    }, {
+        key: "Equals",
+        value: function Equals(m2) {
+            return this.CompareTo(m2) === 0;
+        }
+    }, {
+        key: "CompareTo",
+        value: function CompareTo(m2) {
+            var _this = this;
+
+            return this === m2 ? 0 : Object(__WEBPACK_IMPORTED_MODULE_7__Seq__["a" /* compareWith */])(function (kvp1, kvp2) {
+                var c = _this.comparer.Compare(kvp1[0], kvp2[0]);
+                return c !== 0 ? c : Object(__WEBPACK_IMPORTED_MODULE_9__Util__["a" /* compare */])(kvp1[1], kvp2[1]);
+            }, this, m2);
+        }
+    }, {
+        key: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator___default.a,
+        value: function value() {
+            var i = tree_mkIterator(this.tree);
+            return {
+                next: function next() {
+                    return tree_moveNext(i);
+                }
+            };
+        }
+    }, {
+        key: "entries",
+        value: function entries() {
+            return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(this);
+        }
+    }, {
+        key: "keys",
+        value: function keys() {
+            return Object(__WEBPACK_IMPORTED_MODULE_7__Seq__["d" /* map */])(function (kv) {
+                return kv[0];
+            }, this);
+        }
+    }, {
+        key: "values",
+        value: function values() {
+            return Object(__WEBPACK_IMPORTED_MODULE_7__Seq__["d" /* map */])(function (kv) {
+                return kv[1];
+            }, this);
+        }
+    }, {
+        key: "get",
+        value: function get(k) {
+            return tree_find(this.comparer, k, this.tree);
+        }
+    }, {
+        key: "has",
+        value: function has(k) {
+            return tree_mem(this.comparer, k, this.tree);
+        }
+        /** Mutating method */
+
+    }, {
+        key: "set",
+        value: function set(k, v) {
+            this.tree = tree_add(this.comparer, k, v, this.tree);
+        }
+        /** Mutating method */
+
+    }, {
+        key: "delete",
+        value: function _delete(k) {
+            // TODO: Is calculating the size twice is more performant than calling tree_mem?
+            var oldSize = tree_size(this.tree);
+            this.tree = tree_remove(this.comparer, k, this.tree);
+            return oldSize > tree_size(this.tree);
+        }
+        /** Mutating method */
+
+    }, {
+        key: "clear",
+        value: function clear() {
+            this.tree = tree_empty();
+        }
+    }, {
+        key: __WEBPACK_IMPORTED_MODULE_8__Symbol__["a" /* default */].reflection,
+        value: function value() {
+            return {
+                type: "Microsoft.FSharp.Collections.FSharpMap",
+                interfaces: ["System.IEquatable", "System.IComparable", "System.Collections.Generic.IDictionary"]
+            };
+        }
+    }, {
+        key: "size",
+        get: function get() {
+            return tree_size(this.tree);
+        }
+    }]);
+
+    return FableMap;
+}();
+
+/* unused harmony default export */ var _unused_webpack_default_export = (FableMap);
+
+function from(comparer, tree) {
+    var map = new FableMap();
+    map.tree = tree;
+    map.comparer = comparer || new __WEBPACK_IMPORTED_MODULE_5__Comparer__["a" /* default */]();
+    return map;
+}
+function create(ie, comparer) {
+    comparer = comparer || new __WEBPACK_IMPORTED_MODULE_5__Comparer__["a" /* default */]();
+    return from(comparer, ie ? tree_ofSeq(comparer, ie) : tree_empty());
+}
+function add(k, v, map) {
+    return from(map.comparer, tree_add(map.comparer, k, v, map.tree));
+}
+function remove(item, map) {
+    return from(map.comparer, tree_remove(map.comparer, item, map.tree));
+}
+function containsValue(v, map) {
+    return Object(__WEBPACK_IMPORTED_MODULE_7__Seq__["b" /* fold */])(function (acc, k) {
+        return acc || Object(__WEBPACK_IMPORTED_MODULE_9__Util__["c" /* equals */])(map.get(k), v);
+    }, false, map.keys());
+}
+function tryGetValue(map, key, defaultValue) {
+    return map.has(key) ? [true, map.get(key)] : [false, defaultValue];
+}
+function exists(f, map) {
+    return tree_exists(f, map.tree);
+}
+function find(k, map) {
+    return tree_find(map.comparer, k, map.tree);
+}
+function tryFind(k, map) {
+    return tree_tryFind(map.comparer, k, map.tree);
+}
+function filter(f, map) {
+    return from(map.comparer, tree_filter(map.comparer, f, map.tree));
+}
+function fold(f, seed, map) {
+    return tree_fold(f, seed, map.tree);
+}
+function foldBack(f, map, seed) {
+    return tree_foldBack(f, map.tree, seed);
+}
+function forAll(f, map) {
+    return tree_forall(f, map.tree);
+}
+function isEmpty(map) {
+    return tree_isEmpty(map.tree);
+}
+function iterate(f, map) {
+    tree_iter(f, map.tree);
+}
+function map(f, map) {
+    return from(map.comparer, tree_mapi(f, map.tree));
+}
+function partition(f, map) {
+    var rs = tree_partition(map.comparer, f, map.tree);
+    return [from(map.comparer, rs[0]), from(map.comparer, rs[1])];
+}
+function findKey(f, map) {
+    return Object(__WEBPACK_IMPORTED_MODULE_7__Seq__["e" /* pick */])(function (kv) {
+        return f(kv[0], kv[1]) ? kv[0] : null;
+    }, map);
+}
+function tryFindKey(f, map) {
+    return Object(__WEBPACK_IMPORTED_MODULE_7__Seq__["g" /* tryPick */])(function (kv) {
+        return f(kv[0], kv[1]) ? kv[0] : null;
+    }, map);
+}
+function pick(f, map) {
+    var res = tryPick(f, map);
+    if (res != null) {
+        return res;
+    }
+    throw new Error("key not found");
+}
+function tryPick(f, map) {
+    return tree_tryPick(f, map.tree);
+}
+
+/***/ }),
+/* 135 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export fromEqualityComparer */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Symbol__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Util__ = __webpack_require__(65);
+
+
+
+
+
+var Comparer = function () {
+    function Comparer(f) {
+        __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default()(this, Comparer);
+
+        this.Compare = f || __WEBPACK_IMPORTED_MODULE_3__Util__["a" /* compare */];
+    }
+
+    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default()(Comparer, [{
+        key: __WEBPACK_IMPORTED_MODULE_2__Symbol__["a" /* default */].reflection,
+        value: function value() {
+            return { interfaces: ["System.IComparer"] };
+        }
+    }]);
+
+    return Comparer;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Comparer);
+
+function fromEqualityComparer(comparer) {
+    // Sometimes IEqualityComparer also implements IComparer
+    if (typeof comparer.Compare === "function") {
+        return new Comparer(comparer.Compare);
+    } else {
+        return new Comparer(function (x, y) {
+            var xhash = comparer.GetHashCode(x);
+            var yhash = comparer.GetHashCode(y);
+            if (xhash === yhash) {
+                return comparer.Equals(x, y) ? 0 : -1;
+            } else {
+                return xhash < yhash ? -1 : 1;
+            }
+        });
+    }
+}
+
+/***/ }),
+/* 136 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _isIterable2 = __webpack_require__(137);
+
+var _isIterable3 = _interopRequireDefault(_isIterable2);
+
+var _getIterator2 = __webpack_require__(95);
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  function sliceIterator(arr, i) {
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = undefined;
+
+    try {
+      for (var _i = (0, _getIterator3.default)(arr), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"]) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+
+    return _arr;
+  }
+
+  return function (arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if ((0, _isIterable3.default)(Object(arr))) {
+      return sliceIterator(arr, i);
+    } else {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }
+  };
+}();
+
+/***/ }),
+/* 137 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(138), __esModule: true };
+
+/***/ }),
+/* 138 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(35);
+__webpack_require__(18);
+module.exports = __webpack_require__(139);
+
+
+/***/ }),
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var classof = __webpack_require__(55);
+var ITERATOR = __webpack_require__(1)('iterator');
+var Iterators = __webpack_require__(14);
+module.exports = __webpack_require__(0).isIterable = function (it) {
+  var O = Object(it);
+  return O[ITERATOR] !== undefined
+    || '@@iterator' in O
+    // eslint-disable-next-line no-prototype-builtins
+    || Iterators.hasOwnProperty(classof(O));
+};
+
 
 /***/ })
 /******/ ]);

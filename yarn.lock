@@ -3122,3 +3122,7 @@ yauzl@2.4.1:
   resolved "https://registry.yarnpkg.com/yauzl/-/yauzl-2.4.1.tgz#9528f442dab1b2284e58b4379bb194e22e0c4005"
   dependencies:
     fd-slicer "~1.0.1"
+
+yosysjs@~1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/yosysjs/-/yosysjs-1.0.0.tgz#675b67d0e2a0f1ce642e12faa26dce5ade163435"

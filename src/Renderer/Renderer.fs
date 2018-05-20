@@ -25,15 +25,18 @@ let ysReady() =
 let synth() = 
     let work() = 
         let command = "design -reset; read_verilog input.v; synth -run coarse; show -stretch"
-        let command2 = "design -reset; read_verilog input.v; write_json output.json"
+        let command2 = "help write_json"
         // let edito = Browser.document.getElementById("editor")
         // Browser.document.getElementById("code").innerText <- Browser.document.getElementById("editor").innerText  <- alterString().replace("editor", "asd") 
         let code = ed().getValue()
         // let a = code.Replace("\n", "s") 
         printToConsole(code)
-        // Browser.document.getElementById("code").innerText <- a
+        // printToConsole("asdasd")
+        // Browser.document.getElementById("code").innerText <- 
         Synthesizer().writeFile("input.v")
         Synthesizer().run(command)
+        let dotfile = Synthesizer().read_file("show.dot")
+        printToConsole(dotfile)
         Synthesizer().getSvg
         Browser.document.getElementById("popup").style.visibility <- "hidden"
         
