@@ -10,15 +10,14 @@ open Yosys
 open Description
 open System
 
-
-
-let init() = 
-    Init().loadViz
-
-    let printToConsole(c: string) = 
+let printToConsole(c: string) = 
         let nodeConsole = check().getConsole
         let myConsole = check().myConsole(nodeConsole)
         myConsole?log(c)
+
+let init() = 
+    Init().loadViz
+   
 
     let ysReady() = 
         Browser.document.getElementById("popup").style.visibility <- "hidden"
@@ -32,15 +31,18 @@ let init() =
             // let edito = Browser.document.getElementById("editor")
             // Browser.document.getElementById("code").innerText <- Browser.document.getElementById("editor").innerText  <- alterString().replace("editor", "asd") 
             let code = ed().getValue()
-            // let a = code.Replace("\n", "s") 
-            printToConsole(code)
+            // let a = code.Replace(" n", "s") 
+            // printToConsole(code)
             // printToConsole("asdasd")
             // Browser.document.getElementById("code").innerText <- 
             Synthesizer().writeFile("input.v")
             Synthesizer().run(command)
-            let dotfile = Synthesizer().read_file("show.dot")
-            printToConsole(dotfile)
-            Synthesizer().getSvg
+            let dotfile: string = Synthesizer().read_file("show.dot")
+            let replacementDotfile= dotfile.Replace("octagon", "rectangle")
+            printToConsole(replacementDotfile)
+            let svgText: string = Synthesizer().getSvg(replacementDotfile)
+            Synthesizer().dotIntoSvg(replacementDotfile)
+            // printToConsole(svgText)
             Browser.document.getElementById("popup").style.visibility <- "hidden"
             
             

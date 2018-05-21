@@ -219,15 +219,11 @@ amdRequire(['vs/editor/editor.main'], function () {
 
   var editor = monaco.editor.create(document.getElementById('editor'), {
     value: [
-      'module FullAdder(a,b,cin,sum,cout);',
-      '\tinput a,b,cin;',
-      '\toutput sum, cout;',
-      '\treg sum, cout;',
-      '\talways @ (a or b or cin)',
-      '\t\tbegin',
-      '\t\tsum <= a ^ b ^ cin;',
-      '\t\tcout <= (a & b) | (a & cin) | (b & cin);',
-      '\tend',
+      'module smpl_circuit(A,B,x);',
+      '\tinput A,B;',
+      '\toutput x;',
+      '\t',
+      '\tand g1(x,A,B);',
       'endmodule',
       ].join('\n'),
     language: 'verilog',
@@ -244,6 +240,14 @@ amdRequire(['vs/editor/editor.main'], function () {
   // // Dispatch/Trigger/Fire the event
   // document.dispatchEvent(mevent);
 });
+
+
+
+
+
+
+
+
 
 
 
