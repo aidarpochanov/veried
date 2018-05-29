@@ -32,20 +32,21 @@
             style="width:300px; margin: 200px auto; background-color: #88f; border:3px dashed #000;
             padding:15px; text-align:center;"><span id="popupmsg">Loading...</span></div>
         </div>
-        <!-- <h1>VeriEd</h1> -->
         <div class="topnav">
             <button class="btn" id="save"><i class="fa fa-save"></i></button>
             <button class="btn" id="explore"><i class="fa fa-folder"></i></button>
-            <button class="btn" id="btn"><i class="fa fa-eye"></i></button>
+            <button class="btn" id="btn"><i class="fa fa-play"></i></button>
+            <div style="float: right;">
+            </div>
+            
         </div>
         
-        <iframe id="ys" style="width: 800px; height: 200px;"></iframe><p/>
+        <iframe id="ys" style="width: 800px; height: 200px; display: none"></iframe><p/>
+        <div id="panel" class="panel bottom">
+            Status of the code is displayed here
+        </div>
         <div class="main" style="width: 100%">
-            <div id="editor" contenteditable></div>
-            <!-- <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
-            <script>
-                var editor = ace.edit("editor");
-            </script> -->
+        <div id="editor" contenteditable></div>
             <script>
                 // Monaco uses a custom amd loader that overrides node's require.
                 // Keep a reference to node's require so we can restore it after executing the amd loader file.
@@ -53,13 +54,51 @@
             </script>
             <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
             <script src="js/editor.js"></script>
-            <div id="container" class="floating"><svg id="svg"></svg></div>
-            
-        </div>
-        
-        </td></tr></table>
+            <script>
+                var app = require('electron').remote;
+                var dialog = app.dialog
+                var fs = require('fs')
+                document.getElementById('save').onclick = () => {
+                    dialog.showSaveDialog((fileName) => {
+                        if(fileName === undefined){
+                            alert("You didn't save the file!");
+                            return;
+                        }
 
-        
+                        var content = monaco.editor.getModels()[0].getValue();
+
+                        fs.writeFile(fileName, content, (err) => {
+                            if(err) {console.log(err);}
+                            alert("The file has been successfully saved!");
+                        })
+                    });
+                };
+
+                document.getElementById("explore").onclick = () => {
+                    dialog.showOpenDialog((fileNames) => {
+                        if(fileNames === undefined){
+                            alert("You have not selected a file to open!")
+                        } else {
+                            read(fileNames[0]);
+                        }
+                    });
+                };
+
+                function read(filepath){
+                    fs.readFile(filepath, 'utf-8', (err, data) => {
+                        if(err){
+                            alert(err);
+                            return;
+                        }
+                        var editor = monaco.editor.getModels()[0];
+                        // var area = document.getElementById("editor")
+                        editor.setValue(data);
+                        
+                    });
+                }
+            </script>
+            <div id="container" class="floating"><svg id="svg"></svg></div>
+        </div>       
         <script src="js/renderer.js"></script>
     </body></html>
     

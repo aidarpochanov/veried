@@ -15,6 +15,14 @@
     background-color: white;
 }
 
+.panel {
+    background: #f7f7f7;
+    position: relative;
+    padding: 3px 7px;
+    font-size: 0.85em;
+    color: red;
+    border: 1px solid rgb(115, 91, 252); 
+}
 
 /* #svg{ */
     /* width:  60%;

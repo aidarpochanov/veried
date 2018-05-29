@@ -8,6 +8,7 @@
     <Compile Include="Button.fs" />
     <Compile Include="Yosys.fs" />
     <Compile Include="Functions.fs" />
+    <!-- <Compile Include="SaveExplore.fs" /> -->
     <Compile Include="Menu.fs" />
     <Compile Include="Renderer.fs" />
   </ItemGroup>

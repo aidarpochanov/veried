@@ -3173,6 +3173,13 @@ Object(__WEBPACK_IMPORTED_MODULE_0__Functions_fs__["a" /* init */])();
 
 "use strict";
 /* unused harmony export printToConsole */
+/* unused harmony export getErrorMessage */
+/* unused harmony export cmd */
+/* unused harmony export bbscmd */
+/* unused harmony export abscmd */
+/* unused harmony export artlscmd */
+/* unused harmony export aglscmd */
+/* unused harmony export processInput */
 /* harmony export (immutable) */ __webpack_exports__["a"] = init;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Yosys_fs__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__ = __webpack_require__(130);
@@ -3186,6 +3193,30 @@ function printToConsole(c) {
     var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
     return myConsole.log(c);
 }
+function getErrorMessage() {
+    var report = ys.errmsg;
+    return printToConsole(report);
+}
+var cmd = "design -reset; read_verilog input.v; show -stretch";
+var bbscmd = "design -reset; read_verilog input.v; show -stretch";
+var abscmd = "design -reset; read_verilog input.v; proc; opt_clean; show -stretch";
+var artlscmd = "design -reset; read_verilog input.v; synth -run coarse; show -stretch";
+var aglscmd = "design -reset; read_verilog input.v; synth -run coarse; synth -run fine; show -stretch";
+function processInput(input) {
+    var rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(input, "$and", "AND");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$or", "OR");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$not", "NOT");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$nand", "NAND");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$xor", "XOR");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$eq", "=");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$nor", "NOR");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$eq", "=");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$xnor", "XNOR");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$shr", "SHIFT RIGHT");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$shl", "SHIFT LEFT");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$mux", "MULTIPLEXER");
+    return rs;
+}
 function init() {
     YosysJS.load_viz();
 
@@ -3197,11 +3228,20 @@ function init() {
     var synth = function synth() {
         var work = function work() {
             var code = monaco.editor.getModels()[0].getValue();
+            ys.errmsg = "";
             ys.write_file("input.v", code);
-            ys.run("design -reset; read_verilog input.v; synth -run coarse; show -stretch");
+            ys.run("design -reset; read_verilog input.v; proc; opt_clean; show -stretch");
             var dotfile = ys.read_file("show.dot");
-            var replacementDotfile = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* replace */])(dotfile, "octagon", "rectangle");
-            printToConsole(replacementDotfile);
+            var report = "";
+            report = ys.errmsg;
+
+            if (Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* isNullOrEmpty */])(report)) {
+                report = "No errors found in your code!";
+            }
+
+            report = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(report, "input.v:", "");
+            document.getElementById("panel").innerText = report;
+            var replacementDotfile = processInput(dotfile);
             var svgText = YosysJS.dot_to_svg(replacementDotfile);
             YosysJS.dot_into_svg(replacementDotfile, "svg");
             document.getElementById("popup").style.visibility = "hidden";
@@ -3267,6 +3307,8 @@ var Synthesizer = function () {
             return {
                 type: "Yosys.Synthesizer",
                 properties: {
+                    getErrorMessage: "string",
+                    setErrorMessage: __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["a" /* Any */],
                     setTimeout: __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["a" /* Any */],
                     ys: __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["a" /* Any */]
                 }
@@ -4660,7 +4702,7 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 /* unused harmony export endsWith */
 /* unused harmony export initialize */
 /* unused harmony export insert */
-/* unused harmony export isNullOrEmpty */
+/* harmony export (immutable) */ __webpack_exports__["a"] = isNullOrEmpty;
 /* unused harmony export isNullOrWhiteSpace */
 /* unused harmony export join */
 /* unused harmony export newGuid */
@@ -4669,7 +4711,7 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 /* unused harmony export padLeft */
 /* unused harmony export padRight */
 /* unused harmony export remove */
-/* harmony export (immutable) */ __webpack_exports__["a"] = replace;
+/* harmony export (immutable) */ __webpack_exports__["b"] = replace;
 /* unused harmony export replicate */
 /* unused harmony export getCharAtIndex */
 /* unused harmony export split */
@@ -5508,12 +5550,20 @@ function split(reg, input, limit) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return previewBtn; });
 /* unused harmony export save */
 /* unused harmony export explore */
+/* unused harmony export bbs */
+/* unused harmony export abs */
+/* unused harmony export artls */
+/* unused harmony export agls */
 function getElement(arg00) {
   return document.getElementById(arg00);
 }
 var previewBtn = getElement("btn");
 var save = getElement("save");
 var explore = getElement("explore");
+var bbs = getElement("bbs");
+var abs = getElement("abs");
+var artls = getElement("artls");
+var agls = getElement("agls");
 
 /***/ }),
 /* 138 */

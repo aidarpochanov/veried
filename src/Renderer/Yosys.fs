@@ -34,6 +34,11 @@ type Synthesizer() =
     [<Emit("ys.read_file($1);")>]
     member __.read_file(file: string) = jsNative
 
+    [<Emit("ys.errmsg;")>]
+    member __.getErrorMessage with get(): string= jsNative
+
+    [<Emit("ys.errmsg = \"\";")>]
+    member __.setErrorMessage = jsNative
 type alterString()=
     [<Emit("document.getElementById($1).innerText.replace(/\n/g, /\r\n/g")>]
     member __.replace(element: string, s: string) = jsNative
