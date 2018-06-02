@@ -3215,6 +3215,9 @@ function processInput(input) {
     rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$shr", "SHIFT RIGHT");
     rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$shl", "SHIFT LEFT");
     rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$mux", "MULTIPLEXER");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$dff", "D FLIP-FLOP");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$add", "ADDITION");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$sub", "SUBSTRACTION");
     return rs;
 }
 function init() {
@@ -3239,11 +3242,19 @@ function init() {
                 report = "No errors found in your code!";
             }
 
+            if (report === "No errors found in your code!") {
+                document.getElementById("panel").style.color = "green";
+            } else {
+                document.getElementById("panel").style.color = "red";
+            }
+
             report = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(report, "input.v:", "");
             document.getElementById("panel").innerText = report;
             var replacementDotfile = processInput(dotfile);
+            printToConsole(replacementDotfile);
             var svgText = YosysJS.dot_to_svg(replacementDotfile);
             YosysJS.dot_into_svg(replacementDotfile, "svg");
+            printToConsole(svgText);
             document.getElementById("popup").style.visibility = "hidden";
         };
 

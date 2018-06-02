@@ -39,6 +39,7 @@ type Synthesizer() =
 
     [<Emit("ys.errmsg = \"\";")>]
     member __.setErrorMessage = jsNative
+    
 type alterString()=
     [<Emit("document.getElementById($1).innerText.replace(/\n/g, /\r\n/g")>]
     member __.replace(element: string, s: string) = jsNative

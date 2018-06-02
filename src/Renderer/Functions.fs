@@ -9,8 +9,9 @@ open Fable.PowerPack
 open Yosys
 open Description
 open System
+open System.Text.RegularExpressions
 
-
+// let readLines filePath = System.IO.File.ReadAllLines(filePath);
 let printToConsole(c: string) = 
         let nodeConsole = check().getConsole
         let myConsole = check().myConsole(nodeConsole)
@@ -26,7 +27,7 @@ let artlscmd = "design -reset; read_verilog input.v; synth -run coarse; show -st
 let aglscmd = "design -reset; read_verilog input.v; synth -run coarse; synth -run fine; show -stretch"
 
 // let generateErrorMessage() = 
-    // l
+    // 
 
 let processInput(input: string) = 
     let mutable rs = input.Replace("$and", "AND")
@@ -42,6 +43,9 @@ let processInput(input: string) =
     rs <- rs.Replace("$shr", "SHIFT RIGHT")
     rs <- rs.Replace("$shl", "SHIFT LEFT")
     rs <- rs.Replace("$mux", "MULTIPLEXER")
+    rs <- rs.Replace("$dff", "D FLIP-FLOP")
+    rs <- rs.Replace("$add", "ADDITION")
+    rs <- rs.Replace("$sub", "SUBSTRACTION") 
     rs
 let init() = 
     Init().loadViz
@@ -56,13 +60,11 @@ let init() =
         let work() = 
             let command = "design -reset; read_verilog input.v; proc; opt_clean; show -stretch"
             let command2 = "help write_json"
-            // let edito = Browser.document.getElementById("editor")
-            // Browser.document.getElementById("code").innerText <- Browser.document.getElementById("editor").innerText  <- alterString().replace("editor", "asd") 
             let code = ed().getValue()
             // let a = code.Replace(" n", "s") 
             // printToConsole(code)
             // printToConsole("asdasd")
-            // Browser.document.getElementById("code").innerText <- 
+
             Synthesizer().setErrorMessage
             Synthesizer().writeFile("input.v")
             Synthesizer().run(command)      
@@ -70,13 +72,17 @@ let init() =
             let mutable report = ""
             report <- Synthesizer().getErrorMessage
             if System.String.IsNullOrEmpty report then report <- "No errors found in your code!"
+            if report = "No errors found in your code!" then Browser.document.getElementById("panel").style.color <- "green" else Browser.document.getElementById("panel").style.color <- "red"
             report <- report.Replace("input.v:", "")
             Browser.document.getElementById("panel").innerText <- report
             let replacementDotfile = processInput(dotfile)
-            // printToConsole(replacementDotfile)
+            // let svg = readLines "C:\\Users\\User\\Desktop\\FYP\\VERIED\\svg.txt"
+            printToConsole(replacementDotfile)
             let svgText: string = Synthesizer().getSvg(replacementDotfile)
             Synthesizer().dotIntoSvg(replacementDotfile)
-            // printToConsole(svgText)
+            // Browser.document.getElementById("svg").innerHTML <- svgText
+            printToConsole(svgText)
+            // printToConsole(svg)
             Browser.document.getElementById("popup").style.visibility <- "hidden"
             
             

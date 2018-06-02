@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html><head>
+        <!-- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> -->
         <title>VeriEd</title>
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="css/anime.css">
@@ -9,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/navbar.css">
         <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
         <script type="text/javascript" src="js/yosysjs.js"></script>
+        <script type="text/javascript" src="../node_modules/svg-pan-zoom-rotate/dist/svg-pan-zoom-rotate.js"></script>
         <!-- <script type="text/javascript" src="../node_modules/yosysjs/yosyswrk.js"></script> -->
         <!-- <script type="text/javascript" src="../node_modules/yosysjs/yosysjs.js"></script> -->
         <style>
@@ -27,18 +29,19 @@
             }
         </style>
     </head><body>
-        
         <div id="popup" style="position: fixed; left: 0; top: 0; width:100%; height:100%; text-align:center; z-index: 1000;"><div
-            style="width:300px; margin: 200px auto; background-color: #88f; border:3px dashed #000;
+            style="width:300px; margin: 200px auto; background-color: blue;
             padding:15px; text-align:center;"><span id="popupmsg">Loading...</span></div>
         </div>
         <div class="topnav">
             <button class="btn" id="save"><i class="fa fa-save"></i></button>
             <button class="btn" id="explore"><i class="fa fa-folder"></i></button>
-            <button class="btn" id="btn"><i class="fa fa-play"></i></button>
-            <div style="float: right;">
-            </div>
             
+            <div style="float: right;">
+                <button class="btn" id="btn" onclick="des()"><i class="fa fa-play"></i></button>
+                <button class="btn" id="zoomIn" onclick="zoomIn()">Zoom In</button>
+                <button class="btn" id="zoomOut" onclick="zoomOut()">Zoom Out</button>
+            </div>
         </div>
         
         <iframe id="ys" style="width: 800px; height: 200px; display: none"></iframe><p/>
@@ -55,50 +58,32 @@
             <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
             <script src="js/editor.js"></script>
             <script>
-                var app = require('electron').remote;
-                var dialog = app.dialog
-                var fs = require('fs')
-                document.getElementById('save').onclick = () => {
-                    dialog.showSaveDialog((fileName) => {
-                        if(fileName === undefined){
-                            alert("You didn't save the file!");
-                            return;
-                        }
-
-                        var content = monaco.editor.getModels()[0].getValue();
-
-                        fs.writeFile(fileName, content, (err) => {
-                            if(err) {console.log(err);}
-                            alert("The file has been successfully saved!");
-                        })
-                    });
-                };
-
-                document.getElementById("explore").onclick = () => {
-                    dialog.showOpenDialog((fileNames) => {
-                        if(fileNames === undefined){
-                            alert("You have not selected a file to open!")
-                        } else {
-                            read(fileNames[0]);
-                        }
-                    });
-                };
-
-                function read(filepath){
-                    fs.readFile(filepath, 'utf-8', (err, data) => {
-                        if(err){
-                            alert(err);
-                            return;
-                        }
-                        var editor = monaco.editor.getModels()[0];
-                        // var area = document.getElementById("editor")
-                        editor.setValue(data);
-                        
-                    });
-                }
+                    function zoomIn(){
+                        var zooming = svgPanZoomRotate.init('#svg');
+                        zooming.zoomIn();
+                    }
+                    
+                    function des(){
+                        var zooming = svgPanZoomRotate.init('#svg');
+                        zooming.destroy();
+                        delete zooming;
+                    }
+                    
+                    function zoomOut(){
+                        var zooming = svgPanZoomRotate.init('#svg');
+                        zooming.zoomOut();
+                    }
             </script>
-            <div id="container" class="floating"><svg id="svg"></svg></div>
+            <div id="container" class="floating">
+                <svg id="svg" class='svg-pan-zoom_viewport'>
+                    
+                </svg>
+                
+                <!-- <object id="svg1" data="sample.svg" type="image/svg+xml"><param name="src" value="sample.svg"></object> -->
+                 
+            </div>
         </div>       
         <script src="js/renderer.js"></script>
+        <script src="js/saveload.js"></script>
+        
     </body></html>
-    
