@@ -3,3 +3,5 @@ Fable.Core
 Fable.Import.Browser
 Fable.Import.Electron
 Fable.PowerPack
+NUnit
+FsUnit

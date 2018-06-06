@@ -1,8 +1,7 @@
 module Renderer
 
 open Functions
-open Menu
-
+open Testing
 
     // save.addEventListener_click(fun _ ->
     //     synth()

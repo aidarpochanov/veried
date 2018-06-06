@@ -549,10 +549,10 @@ function equals(d1, d2) {
     return d1.getTime() === d2.getTime();
 }
 function compare(x, y) {
-    return Object(__WEBPACK_IMPORTED_MODULE_2__Util__["b" /* compare */])(x, y);
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Util__["f" /* compare */])(x, y);
 }
 function compareTo(x, y) {
-    return Object(__WEBPACK_IMPORTED_MODULE_2__Util__["b" /* compare */])(x, y);
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Util__["f" /* compare */])(x, y);
 }
 function op_Addition(x, y) {
     return add(x, y);
@@ -745,27 +745,27 @@ exports.RETURN = RETURN;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Any; });
 /* unused harmony export Unit */
 /* unused harmony export Option */
-/* unused harmony export Array */
-/* unused harmony export Tuple */
-/* unused harmony export Function */
-/* unused harmony export GenericParam */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return FableArray; });
+/* harmony export (immutable) */ __webpack_exports__["e"] = Tuple;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return FableFunction; });
+/* harmony export (immutable) */ __webpack_exports__["d"] = GenericParam;
 /* unused harmony export Interface */
-/* unused harmony export makeGeneric */
+/* harmony export (immutable) */ __webpack_exports__["k"] = makeGeneric;
 /* unused harmony export isGeneric */
 /* unused harmony export getDefinition */
 /* unused harmony export extendInfo */
 /* unused harmony export hasInterface */
 /* unused harmony export getPropertyNames */
 /* unused harmony export isArray */
-/* harmony export (immutable) */ __webpack_exports__["c"] = toString;
+/* harmony export (immutable) */ __webpack_exports__["l"] = toString;
 /* unused harmony export hash */
-/* unused harmony export equals */
+/* harmony export (immutable) */ __webpack_exports__["i"] = equals;
 /* unused harmony export comparePrimitives */
-/* harmony export (immutable) */ __webpack_exports__["b"] = compare;
-/* unused harmony export equalsRecords */
-/* unused harmony export compareRecords */
+/* harmony export (immutable) */ __webpack_exports__["f"] = compare;
+/* harmony export (immutable) */ __webpack_exports__["j"] = equalsRecords;
+/* harmony export (immutable) */ __webpack_exports__["g"] = compareRecords;
 /* unused harmony export equalsUnions */
-/* unused harmony export compareUnions */
+/* harmony export (immutable) */ __webpack_exports__["h"] = compareUnions;
 /* unused harmony export createDisposable */
 /* unused harmony export createAtom */
 /* unused harmony export createObj */
@@ -3172,6 +3172,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__Functions_fs__["a" /* init */])();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export errorProcessing */
 /* unused harmony export printToConsole */
 /* unused harmony export getErrorMessage */
 /* unused harmony export cmd */
@@ -3181,12 +3182,21 @@ Object(__WEBPACK_IMPORTED_MODULE_0__Functions_fs__["a" /* init */])();
 /* unused harmony export aglscmd */
 /* unused harmony export processInput */
 /* harmony export (immutable) */ __webpack_exports__["a"] = init;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Yosys_fs__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Button_fs__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Combinators_fs__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Error_fs__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Yosys_fs__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Button_fs__ = __webpack_require__(137);
 
 
 
+
+
+function errorProcessing(er) {
+    var a = Object(__WEBPACK_IMPORTED_MODULE_0__Combinators_fs__["k" /* run */])(__WEBPACK_IMPORTED_MODULE_1__Error_fs__["a" /* error */], er);
+    var result = Object(__WEBPACK_IMPORTED_MODULE_1__Error_fs__["b" /* preparse */])(Object(__WEBPACK_IMPORTED_MODULE_1__Error_fs__["c" /* unpack */])(a));
+    return result;
+}
 function printToConsole(c) {
     var nodeConsole = __webpack_require__(138);
 
@@ -3203,21 +3213,21 @@ var abscmd = "design -reset; read_verilog input.v; proc; opt_clean; show -stretc
 var artlscmd = "design -reset; read_verilog input.v; synth -run coarse; show -stretch";
 var aglscmd = "design -reset; read_verilog input.v; synth -run coarse; synth -run fine; show -stretch";
 function processInput(input) {
-    var rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(input, "$and", "AND");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$or", "OR");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$not", "NOT");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$nand", "NAND");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$xor", "XOR");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$eq", "=");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$nor", "NOR");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$eq", "=");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$xnor", "XNOR");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$shr", "SHIFT RIGHT");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$shl", "SHIFT LEFT");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$mux", "MULTIPLEXER");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$dff", "D FLIP-FLOP");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$add", "ADDITION");
-    rs = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(rs, "$sub", "SUBSTRACTION");
+    var rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(input, "$and", "AND");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$or", "OR");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$not", "NOT");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$nand", "NAND");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$xor", "XOR");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$eq", "=");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$nor", "NOR");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$eq", "=");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$xnor", "XNOR");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$shr", "SHIFT RIGHT");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$shl", "SHIFT LEFT");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$mux", "MULTIPLEXER");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$dff", "D FLIP-FLOP");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$add", "ADDITION");
+    rs = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(rs, "$sub", "SUBSTRACTION");
     return rs;
 }
 function init() {
@@ -3230,6 +3240,7 @@ function init() {
 
     var synth = function synth() {
         var work = function work() {
+            monaco.editor.setModelMarkers(monaco.editor.getModels()[0], "test", []);
             var code = monaco.editor.getModels()[0].getValue();
             ys.errmsg = "";
             ys.write_file("input.v", code);
@@ -3237,18 +3248,24 @@ function init() {
             var dotfile = ys.read_file("show.dot");
             var report = "";
             report = ys.errmsg;
+            report = Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["c" /* replace */])(report, "input.v:", "");
 
-            if (Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* isNullOrEmpty */])(report)) {
+            if (Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* isNullOrEmpty */])(report)) {
                 report = "No errors found in your code!";
-            }
-
-            if (report === "No errors found in your code!") {
                 document.getElementById("panel").style.color = "green";
             } else {
                 document.getElementById("panel").style.color = "red";
+                var e = errorProcessing(report);
+                monaco.editor.setModelMarkers(monaco.editor.getModels()[0], "test", [{
+                    startLineNumber: e[0],
+                    startColumn: 1,
+                    endLineNumber: e[0],
+                    endColumn: 1000,
+                    message: e[1],
+                    severity: monaco.Severity.Error
+                }]);
             }
 
-            report = Object(__WEBPACK_IMPORTED_MODULE_1__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* replace */])(report, "input.v:", "");
             document.getElementById("panel").innerText = report;
             var replacementDotfile = processInput(dotfile);
             printToConsole(replacementDotfile);
@@ -3265,7 +3282,7 @@ function init() {
     var ys = YosysJS.create("ys", ysReady);
     ys.verbose = true;
     ys.echo = true;
-    __WEBPACK_IMPORTED_MODULE_2__Button_fs__["a" /* previewBtn */].addEventListener("click", function (_arg1) {
+    __WEBPACK_IMPORTED_MODULE_4__Button_fs__["a" /* previewBtn */].addEventListener("click", function (_arg1) {
         return synth();
     });
 }
@@ -4708,12 +4725,12 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 /* unused harmony export compareTo */
 /* unused harmony export startsWith */
 /* unused harmony export indexOfAny */
-/* unused harmony export fsFormat */
+/* harmony export (immutable) */ __webpack_exports__["a"] = fsFormat;
 /* unused harmony export format */
 /* unused harmony export endsWith */
 /* unused harmony export initialize */
 /* unused harmony export insert */
-/* harmony export (immutable) */ __webpack_exports__["a"] = isNullOrEmpty;
+/* harmony export (immutable) */ __webpack_exports__["b"] = isNullOrEmpty;
 /* unused harmony export isNullOrWhiteSpace */
 /* unused harmony export join */
 /* unused harmony export newGuid */
@@ -4722,10 +4739,10 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 /* unused harmony export padLeft */
 /* unused harmony export padRight */
 /* unused harmony export remove */
-/* harmony export (immutable) */ __webpack_exports__["b"] = replace;
+/* harmony export (immutable) */ __webpack_exports__["c"] = replace;
 /* unused harmony export replicate */
 /* unused harmony export getCharAtIndex */
-/* unused harmony export split */
+/* harmony export (immutable) */ __webpack_exports__["d"] = split;
 /* unused harmony export trim */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from__);
@@ -4878,10 +4895,10 @@ function fsFormat(str) {
                     rep = rep.toExponential(precision);
                     break;
                 case "O":
-                    rep = Object(__WEBPACK_IMPORTED_MODULE_4__Util__["c" /* toString */])(rep);
+                    rep = Object(__WEBPACK_IMPORTED_MODULE_4__Util__["l" /* toString */])(rep);
                     break;
                 case "A":
-                    rep = Object(__WEBPACK_IMPORTED_MODULE_4__Util__["c" /* toString */])(rep, true);
+                    rep = Object(__WEBPACK_IMPORTED_MODULE_4__Util__["l" /* toString */])(rep, true);
                     break;
                 case "x":
                     rep = toHex(Number(rep));
@@ -5121,7 +5138,7 @@ function join(delimiter, xs) {
         xs2 = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from___default()(xs);
     }
     return xs2.map(function (x) {
-        return Object(__WEBPACK_IMPORTED_MODULE_4__Util__["c" /* toString */])(x);
+        return Object(__WEBPACK_IMPORTED_MODULE_4__Util__["l" /* toString */])(x);
     }).join(delimiter);
 }
 function newGuid() {
@@ -5251,7 +5268,7 @@ function trim(str, side) {
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = isValid;
 /* unused harmony export tryParse */
-/* unused harmony export parse */
+/* harmony export (immutable) */ __webpack_exports__["b"] = parse;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_number_is_nan__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_number_is_nan___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_number_is_nan__);
 
@@ -5428,10 +5445,10 @@ function subtract(ts1, ts2) {
     return ts1 - ts2;
 }
 function compare(x, y) {
-    return Object(__WEBPACK_IMPORTED_MODULE_1__Util__["b" /* compare */])(x, y);
+    return Object(__WEBPACK_IMPORTED_MODULE_1__Util__["f" /* compare */])(x, y);
 }
 function compareTo(x, y) {
-    return Object(__WEBPACK_IMPORTED_MODULE_1__Util__["b" /* compare */])(x, y);
+    return Object(__WEBPACK_IMPORTED_MODULE_1__Util__["f" /* compare */])(x, y);
 }
 function duration(x) {
     return Math.abs(x);
@@ -5581,6 +5598,3064 @@ var agls = getElement("agls");
 /***/ (function(module, exports) {
 
 module.exports = require("console");
+
+/***/ }),
+/* 139 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export Enumerator */
+/* unused harmony export getEnumerator */
+/* unused harmony export toIterator */
+/* harmony export (immutable) */ __webpack_exports__["h"] = toList;
+/* unused harmony export ofList */
+/* unused harmony export ofArray */
+/* unused harmony export append */
+/* unused harmony export average */
+/* unused harmony export averageBy */
+/* unused harmony export concat */
+/* unused harmony export collect */
+/* unused harmony export choose */
+/* harmony export (immutable) */ __webpack_exports__["a"] = compareWith;
+/* unused harmony export delay */
+/* unused harmony export empty */
+/* unused harmony export enumerateWhile */
+/* unused harmony export enumerateThenFinally */
+/* unused harmony export enumerateUsing */
+/* unused harmony export exactlyOne */
+/* unused harmony export except */
+/* unused harmony export exists */
+/* unused harmony export exists2 */
+/* unused harmony export filter */
+/* unused harmony export where */
+/* harmony export (immutable) */ __webpack_exports__["b"] = fold;
+/* harmony export (immutable) */ __webpack_exports__["c"] = foldBack;
+/* unused harmony export fold2 */
+/* unused harmony export foldBack2 */
+/* unused harmony export forAll */
+/* unused harmony export forAll2 */
+/* unused harmony export tryHead */
+/* unused harmony export head */
+/* unused harmony export initialize */
+/* unused harmony export initializeInfinite */
+/* unused harmony export tryItem */
+/* unused harmony export item */
+/* unused harmony export iterate */
+/* unused harmony export iterate2 */
+/* unused harmony export iterateIndexed */
+/* unused harmony export iterateIndexed2 */
+/* unused harmony export isEmpty */
+/* unused harmony export tryLast */
+/* unused harmony export last */
+/* unused harmony export count */
+/* harmony export (immutable) */ __webpack_exports__["d"] = map;
+/* unused harmony export mapIndexed */
+/* unused harmony export indexed */
+/* unused harmony export map2 */
+/* unused harmony export mapIndexed2 */
+/* unused harmony export map3 */
+/* unused harmony export chunkBySize */
+/* unused harmony export mapFold */
+/* unused harmony export mapFoldBack */
+/* unused harmony export max */
+/* unused harmony export maxBy */
+/* unused harmony export min */
+/* unused harmony export minBy */
+/* unused harmony export pairwise */
+/* unused harmony export permute */
+/* unused harmony export rangeStep */
+/* harmony export (immutable) */ __webpack_exports__["f"] = rangeChar;
+/* unused harmony export range */
+/* unused harmony export readOnly */
+/* harmony export (immutable) */ __webpack_exports__["g"] = reduce;
+/* unused harmony export reduceBack */
+/* unused harmony export replicate */
+/* unused harmony export reverse */
+/* unused harmony export scan */
+/* unused harmony export scanBack */
+/* unused harmony export singleton */
+/* unused harmony export skip */
+/* unused harmony export skipWhile */
+/* unused harmony export sortWith */
+/* unused harmony export sum */
+/* unused harmony export sumBy */
+/* unused harmony export tail */
+/* unused harmony export take */
+/* unused harmony export truncate */
+/* unused harmony export takeWhile */
+/* unused harmony export tryFind */
+/* unused harmony export find */
+/* unused harmony export tryFindBack */
+/* unused harmony export findBack */
+/* unused harmony export tryFindIndex */
+/* unused harmony export findIndex */
+/* unused harmony export tryFindIndexBack */
+/* unused harmony export findIndexBack */
+/* harmony export (immutable) */ __webpack_exports__["i"] = tryPick;
+/* harmony export (immutable) */ __webpack_exports__["e"] = pick;
+/* unused harmony export unfold */
+/* unused harmony export zip */
+/* unused harmony export zip3 */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_classCallCheck__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_createClass__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Array__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ListClass__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Util__ = __webpack_require__(25);
+
+
+
+
+
+
+
+
+
+
+
+
+var Enumerator = function () {
+    function Enumerator(iter) {
+        __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_classCallCheck___default()(this, Enumerator);
+
+        this.iter = iter;
+    }
+
+    __WEBPACK_IMPORTED_MODULE_6_babel_runtime_helpers_createClass___default()(Enumerator, [{
+        key: "MoveNext",
+        value: function MoveNext() {
+            var cur = this.iter.next();
+            this.current = cur.value;
+            return !cur.done;
+        }
+    }, {
+        key: "Reset",
+        value: function Reset() {
+            throw new Error("JS iterators cannot be reset");
+        }
+    }, {
+        key: "Dispose",
+        value: function Dispose() {
+            return;
+        }
+    }, {
+        key: "Current",
+        get: function get() {
+            return this.current;
+        }
+    }]);
+
+    return Enumerator;
+}();
+function getEnumerator(o) {
+    return typeof o.GetEnumerator === "function" ? o.GetEnumerator() : new Enumerator(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(o));
+}
+function toIterator(en) {
+    return {
+        next: function next() {
+            return en.MoveNext() ? { done: false, value: en.Current } : { done: true, value: null };
+        }
+    };
+}
+function __failIfNone(res) {
+    if (res == null) {
+        throw new Error("Seq did not contain any matching element");
+    }
+    return res;
+}
+function toList(xs) {
+    return foldBack(function (x, acc) {
+        return new __WEBPACK_IMPORTED_MODULE_8__ListClass__["a" /* default */](x, acc);
+    }, xs, new __WEBPACK_IMPORTED_MODULE_8__ListClass__["a" /* default */]());
+}
+function ofList(xs) {
+    return delay(function () {
+        return unfold(function (x) {
+            return x.tail != null ? [x.head, x.tail] : null;
+        }, xs);
+    });
+}
+function ofArray(xs) {
+    return delay(function () {
+        return unfold(function (i) {
+            return i < xs.length ? [xs[i], i + 1] : null;
+        }, 0);
+    });
+}
+function append(xs, ys) {
+    return delay(function () {
+        var firstDone = false;
+        var i = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        var iters = [i, null];
+        return unfold(function () {
+            var cur = void 0;
+            if (!firstDone) {
+                cur = iters[0].next();
+                if (!cur.done) {
+                    return [cur.value, iters];
+                } else {
+                    firstDone = true;
+                    iters = [null, __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(ys)];
+                }
+            }
+            cur = iters[1].next();
+            return !cur.done ? [cur.value, iters] : null;
+        }, iters);
+    });
+}
+function average(xs) {
+    var count = 1;
+    var sum = reduce(function (acc, x) {
+        count++;
+        return acc + x;
+    }, xs);
+    return sum / count;
+}
+function averageBy(f, xs) {
+    var count = 1;
+    var sum = reduce(function (acc, x) {
+        count++;
+        return (count === 2 ? f(acc) : acc) + f(x);
+    }, xs);
+    return sum / count;
+}
+function concat(xs) {
+    return delay(function () {
+        var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        var output = { value: null };
+        return unfold(function (innerIter) {
+            var hasFinished = false;
+            while (!hasFinished) {
+                if (innerIter == null) {
+                    var cur = iter.next();
+                    if (!cur.done) {
+                        innerIter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(cur.value);
+                    } else {
+                        hasFinished = true;
+                    }
+                } else {
+                    var _cur = innerIter.next();
+                    if (!_cur.done) {
+                        output = { value: _cur.value };
+                        hasFinished = true;
+                    } else {
+                        innerIter = null;
+                    }
+                }
+            }
+            return innerIter != null && output != null ? [output.value, innerIter] : null;
+        }, null);
+    });
+}
+function collect(f, xs) {
+    return concat(map(f, xs));
+}
+function choose(f, xs) {
+    return delay(function () {
+        return unfold(function (iter) {
+            var cur = iter.next();
+            while (!cur.done) {
+                var y = f(cur.value);
+                if (y != null) {
+                    return [y, iter];
+                }
+                cur = iter.next();
+            }
+            return null;
+        }, __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs));
+    });
+}
+function compareWith(f, xs, ys) {
+    var nonZero = tryFind(function (i) {
+        return i !== 0;
+    }, map2(function (x, y) {
+        return f(x, y);
+    }, xs, ys));
+    return nonZero != null ? nonZero : count(xs) - count(ys);
+}
+function delay(f) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty___default()({}, __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator___default.a, function () {
+        return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(f());
+    });
+}
+function empty() {
+    return unfold(function () {
+        return void 0;
+    });
+}
+function enumerateWhile(cond, xs) {
+    return concat(unfold(function () {
+        return cond() ? [xs, true] : null;
+    }));
+}
+function enumerateThenFinally(xs, finalFn) {
+    return delay(function () {
+        var iter = void 0;
+        try {
+            iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        } catch (err) {
+            return void 0;
+        } finally {
+            finalFn();
+        }
+        return unfold(function (it) {
+            try {
+                var cur = it.next();
+                return !cur.done ? [cur.value, it] : null;
+            } catch (err) {
+                return void 0;
+            } finally {
+                finalFn();
+            }
+        }, iter);
+    });
+}
+function enumerateUsing(disp, work) {
+    var isDisposed = false;
+    var disposeOnce = function disposeOnce() {
+        if (!isDisposed) {
+            isDisposed = true;
+            disp.Dispose();
+        }
+    };
+    try {
+        return enumerateThenFinally(work(disp), disposeOnce);
+    } catch (err) {
+        return void 0;
+    } finally {
+        disposeOnce();
+    }
+}
+function exactlyOne(xs) {
+    var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    var fst = iter.next();
+    if (fst.done) {
+        throw new Error("Seq was empty");
+    }
+    var snd = iter.next();
+    if (!snd.done) {
+        throw new Error("Seq had multiple items");
+    }
+    return fst.value;
+}
+function except(itemsToExclude, source) {
+    var exclusionItems = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(itemsToExclude);
+    var testIsNotInExclusionItems = function testIsNotInExclusionItems(element) {
+        return !exclusionItems.some(function (excludedItem) {
+            return Object(__WEBPACK_IMPORTED_MODULE_9__Util__["i" /* equals */])(excludedItem, element);
+        });
+    };
+    return filter(testIsNotInExclusionItems, source);
+}
+function exists(f, xs) {
+    var cur = void 0;
+    for (var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);;) {
+        cur = iter.next();
+        if (cur.done) {
+            break;
+        }
+        if (f(cur.value)) {
+            return true;
+        }
+    }
+    return false;
+}
+function exists2(f, xs, ys) {
+    var cur1 = void 0;
+    var cur2 = void 0;
+    for (var iter1 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs), iter2 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(ys);;) {
+        cur1 = iter1.next();
+        cur2 = iter2.next();
+        if (cur1.done || cur2.done) {
+            break;
+        }
+        if (f(cur1.value, cur2.value)) {
+            return true;
+        }
+    }
+    return false;
+}
+function filter(f, xs) {
+    return delay(function () {
+        return unfold(function (iter) {
+            var cur = iter.next();
+            while (!cur.done) {
+                if (f(cur.value)) {
+                    return [cur.value, iter];
+                }
+                cur = iter.next();
+            }
+            return null;
+        }, __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs));
+    });
+}
+function where(f, xs) {
+    return filter(f, xs);
+}
+function fold(f, acc, xs) {
+    if (Array.isArray(xs) || ArrayBuffer.isView(xs)) {
+        return xs.reduce(f, acc);
+    } else {
+        var cur = void 0;
+        for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+            cur = iter.next();
+            if (cur.done) {
+                break;
+            }
+            acc = f(acc, cur.value, i);
+        }
+        return acc;
+    }
+}
+function foldBack(f, xs, acc) {
+    var arr = Array.isArray(xs) || ArrayBuffer.isView(xs) ? xs : __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs);
+    for (var i = arr.length - 1; i >= 0; i--) {
+        acc = f(arr[i], acc, i);
+    }
+    return acc;
+}
+function fold2(f, acc, xs, ys) {
+    var iter1 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    var iter2 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(ys);
+    var cur1 = void 0;
+    var cur2 = void 0;
+    for (var i = 0;; i++) {
+        cur1 = iter1.next();
+        cur2 = iter2.next();
+        if (cur1.done || cur2.done) {
+            break;
+        }
+        acc = f(acc, cur1.value, cur2.value, i);
+    }
+    return acc;
+}
+function foldBack2(f, xs, ys, acc) {
+    var ar1 = Array.isArray(xs) || ArrayBuffer.isView(xs) ? xs : __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs);
+    var ar2 = Array.isArray(ys) || ArrayBuffer.isView(ys) ? ys : __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(ys);
+    for (var i = ar1.length - 1; i >= 0; i--) {
+        acc = f(ar1[i], ar2[i], acc, i);
+    }
+    return acc;
+}
+function forAll(f, xs) {
+    return fold(function (acc, x) {
+        return acc && f(x);
+    }, true, xs);
+}
+function forAll2(f, xs, ys) {
+    return fold2(function (acc, x, y) {
+        return acc && f(x, y);
+    }, true, xs, ys);
+}
+function tryHead(xs) {
+    var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    var cur = iter.next();
+    return cur.done ? null : cur.value;
+}
+function head(xs) {
+    return __failIfNone(tryHead(xs));
+}
+function initialize(n, f) {
+    return delay(function () {
+        return unfold(function (i) {
+            return i < n ? [f(i), i + 1] : null;
+        }, 0);
+    });
+}
+function initializeInfinite(f) {
+    return delay(function () {
+        return unfold(function (i) {
+            return [f(i), i + 1];
+        }, 0);
+    });
+}
+function tryItem(i, xs) {
+    if (i < 0) {
+        return null;
+    }
+    if (Array.isArray(xs) || ArrayBuffer.isView(xs)) {
+        return i < xs.length ? xs[i] : null;
+    }
+    for (var j = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; j++) {
+        var cur = iter.next();
+        if (cur.done) {
+            return null;
+        }
+        if (j === i) {
+            return cur.value;
+        }
+    }
+}
+function item(i, xs) {
+    return __failIfNone(tryItem(i, xs));
+}
+function iterate(f, xs) {
+    fold(function (_, x) {
+        return f(x);
+    }, null, xs);
+}
+function iterate2(f, xs, ys) {
+    fold2(function (_, x, y) {
+        return f(x, y);
+    }, null, xs, ys);
+}
+function iterateIndexed(f, xs) {
+    fold(function (_, x, i) {
+        return f(i, x);
+    }, null, xs);
+}
+function iterateIndexed2(f, xs, ys) {
+    fold2(function (_, x, y, i) {
+        return f(i, x, y);
+    }, null, xs, ys);
+}
+function isEmpty(xs) {
+    var i = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    return i.next().done;
+}
+function tryLast(xs) {
+    try {
+        return reduce(function (_, x) {
+            return x;
+        }, xs);
+    } catch (err) {
+        return null;
+    }
+}
+function last(xs) {
+    return __failIfNone(tryLast(xs));
+}
+// A export function 'length' method causes problems in JavaScript -- https://github.com/Microsoft/TypeScript/issues/442
+function count(xs) {
+    return Array.isArray(xs) || ArrayBuffer.isView(xs) ? xs.length : fold(function (acc, x) {
+        return acc + 1;
+    }, 0, xs);
+}
+function map(f, xs) {
+    return delay(function () {
+        return unfold(function (iter) {
+            var cur = iter.next();
+            return !cur.done ? [f(cur.value), iter] : null;
+        }, __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs));
+    });
+}
+function mapIndexed(f, xs) {
+    return delay(function () {
+        var i = 0;
+        return unfold(function (iter) {
+            var cur = iter.next();
+            return !cur.done ? [f(i++, cur.value), iter] : null;
+        }, __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs));
+    });
+}
+function indexed(xs) {
+    return mapIndexed(function (i, x) {
+        return [i, x];
+    }, xs);
+}
+function map2(f, xs, ys) {
+    return delay(function () {
+        var iter1 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        var iter2 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(ys);
+        return unfold(function () {
+            var cur1 = iter1.next();
+            var cur2 = iter2.next();
+            return !cur1.done && !cur2.done ? [f(cur1.value, cur2.value), null] : null;
+        });
+    });
+}
+function mapIndexed2(f, xs, ys) {
+    return delay(function () {
+        var i = 0;
+        var iter1 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        var iter2 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(ys);
+        return unfold(function () {
+            var cur1 = iter1.next();
+            var cur2 = iter2.next();
+            return !cur1.done && !cur2.done ? [f(i++, cur1.value, cur2.value), null] : null;
+        });
+    });
+}
+function map3(f, xs, ys, zs) {
+    return delay(function () {
+        var iter1 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        var iter2 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(ys);
+        var iter3 = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(zs);
+        return unfold(function () {
+            var cur1 = iter1.next();
+            var cur2 = iter2.next();
+            var cur3 = iter3.next();
+            return !cur1.done && !cur2.done && !cur3.done ? [f(cur1.value, cur2.value, cur3.value), null] : null;
+        });
+    });
+}
+function chunkBySize(size, xs) {
+    var result = Object(__WEBPACK_IMPORTED_MODULE_7__Array__["a" /* chunkBySize */])(size, __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs));
+    return ofArray(result.map(ofArray));
+}
+function mapFold(f, acc, xs, transform) {
+    var result = [];
+    var r = void 0;
+    var cur = void 0;
+    for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+        cur = iter.next();
+        if (cur.done) {
+            break;
+        }
+
+        var _f = f(acc, cur.value);
+
+        var _f2 = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray___default()(_f, 2);
+
+        r = _f2[0];
+        acc = _f2[1];
+
+        result.push(r);
+    }
+    return transform !== void 0 ? [transform(result), acc] : [result, acc];
+}
+function mapFoldBack(f, xs, acc, transform) {
+    var arr = Array.isArray(xs) || ArrayBuffer.isView(xs) ? xs : __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs);
+    var result = [];
+    var r = void 0;
+    for (var i = arr.length - 1; i >= 0; i--) {
+        var _f3 = f(arr[i], acc);
+
+        var _f4 = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_slicedToArray___default()(_f3, 2);
+
+        r = _f4[0];
+        acc = _f4[1];
+
+        result.push(r);
+    }
+    return transform !== void 0 ? [transform(result), acc] : [result, acc];
+}
+function max(xs) {
+    return reduce(function (acc, x) {
+        return Object(__WEBPACK_IMPORTED_MODULE_9__Util__["f" /* compare */])(acc, x) === 1 ? acc : x;
+    }, xs);
+}
+function maxBy(f, xs) {
+    return reduce(function (acc, x) {
+        return Object(__WEBPACK_IMPORTED_MODULE_9__Util__["f" /* compare */])(f(acc), f(x)) === 1 ? acc : x;
+    }, xs);
+}
+function min(xs) {
+    return reduce(function (acc, x) {
+        return Object(__WEBPACK_IMPORTED_MODULE_9__Util__["f" /* compare */])(acc, x) === -1 ? acc : x;
+    }, xs);
+}
+function minBy(f, xs) {
+    return reduce(function (acc, x) {
+        return Object(__WEBPACK_IMPORTED_MODULE_9__Util__["f" /* compare */])(f(acc), f(x)) === -1 ? acc : x;
+    }, xs);
+}
+function pairwise(xs) {
+    return skip(2, scan(function (last, next) {
+        return [last[1], next];
+    }, [0, 0], xs));
+}
+function permute(f, xs) {
+    return ofArray(Object(__WEBPACK_IMPORTED_MODULE_7__Array__["b" /* permute */])(f, __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs)));
+}
+function rangeStep(first, step, last) {
+    if (step === 0) {
+        throw new Error("Step cannot be 0");
+    }
+    return delay(function () {
+        return unfold(function (x) {
+            return step > 0 && x <= last || step < 0 && x >= last ? [x, x + step] : null;
+        }, first);
+    });
+}
+function rangeChar(first, last) {
+    return delay(function () {
+        return unfold(function (x) {
+            return x <= last ? [x, String.fromCharCode(x.charCodeAt(0) + 1)] : null;
+        }, first);
+    });
+}
+function range(first, last) {
+    return rangeStep(first, 1, last);
+}
+function readOnly(xs) {
+    return map(function (x) {
+        return x;
+    }, xs);
+}
+function reduce(f, xs) {
+    if (Array.isArray(xs) || ArrayBuffer.isView(xs)) {
+        return xs.reduce(f);
+    }
+    var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    var cur = iter.next();
+    if (cur.done) {
+        throw new Error("Seq was empty");
+    }
+    var acc = cur.value;
+    while (true) {
+        cur = iter.next();
+        if (cur.done) {
+            break;
+        }
+        acc = f(acc, cur.value);
+    }
+    return acc;
+}
+function reduceBack(f, xs) {
+    var ar = Array.isArray(xs) || ArrayBuffer.isView(xs) ? xs : __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs);
+    if (ar.length === 0) {
+        throw new Error("Seq was empty");
+    }
+    var acc = ar[ar.length - 1];
+    for (var i = ar.length - 2; i >= 0; i--) {
+        acc = f(ar[i], acc, i);
+    }
+    return acc;
+}
+function replicate(n, x) {
+    return initialize(n, function () {
+        return x;
+    });
+}
+function reverse(xs) {
+    var ar = Array.isArray(xs) || ArrayBuffer.isView(xs) ? xs.slice(0) : __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs);
+    return ofArray(ar.reverse());
+}
+function scan(f, seed, xs) {
+    return delay(function () {
+        var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        return unfold(function (acc) {
+            if (acc == null) {
+                return [seed, seed];
+            }
+            var cur = iter.next();
+            if (!cur.done) {
+                acc = f(acc, cur.value);
+                return [acc, acc];
+            }
+            return void 0;
+        }, null);
+    });
+}
+function scanBack(f, xs, seed) {
+    return reverse(scan(function (acc, x) {
+        return f(x, acc);
+    }, seed, reverse(xs)));
+}
+function singleton(y) {
+    return unfold(function (x) {
+        return x != null ? [x, null] : null;
+    }, y);
+}
+function skip(n, xs) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty___default()({}, __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator___default.a, function () {
+        var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        for (var i = 1; i <= n; i++) {
+            if (iter.next().done) {
+                throw new Error("Seq has not enough elements");
+            }
+        }
+        return iter;
+    });
+}
+function skipWhile(f, xs) {
+    return delay(function () {
+        var hasPassed = false;
+        return filter(function (x) {
+            return hasPassed || (hasPassed = !f(x));
+        }, xs);
+    });
+}
+function sortWith(f, xs) {
+    var ys = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(xs);
+    return ofArray(ys.sort(f));
+}
+function sum(xs) {
+    return fold(function (acc, x) {
+        return acc + x;
+    }, 0, xs);
+}
+function sumBy(f, xs) {
+    return fold(function (acc, x) {
+        return acc + f(x);
+    }, 0, xs);
+}
+function tail(xs) {
+    var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    var cur = iter.next();
+    if (cur.done) {
+        throw new Error("Seq was empty");
+    }
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty___default()({}, __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator___default.a, function () {
+        return iter;
+    });
+}
+function take(n, xs) {
+    var truncate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+    return delay(function () {
+        var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        return unfold(function (i) {
+            if (i < n) {
+                var cur = iter.next();
+                if (!cur.done) {
+                    return [cur.value, i + 1];
+                }
+                if (!truncate) {
+                    throw new Error("Seq has not enough elements");
+                }
+            }
+            return void 0;
+        }, 0);
+    });
+}
+function truncate(n, xs) {
+    return take(n, xs, true);
+}
+function takeWhile(f, xs) {
+    return delay(function () {
+        var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+        return unfold(function (i) {
+            var cur = iter.next();
+            if (!cur.done && f(cur.value)) {
+                return [cur.value, null];
+            }
+            return void 0;
+        }, 0);
+    });
+}
+function tryFind(f, xs, defaultValue) {
+    for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+        var cur = iter.next();
+        if (cur.done) {
+            return defaultValue === void 0 ? null : defaultValue;
+        }
+        if (f(cur.value, i)) {
+            return cur.value;
+        }
+    }
+}
+function find(f, xs) {
+    return __failIfNone(tryFind(f, xs));
+}
+function tryFindBack(f, xs, defaultValue) {
+    var match = null;
+    for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+        var cur = iter.next();
+        if (cur.done) {
+            return match === null ? defaultValue === void 0 ? null : defaultValue : match;
+        }
+        if (f(cur.value, i)) {
+            match = cur.value;
+        }
+    }
+}
+function findBack(f, xs) {
+    return __failIfNone(tryFindBack(f, xs));
+}
+function tryFindIndex(f, xs) {
+    for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+        var cur = iter.next();
+        if (cur.done) {
+            return null;
+        }
+        if (f(cur.value, i)) {
+            return i;
+        }
+    }
+}
+function findIndex(f, xs) {
+    return __failIfNone(tryFindIndex(f, xs));
+}
+function tryFindIndexBack(f, xs) {
+    var match = -1;
+    for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+        var cur = iter.next();
+        if (cur.done) {
+            return match === -1 ? null : match;
+        }
+        if (f(cur.value, i)) {
+            match = i;
+        }
+    }
+}
+function findIndexBack(f, xs) {
+    return __failIfNone(tryFindIndexBack(f, xs));
+}
+function tryPick(f, xs) {
+    for (var i = 0, iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);; i++) {
+        var cur = iter.next();
+        if (cur.done) {
+            break;
+        }
+        var y = f(cur.value, i);
+        if (y != null) {
+            return y;
+        }
+    }
+    return void 0;
+}
+function pick(f, xs) {
+    return __failIfNone(tryPick(f, xs));
+}
+function unfold(f, acc) {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_defineProperty___default()({}, __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_symbol_iterator___default.a, function () {
+        return {
+            next: function next() {
+                var res = f(acc);
+                if (res != null) {
+                    acc = res[1];
+                    return { done: false, value: res[0] };
+                }
+                return { done: true };
+            }
+        };
+    });
+}
+function zip(xs, ys) {
+    return map2(function (x, y) {
+        return [x, y];
+    }, xs, ys);
+}
+function zip3(xs, ys, zs) {
+    return map3(function (x, y, z) {
+        return [x, y, z];
+    }, xs, ys, zs);
+}
+
+/***/ }),
+/* 140 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["b"] = ofArray;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_array_from__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_array_from___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_array_from__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_createClass__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Symbol__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Util__ = __webpack_require__(25);
+
+
+
+
+
+
+
+
+
+// This module is split from List.ts to prevent cyclic dependencies
+function ofArray(args, base) {
+    var acc = base || new List();
+    for (var i = args.length - 1; i >= 0; i--) {
+        acc = new List(args[i], acc);
+    }
+    return acc;
+}
+
+var List = function () {
+    function List(head, tail) {
+        __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck___default()(this, List);
+
+        this.head = head;
+        this.tail = tail;
+    }
+
+    __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_createClass___default()(List, [{
+        key: "ToString",
+        value: function ToString() {
+            return "[" + __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_array_from___default()(this).map(function (x) {
+                return Object(__WEBPACK_IMPORTED_MODULE_6__Util__["l" /* toString */])(x);
+            }).join("; ") + "]";
+        }
+    }, {
+        key: "Equals",
+        value: function Equals(x) {
+            // Optimization if they are referencially equal
+            if (this === x) {
+                return true;
+            } else {
+                var iter1 = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator___default()(this);
+                var iter2 = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator___default()(x);
+                while (true) {
+                    var cur1 = iter1.next();
+                    var cur2 = iter2.next();
+                    if (cur1.done) {
+                        return cur2.done ? true : false;
+                    } else if (cur2.done) {
+                        return false;
+                    } else if (!Object(__WEBPACK_IMPORTED_MODULE_6__Util__["i" /* equals */])(cur1.value, cur2.value)) {
+                        return false;
+                    }
+                }
+            }
+        }
+    }, {
+        key: "CompareTo",
+        value: function CompareTo(x) {
+            // Optimization if they are referencially equal
+            if (this === x) {
+                return 0;
+            } else {
+                var acc = 0;
+                var iter1 = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator___default()(this);
+                var iter2 = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_get_iterator___default()(x);
+                while (true) {
+                    var cur1 = iter1.next();
+                    var cur2 = iter2.next();
+                    if (cur1.done) {
+                        return cur2.done ? acc : -1;
+                    } else if (cur2.done) {
+                        return 1;
+                    } else {
+                        acc = Object(__WEBPACK_IMPORTED_MODULE_6__Util__["f" /* compare */])(cur1.value, cur2.value);
+                        if (acc !== 0) {
+                            return acc;
+                        }
+                    }
+                }
+            }
+        }
+    }, {
+        key: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator___default.a,
+        value: function value() {
+            var cur = this;
+            return {
+                next: function next() {
+                    var tmp = cur;
+                    cur = cur.tail;
+                    return { done: tmp.tail == null, value: tmp.head };
+                }
+            };
+        }
+        //   append(ys: List<T>): List<T> {
+        //     return append(this, ys);
+        //   }
+        //   choose<U>(f: (x: T) => U, xs: List<T>): List<U> {
+        //     return choose(f, this);
+        //   }
+        //   collect<U>(f: (x: T) => List<U>): List<U> {
+        //     return collect(f, this);
+        //   }
+        //   filter(f: (x: T) => boolean): List<T> {
+        //     return filter(f, this);
+        //   }
+        //   where(f: (x: T) => boolean): List<T> {
+        //     return filter(f, this);
+        //   }
+        //   map<U>(f: (x: T) => U): List<U> {
+        //     return map(f, this);
+        //   }
+        //   mapIndexed<U>(f: (i: number, x: T) => U): List<U> {
+        //     return mapIndexed(f, this);
+        //   }
+        //   partition(f: (x: T) => boolean): [List<T>, List<T>] {
+        //     return partition(f, this) as [List<T>, List<T>];
+        //   }
+        //   reverse(): List<T> {
+        //     return reverse(this);
+        //   }
+        //   slice(lower: number, upper: number): List<T> {
+        //     return slice(lower, upper, this);
+        //   }
+
+    }, {
+        key: __WEBPACK_IMPORTED_MODULE_5__Symbol__["a" /* default */].reflection,
+        value: function value() {
+            return {
+                type: "Microsoft.FSharp.Collections.FSharpList",
+                interfaces: ["System.IEquatable", "System.IComparable"]
+            };
+        }
+    }, {
+        key: "length",
+        get: function get() {
+            var cur = this;
+            var acc = 0;
+            while (cur.tail != null) {
+                cur = cur.tail;
+                acc++;
+            }
+            return acc;
+        }
+    }]);
+
+    return List;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (List);
+
+/***/ }),
+/* 141 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = append;
+/* unused harmony export choose */
+/* unused harmony export collect */
+/* unused harmony export concat */
+/* unused harmony export filter */
+/* unused harmony export where */
+/* unused harmony export initialize */
+/* harmony export (immutable) */ __webpack_exports__["c"] = map;
+/* unused harmony export mapIndexed */
+/* unused harmony export indexed */
+/* unused harmony export partition */
+/* unused harmony export replicate */
+/* unused harmony export reverse */
+/* unused harmony export singleton */
+/* unused harmony export slice */
+/* unused harmony export unzip */
+/* unused harmony export unzip3 */
+/* unused harmony export groupBy */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ListClass__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Map__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Seq__ = __webpack_require__(139);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_0__ListClass__["b"]; });
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["b"] = (__WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */]);
+
+function append(xs, ys) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        return new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, acc);
+    }, ys, reverse(xs));
+}
+function choose(f, xs) {
+    var r = Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        var y = f(x);
+        return y != null ? new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](y, acc) : acc;
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs);
+    return reverse(r);
+}
+function collect(f, xs) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        return append(acc, f(x));
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs);
+}
+// TODO: should be xs: Iterable<List<T>>
+function concat(xs) {
+    return collect(function (x) {
+        return x;
+    }, xs);
+}
+function filter(f, xs) {
+    return reverse(Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        return f(x) ? new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, acc) : acc;
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs));
+}
+function where(f, xs) {
+    return filter(f, xs);
+}
+function initialize(n, f) {
+    if (n < 0) {
+        throw new Error("List length must be non-negative");
+    }
+    var xs = new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */]();
+    for (var i = 1; i <= n; i++) {
+        xs = new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](f(n - i), xs);
+    }
+    return xs;
+}
+function map(f, xs) {
+    return reverse(Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        return new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](f(x), acc);
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs));
+}
+function mapIndexed(f, xs) {
+    return reverse(Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x, i) {
+        return new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](f(i, x), acc);
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs));
+}
+function indexed(xs) {
+    return mapIndexed(function (i, x) {
+        return [i, x];
+    }, xs);
+}
+function partition(f, xs) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        var lacc = acc[0];
+        var racc = acc[1];
+        return f(x) ? [new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, lacc), racc] : [lacc, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, racc)];
+    }, [new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */]()], reverse(xs));
+}
+function replicate(n, x) {
+    return initialize(n, function () {
+        return x;
+    });
+}
+function reverse(xs) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x) {
+        return new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, acc);
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs);
+}
+function singleton(x) {
+    return new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */]());
+}
+function slice(lower, upper, xs) {
+    var noLower = lower == null;
+    var noUpper = upper == null;
+    return reverse(Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["b" /* fold */])(function (acc, x, i) {
+        return (noLower || lower <= i) && (noUpper || i <= upper) ? new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](x, acc) : acc;
+    }, new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), xs));
+}
+/* ToDo: instance unzip() */
+function unzip(xs) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["c" /* foldBack */])(function (xy, acc) {
+        return [new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](xy[0], acc[0]), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](xy[1], acc[1])];
+    }, xs, [new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */]()]);
+}
+/* ToDo: instance unzip3() */
+function unzip3(xs) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["c" /* foldBack */])(function (xyz, acc) {
+        return [new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](xyz[0], acc[0]), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](xyz[1], acc[1]), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](xyz[2], acc[2])];
+    }, xs, [new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */](), new __WEBPACK_IMPORTED_MODULE_0__ListClass__["a" /* default */]()]);
+}
+function groupBy(f, xs) {
+    return Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["h" /* toList */])(Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["d" /* map */])(function (k) {
+        return [k[0], Object(__WEBPACK_IMPORTED_MODULE_2__Seq__["h" /* toList */])(k[1])];
+    }, Object(__WEBPACK_IMPORTED_MODULE_1__Map__["a" /* groupBy */])(f, xs)));
+}
+
+/***/ }),
+/* 142 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export input_text */
+/* unused harmony export Position */
+/* unused harmony export Return */
+/* unused harmony export Parser */
+/* unused harmony export runParserFunction */
+/* harmony export (immutable) */ __webpack_exports__["k"] = run;
+/* unused harmony export getParserPosition */
+/* unused harmony export printResult */
+/* unused harmony export getLabel */
+/* unused harmony export setLabel */
+/* harmony export (immutable) */ __webpack_exports__["j"] = op_LessQmarkGreater;
+/* unused harmony export matching */
+/* unused harmony export bindParser */
+/* unused harmony export op_GreaterGreaterEquals */
+/* unused harmony export returnParser */
+/* unused harmony export mapParser */
+/* unused harmony export op_LessBangGreater */
+/* harmony export (immutable) */ __webpack_exports__["g"] = op_BarGreaterGreater;
+/* unused harmony export applyFunction */
+/* unused harmony export op_LessMultiplyGreater */
+/* unused harmony export lift */
+/* unused harmony export following */
+/* harmony export (immutable) */ __webpack_exports__["h"] = op_DotGreaterGreaterDot;
+/* unused harmony export eitherOr */
+/* unused harmony export op_LessBarGreater */
+/* unused harmony export choose */
+/* unused harmony export seq */
+/* unused harmony export zeroOrMore */
+/* unused harmony export manyZeroOrMore */
+/* unused harmony export manyOneOrMore */
+/* unused harmony export opt */
+/* unused harmony export op_DotGreaterGreater */
+/* harmony export (immutable) */ __webpack_exports__["i"] = op_GreaterGreaterDot;
+/* unused harmony export middle */
+/* unused harmony export separateByOneOrMore */
+/* unused harmony export separateByZeroOrMore */
+/* harmony export (immutable) */ __webpack_exports__["b"] = matchChar;
+/* harmony export (immutable) */ __webpack_exports__["a"] = chooseAny;
+/* unused harmony export charListToStr */
+/* unused harmony export matchZeroOrMoreCharacters */
+/* harmony export (immutable) */ __webpack_exports__["d"] = matchOneOrMoreCharacters;
+/* harmony export (immutable) */ __webpack_exports__["e"] = matchString;
+/* unused harmony export matchWhiteSpace */
+/* unused harmony export whitespaceChar */
+/* unused harmony export zeroOrMoreSpaces */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return oneOrMoreSpaces; });
+/* unused harmony export matchDigit */
+/* unused harmony export digitalCharacter */
+/* unused harmony export digits */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return matchInteger; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__nuget_packages_fable_core_1_2_0_beta_003_fable_core_CurriedLambda__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Seq__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Int32__ = __webpack_require__(131);
+
+
+
+
+
+
+
+
+
+
+
+
+var input_text = function (__exports) {
+    var position = __exports.position = function () {
+        function position(line, column) {
+            __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, position);
+
+            this.line = line | 0;
+            this.column = column | 0;
+        }
+
+        __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(position, [{
+            key: __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["a" /* default */].reflection,
+            value: function value() {
+                return {
+                    type: "Combinators.input_text.position",
+                    interfaces: ["FSharpRecord", "System.IEquatable", "System.IComparable"],
+                    properties: {
+                        line: "number",
+                        column: "number"
+                    }
+                };
+            }
+        }, {
+            key: "Equals",
+            value: function Equals(other) {
+                return Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["j" /* equalsRecords */])(this, other);
+            }
+        }, {
+            key: "CompareTo",
+            value: function CompareTo(other) {
+                return Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["g" /* compareRecords */])(this, other) | 0;
+            }
+        }]);
+
+        return position;
+    }();
+
+    Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["b" /* setType */])("Combinators.input_text.position", position);
+    var initial_position = __exports.initial_position = new position(0, 0);
+
+    var incrementColumn = __exports.incrementColumn = function (position_1) {
+        var column = position_1.column + 1 | 0;
+        return new position(position_1.line, column);
+    };
+
+    var incrementLine = __exports.incrementLine = function (position_1) {
+        return new position(position_1.line + 1, 0);
+    };
+
+    var initial_state = __exports.initial_state = function () {
+        function initial_state(lines, position) {
+            __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, initial_state);
+
+            this.lines = lines;
+            this.position = position;
+        }
+
+        __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(initial_state, [{
+            key: __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["a" /* default */].reflection,
+            value: function value() {
+                return {
+                    type: "Combinators.input_text.initial_state",
+                    interfaces: ["FSharpRecord", "System.IEquatable", "System.IComparable"],
+                    properties: {
+                        lines: Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["b" /* Array */])("string"),
+                        position: position
+                    }
+                };
+            }
+        }, {
+            key: "Equals",
+            value: function Equals(other) {
+                return Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["j" /* equalsRecords */])(this, other);
+            }
+        }, {
+            key: "CompareTo",
+            value: function CompareTo(other) {
+                return Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["g" /* compareRecords */])(this, other) | 0;
+            }
+        }]);
+
+        return initial_state;
+    }();
+
+    Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["b" /* setType */])("Combinators.input_text.initial_state", initial_state);
+
+    var getCurrentLine = __exports.getCurrentLine = function (input_state) {
+        var line_position = input_state.position.line | 0;
+
+        if (line_position < input_state.lines.length) {
+            return input_state.lines[line_position];
+        } else {
+            return "end of file";
+        }
+    };
+
+    var generateInputState = __exports.generateInputState = function (str) {
+        if (Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["b" /* isNullOrEmpty */])(str)) {
+            return new initial_state([], initial_position);
+        } else {
+            var sep = ["\r\n", "\n"];
+            var lines = Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["d" /* split */])(str, sep, null, 0);
+            return new initial_state(lines, initial_position);
+        }
+    };
+
+    var getNextChar = __exports.getNextChar = function (input) {
+        var line_position = input.position.line | 0;
+        var column_position = input.position.column | 0;
+
+        if (line_position >= input.lines.length) {
+            return [input, null];
+        } else {
+            var currentLine = getCurrentLine(input);
+
+            if (column_position < currentLine.length) {
+                var _char = currentLine[column_position];
+                var new_position = incrementColumn(input.position);
+                var new_state = new initial_state(input.lines, new_position);
+                return [new_state, _char];
+            } else {
+                var new_position_1 = incrementLine(input.position);
+                var new_state_1 = new initial_state(input.lines, new_position_1);
+                return [new_state_1, "\n"];
+            }
+        }
+    };
+
+    return __exports;
+}({});
+var Position = function () {
+    function Position(current_line, line, column) {
+        __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, Position);
+
+        this.current_line = current_line;
+        this.line = line | 0;
+        this.column = column | 0;
+    }
+
+    __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(Position, [{
+        key: __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["a" /* default */].reflection,
+        value: function value() {
+            return {
+                type: "Combinators.Position",
+                interfaces: ["FSharpRecord", "System.IEquatable", "System.IComparable"],
+                properties: {
+                    current_line: "string",
+                    line: "number",
+                    column: "number"
+                }
+            };
+        }
+    }, {
+        key: "Equals",
+        value: function Equals(other) {
+            return Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["j" /* equalsRecords */])(this, other);
+        }
+    }, {
+        key: "CompareTo",
+        value: function CompareTo(other) {
+            return Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["g" /* compareRecords */])(this, other) | 0;
+        }
+    }]);
+
+    return Position;
+}();
+Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["b" /* setType */])("Combinators.Position", Position);
+var Return = function () {
+    function Return(tag, data) {
+        __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, Return);
+
+        this.tag = tag;
+        this.data = data;
+    }
+
+    __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(Return, [{
+        key: __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["a" /* default */].reflection,
+        value: function value() {
+            return {
+                type: "Combinators.Return",
+                interfaces: ["FSharpUnion", "System.IEquatable", "System.IComparable"],
+                cases: [["Success", Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["d" /* GenericParam */])("a")], ["Failure", "string", "string", Position]]
+            };
+        }
+    }, {
+        key: "Equals",
+        value: function Equals(other) {
+            return this === other || this.tag === other.tag && Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["i" /* equals */])(this.data, other.data);
+        }
+    }, {
+        key: "CompareTo",
+        value: function CompareTo(other) {
+            return Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["h" /* compareUnions */])(this, other) | 0;
+        }
+    }]);
+
+    return Return;
+}();
+Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["b" /* setType */])("Combinators.Return", Return);
+var Parser = function () {
+    function Parser(parser_function, label) {
+        __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, Parser);
+
+        this.parser_function = parser_function;
+        this.label = label;
+    }
+
+    __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(Parser, [{
+        key: __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["a" /* default */].reflection,
+        value: function value() {
+            return {
+                type: "Combinators.Parser",
+                interfaces: ["FSharpRecord"],
+                properties: {
+                    parser_function: Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["c" /* Function */])([input_text.initial_state, Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["k" /* makeGeneric */])(Return, {
+                        a: Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["e" /* Tuple */])([Object(__WEBPACK_IMPORTED_MODULE_4__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["d" /* GenericParam */])("a"), input_text.initial_state])
+                    })]),
+                    label: "string"
+                }
+            };
+        }
+    }]);
+
+    return Parser;
+}();
+Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["b" /* setType */])("Combinators.Parser", Parser);
+function runParserFunction(parser, input) {
+    return parser.parser_function(input);
+}
+function run(parser, inputStr) {
+    return runParserFunction(parser, input_text.generateInputState(inputStr));
+}
+function getParserPosition(input_state) {
+    return new Position(input_text.getCurrentLine(input_state), input_state.position.line, input_state.position.column);
+}
+function printResult(result) {
+    if (result.tag === 1) {
+        var failure = {
+            formatFn: Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* fsFormat */])("%*s^%s"),
+            input: "%*s^%s"
+        }.formatFn(function (x) {
+            return x;
+        })(result.data[2].column, "", result.data[1]);
+        ({
+            formatFn: Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* fsFormat */])("Line:%i Col:%i Error parsing %s\n%s\n%s"),
+            input: "Line:%i Col:%i Error parsing %s\n%s\n%s"
+        }).formatFn(function (x) {
+            console.log(x);
+        })(result.data[2].line, result.data[2].column, result.data[0], result.data[2].current_line, failure);
+    } else {
+        var value = result.data[0];
+        var input = result.data[1];
+        ({
+            formatFn: Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* fsFormat */])("%A"),
+            input: "%A"
+        }).formatFn(function (x) {
+            console.log(x);
+        })(value);
+    }
+}
+function getLabel(parser) {
+    return parser.label;
+}
+function setLabel(parser, new_label) {
+    var new_parser_function = function new_parser_function(input) {
+        var result = parser.parser_function(input);
+
+        if (result.tag === 1) {
+            return new Return(1, [new_label, result.data[1], result.data[2]]);
+        } else {
+            return new Return(0, result.data);
+        }
+    };
+
+    return new Parser(new_parser_function, new_label);
+}
+function op_LessQmarkGreater() {
+    return function (parser, new_label) {
+        return setLabel(parser, new_label);
+    };
+}
+function matching(character, label) {
+    var parser_fun = function parser_fun(input) {
+        var patternInput = input_text.getNextChar(input);
+
+        if (patternInput[1] != null) {
+            if (character(patternInput[1])) {
+                return new Return(0, [patternInput[1], patternInput[0]]);
+            } else {
+                var err = {
+                    formatFn: Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* fsFormat */])("Unexpected '%c'"),
+                    input: "Unexpected '%c'"
+                }.formatFn(function (x) {
+                    return x;
+                })(patternInput[1]);
+                var pos = getParserPosition(input);
+                return new Return(1, [label, err, pos]);
+            }
+        } else {
+            var pos_1 = getParserPosition(input);
+            return new Return(1, [label, "No more input", pos_1]);
+        }
+    };
+
+    return new Parser(parser_fun, label);
+}
+function bindParser(f, p) {
+    var parser_fun = function parser_fun(input) {
+        var result = runParserFunction(p, input);
+
+        if (result.tag === 0) {
+            var v = result.data[0];
+            var remaining_input = result.data[1];
+            var p2 = f(v);
+            return runParserFunction(p2, remaining_input);
+        } else {
+            return new Return(1, [result.data[0], result.data[1], result.data[2]]);
+        }
+    };
+
+    return new Parser(parser_fun, "unknown");
+}
+function op_GreaterGreaterEquals(p, f) {
+    return bindParser(f, p);
+}
+function returnParser(x) {
+    var label = {
+        formatFn: Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* fsFormat */])("%A"),
+        input: "%A"
+    }.formatFn(function (x) {
+        return x;
+    })(x);
+
+    var parser_fun = function parser_fun(input) {
+        return new Return(0, [x, input]);
+    };
+
+    return new Parser(parser_fun, label);
+}
+function mapParser(f) {
+    var f_1 = function f_1($var1) {
+        return function (x) {
+            return returnParser(x);
+        }(f($var1));
+    };
+
+    return function (p) {
+        return bindParser(f_1, p);
+    };
+}
+function op_LessBangGreater() {
+    return Object(__WEBPACK_IMPORTED_MODULE_6__nuget_packages_fable_core_1_2_0_beta_003_fable_core_CurriedLambda__["a" /* default */])(function (f) {
+        return mapParser(f);
+    });
+}
+function op_BarGreaterGreater(x, f) {
+    return mapParser(f)(x);
+}
+function applyFunction(f, x) {
+    return op_GreaterGreaterEquals(f, function (f_1) {
+        return op_GreaterGreaterEquals(x, function (x_1) {
+            return returnParser(f_1(x_1));
+        });
+    });
+}
+function op_LessMultiplyGreater() {
+    return function (f, x) {
+        return applyFunction(f, x);
+    };
+}
+function lift(func, xParser, yParser) {
+    return op_LessMultiplyGreater()(op_LessMultiplyGreater()(returnParser(Object(__WEBPACK_IMPORTED_MODULE_6__nuget_packages_fable_core_1_2_0_beta_003_fable_core_CurriedLambda__["a" /* default */])(func)), xParser), yParser);
+}
+function following(p1, p2) {
+    var label = {
+        formatFn: Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* fsFormat */])("%s following %s"),
+        input: "%s following %s"
+    }.formatFn(function (x) {
+        return x;
+    })(getLabel(p1), getLabel(p2));
+    return op_LessQmarkGreater()(op_GreaterGreaterEquals(p1, function (p1Result) {
+        return op_GreaterGreaterEquals(p2, function (p2Result) {
+            return returnParser([p1Result, p2Result]);
+        });
+    }), label);
+}
+function op_DotGreaterGreaterDot() {
+    return function (p1, p2) {
+        return following(p1, p2);
+    };
+}
+function eitherOr(p1, p2) {
+    var label = {
+        formatFn: Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* fsFormat */])("%s eitherOr %s"),
+        input: "%s eitherOr %s"
+    }.formatFn(function (x) {
+        return x;
+    })(getLabel(p1), getLabel(p2));
+
+    var parser_fun = function parser_fun(input) {
+        var res = runParserFunction(p1, input);
+
+        if (res.tag === 1) {
+            var result1 = runParserFunction(p2, input);
+            return result1;
+        } else {
+            return res;
+        }
+    };
+
+    return new Parser(parser_fun, label);
+}
+function op_LessBarGreater() {
+    return function (p1, p2) {
+        return eitherOr(p1, p2);
+    };
+}
+function choose(parser_list) {
+    return Object(__WEBPACK_IMPORTED_MODULE_7__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Seq__["g" /* reduce */])(op_LessBarGreater(), parser_list);
+}
+function seq(parser_list) {
+    var f = function f(head, tail) {
+        return new __WEBPACK_IMPORTED_MODULE_8__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["b" /* default */](head, tail);
+    };
+
+    var fParser = function fParser(xParser, yParser) {
+        return lift(f, xParser, yParser);
+    };
+
+    if (parser_list.tail != null) {
+        return fParser(parser_list.head, seq(parser_list.tail));
+    } else {
+        return returnParser(new __WEBPACK_IMPORTED_MODULE_8__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["b" /* default */]());
+    }
+}
+function zeroOrMore(parser, input) {
+    var first_result = runParserFunction(parser, input);
+
+    if (first_result.tag === 0) {
+        var input_after_parser = first_result.data[1];
+        var first_value = first_result.data[0];
+        var patternInput = zeroOrMore(parser, input_after_parser);
+        var values = new __WEBPACK_IMPORTED_MODULE_8__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["b" /* default */](first_value, patternInput[0]);
+        return [values, patternInput[1]];
+    } else {
+        return [new __WEBPACK_IMPORTED_MODULE_8__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["b" /* default */](), input];
+    }
+}
+function manyZeroOrMore(p) {
+    var label = {
+        formatFn: Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* fsFormat */])("manyZeroOrMore %s"),
+        input: "manyZeroOrMore %s"
+    }.formatFn(function (x) {
+        return x;
+    })(getLabel(p));
+
+    var parser_fun = function parser_fun(input) {
+        return new Return(0, zeroOrMore(p, input));
+    };
+
+    return new Parser(parser_fun, label);
+}
+function manyOneOrMore(p) {
+    var label = {
+        formatFn: Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* fsFormat */])("manyOneOrMore %s"),
+        input: "manyOneOrMore %s"
+    }.formatFn(function (x) {
+        return x;
+    })(getLabel(p));
+    return op_LessQmarkGreater()(op_GreaterGreaterEquals(p, function (head) {
+        return op_GreaterGreaterEquals(manyZeroOrMore(p), function (tail) {
+            return returnParser(new __WEBPACK_IMPORTED_MODULE_8__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["b" /* default */](head, tail));
+        });
+    }), label);
+}
+function opt(p) {
+    var label = {
+        formatFn: Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* fsFormat */])("opt %s"),
+        input: "opt %s"
+    }.formatFn(function (x) {
+        return x;
+    })(getLabel(p));
+    var some = op_BarGreaterGreater(p, function (arg0) {
+        return arg0;
+    });
+    var none = returnParser(null);
+    return op_LessQmarkGreater()(op_LessBarGreater()(some, none), label);
+}
+function op_DotGreaterGreater(parser1, parser2) {
+    return mapParser(function (tupledArg) {
+        return tupledArg[0];
+    })(op_DotGreaterGreaterDot()(parser1, parser2));
+}
+function op_GreaterGreaterDot(parser1, parser2) {
+    return mapParser(function (tupledArg) {
+        return tupledArg[1];
+    })(op_DotGreaterGreaterDot()(parser1, parser2));
+}
+function middle(parser1, parser2, parser3) {
+    return op_DotGreaterGreater(op_GreaterGreaterDot(parser1, parser2), parser3);
+}
+function separateByOneOrMore(parser, separator) {
+    var separateThenParser = op_GreaterGreaterDot(separator, parser);
+    return op_BarGreaterGreater(op_DotGreaterGreaterDot()(parser, manyZeroOrMore(separateThenParser)), function (tupledArg) {
+        return new __WEBPACK_IMPORTED_MODULE_8__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["b" /* default */](tupledArg[0], tupledArg[1]);
+    });
+}
+function separateByZeroOrMore(parser, separator) {
+    return op_LessBarGreater()(separateByOneOrMore(parser, separator), returnParser(new __WEBPACK_IMPORTED_MODULE_8__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["b" /* default */]()));
+}
+function matchChar(charToMatch) {
+    var label = {
+        formatFn: Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* fsFormat */])("%c"),
+        input: "%c"
+    }.formatFn(function (x) {
+        return x;
+    })(charToMatch);
+
+    var predicate = function predicate(ch) {
+        return ch === charToMatch;
+    };
+
+    return matching(predicate, label);
+}
+function chooseAny(list_of_characters) {
+    var label = {
+        formatFn: Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_String__["a" /* fsFormat */])("anyOf %A"),
+        input: "anyOf %A"
+    }.formatFn(function (x) {
+        return x;
+    })(list_of_characters);
+    return op_LessQmarkGreater()(choose(function (list) {
+        return Object(__WEBPACK_IMPORTED_MODULE_8__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["c" /* map */])(function (charToMatch) {
+            return matchChar(charToMatch);
+        }, list);
+    }(list_of_characters)), label);
+}
+function charListToStr(charList) {
+    return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from___default()(charList).join("");
+}
+function matchZeroOrMoreCharacters(c) {
+    return op_BarGreaterGreater(manyZeroOrMore(c), function (charList) {
+        return charListToStr(charList);
+    });
+}
+function matchOneOrMoreCharacters(c) {
+    return op_BarGreaterGreater(manyOneOrMore(c), function (charList) {
+        return charListToStr(charList);
+    });
+}
+function matchString(lbl) {
+    return op_LessQmarkGreater()(mapParser(function (charList) {
+        return charListToStr(charList);
+    })(seq(function (list) {
+        return Object(__WEBPACK_IMPORTED_MODULE_8__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["c" /* map */])(function (charToMatch) {
+            return matchChar(charToMatch);
+        }, list);
+    }(Object(__WEBPACK_IMPORTED_MODULE_7__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Seq__["h" /* toList */])(lbl)))), lbl);
+}
+function matchWhiteSpace(character) {
+    if (character === " ") {
+        return true;
+    } else {
+        return false;
+    }
+}
+var whitespaceChar = function () {
+    var predicate = function predicate(character) {
+        return matchWhiteSpace(character);
+    };
+
+    return matching(predicate, "whitespace");
+}();
+var zeroOrMoreSpaces = matchZeroOrMoreCharacters(whitespaceChar);
+var oneOrMoreSpaces = matchOneOrMoreCharacters(whitespaceChar);
+function matchDigit(character) {
+    if (character === "0") {
+        return true;
+    } else if (character === "1") {
+        return true;
+    } else if (character === "2") {
+        return true;
+    } else if (character === "3") {
+        return true;
+    } else if (character === "4") {
+        return true;
+    } else if (character === "5") {
+        return true;
+    } else if (character === "6") {
+        return true;
+    } else if (character === "7") {
+        return true;
+    } else if (character === "8") {
+        return true;
+    } else if (character === "9") {
+        return true;
+    } else {
+        return false;
+    }
+}
+var digitalCharacter = function () {
+    var predicate = function predicate(character) {
+        return matchDigit(character);
+    };
+
+    return matching(predicate, "digit");
+}();
+var digits = matchOneOrMoreCharacters(digitalCharacter);
+var matchInteger = function () {
+    var resultToInt = function resultToInt(tupledArg) {
+        var i = Object(__WEBPACK_IMPORTED_MODULE_9__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Int32__["b" /* parse */])(tupledArg[1]) | 0;
+
+        if (tupledArg[0] == null) {
+            return i | 0;
+        } else {
+            return -i | 0;
+        }
+    };
+
+    return op_LessQmarkGreater()(mapParser(resultToInt)(op_DotGreaterGreaterDot()(opt(matchChar("-")), digits)), "integer");
+}();
+
+/***/ }),
+/* 143 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export map */
+/* unused harmony export mapIndexed */
+/* unused harmony export indexed */
+/* unused harmony export addRangeInPlace */
+/* unused harmony export copyTo */
+/* unused harmony export partition */
+/* harmony export (immutable) */ __webpack_exports__["b"] = permute;
+/* unused harmony export removeInPlace */
+/* unused harmony export setSlice */
+/* unused harmony export sortInPlaceBy */
+/* unused harmony export unzip */
+/* unused harmony export unzip3 */
+/* harmony export (immutable) */ __webpack_exports__["a"] = chunkBySize;
+/* unused harmony export getSubArray */
+/* unused harmony export fill */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_get_iterator__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_get_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_get_iterator__);
+
+function map(f, source, target) {
+    for (var i = 0; i < source.length; i++) {
+        target[i] = f(source[i]);
+    }
+    return target;
+}
+function mapIndexed(f, source, target) {
+    for (var i = 0; i < source.length; i++) {
+        target[i] = f(i, source[i]);
+    }
+    return target;
+}
+function indexed(source, target) {
+    return mapIndexed(function (i, x) {
+        return [i, x];
+    }, source, target);
+}
+function addRangeInPlace(range, xs) {
+    var iter = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_get_iterator___default()(range);
+    var cur = iter.next();
+    while (!cur.done) {
+        xs.push(cur.value);
+        cur = iter.next();
+    }
+}
+function copyTo(source, sourceIndex, target, targetIndex, count) {
+    while (count--) {
+        target[targetIndex++] = source[sourceIndex++];
+    }
+}
+function partition(f, xs) {
+    var ys = [];
+    var zs = [];
+    var j = 0;
+    var k = 0;
+    for (var i = 0; i < xs.length; i++) {
+        if (f(xs[i])) {
+            ys[j++] = xs[i];
+        } else {
+            zs[k++] = xs[i];
+        }
+    }
+    return [ys, zs];
+}
+function permute(f, xs) {
+    // Keep the type of the array
+    var ys = xs.map(function () {
+        return null;
+    });
+    var checkFlags = new Array(xs.length);
+    for (var i = 0; i < xs.length; i++) {
+        var j = f(i);
+        if (j < 0 || j >= xs.length) {
+            throw new Error("Not a valid permutation");
+        }
+        ys[j] = xs[i];
+        checkFlags[j] = 1;
+    }
+    for (var _i = 0; _i < xs.length; _i++) {
+        if (checkFlags[_i] !== 1) {
+            throw new Error("Not a valid permutation");
+        }
+    }
+    return ys;
+}
+function removeInPlace(item, xs) {
+    var i = xs.indexOf(item);
+    if (i > -1) {
+        xs.splice(i, 1);
+        return true;
+    }
+    return false;
+}
+function setSlice(target, lower, upper, source) {
+    var length = (upper || target.length - 1) - lower;
+    if (ArrayBuffer.isView(target) && source.length <= length) {
+        target.set(source, lower);
+    } else {
+        for (var i = lower | 0, j = 0; j <= length; i++, j++) {
+            target[i] = source[j];
+        }
+    }
+}
+function sortInPlaceBy(f, xs) {
+    var dir = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+
+    return xs.sort(function (x, y) {
+        x = f(x);
+        y = f(y);
+        return (x < y ? -1 : x === y ? 0 : 1) * dir;
+    });
+}
+function unzip(xs) {
+    var bs = new Array(xs.length);
+    var cs = new Array(xs.length);
+    for (var i = 0; i < xs.length; i++) {
+        bs[i] = xs[i][0];
+        cs[i] = xs[i][1];
+    }
+    return [bs, cs];
+}
+function unzip3(xs) {
+    var bs = new Array(xs.length);
+    var cs = new Array(xs.length);
+    var ds = new Array(xs.length);
+    for (var i = 0; i < xs.length; i++) {
+        bs[i] = xs[i][0];
+        cs[i] = xs[i][1];
+        ds[i] = xs[i][2];
+    }
+    return [bs, cs, ds];
+}
+function chunkBySize(size, xs) {
+    if (size < 1) {
+        throw new Error("The input must be positive. parameter name: chunkSize");
+    }
+    if (xs.length === 0) {
+        return [[]];
+    }
+    var result = [];
+    // add each chunk to the result
+    for (var x = 0; x < Math.ceil(xs.length / size); x++) {
+        var start = x * size;
+        var end = start + size;
+        result.push(xs.slice(start, end));
+    }
+    return result;
+}
+function getSubArray(xs, startIndex, count) {
+    return xs.slice(startIndex, startIndex + count);
+}
+function fill(target, targetIndex, count, value) {
+    target.fill(value, targetIndex, targetIndex + count);
+}
+
+/***/ }),
+/* 144 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = CurriedLambda;
+function CurriedLambda(f, _this, expectedArgsLength) {
+    if (f.curried === true) {
+        return f;
+    }
+    var curriedFn = function curriedFn() {
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        // _this = _this || this;
+        expectedArgsLength = expectedArgsLength || f.length;
+        if (args.length >= expectedArgsLength) {
+            var restArgs = args.splice(expectedArgsLength);
+            var res = f.apply(_this, args);
+            if (typeof res === "function") {
+                var newLambda = CurriedLambda(res, _this);
+                return restArgs.length === 0 ? newLambda : newLambda.apply(_this, restArgs);
+            } else {
+                return res;
+            }
+        } else {
+            return CurriedLambda(function () {
+                for (var _len2 = arguments.length, args2 = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+                    args2[_key2] = arguments[_key2];
+                }
+
+                return f.apply(_this, args.concat(args2));
+            }, _this, expectedArgsLength - args.length);
+        }
+    };
+    curriedFn.curried = true;
+    return curriedFn;
+}
+
+/***/ }),
+/* 145 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _isIterable2 = __webpack_require__(146);
+
+var _isIterable3 = _interopRequireDefault(_isIterable2);
+
+var _getIterator2 = __webpack_require__(67);
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  function sliceIterator(arr, i) {
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = undefined;
+
+    try {
+      for (var _i = (0, _getIterator3.default)(arr), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"]) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+
+    return _arr;
+  }
+
+  return function (arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if ((0, _isIterable3.default)(Object(arr))) {
+      return sliceIterator(arr, i);
+    } else {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }
+  };
+}();
+
+/***/ }),
+/* 146 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(147), __esModule: true };
+
+/***/ }),
+/* 147 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(43);
+__webpack_require__(23);
+module.exports = __webpack_require__(148);
+
+
+/***/ }),
+/* 148 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var classof = __webpack_require__(65);
+var ITERATOR = __webpack_require__(1)('iterator');
+var Iterators = __webpack_require__(16);
+module.exports = __webpack_require__(0).isIterable = function (it) {
+  var O = Object(it);
+  return O[ITERATOR] !== undefined
+    || '@@iterator' in O
+    // eslint-disable-next-line no-prototype-builtins
+    || Iterators.hasOwnProperty(classof(O));
+};
+
+
+/***/ }),
+/* 149 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = groupBy;
+/* unused harmony export countBy */
+/* unused harmony export MapTree */
+/* unused harmony export create */
+/* unused harmony export add */
+/* unused harmony export remove */
+/* unused harmony export containsValue */
+/* unused harmony export tryGetValue */
+/* unused harmony export exists */
+/* unused harmony export find */
+/* unused harmony export tryFind */
+/* unused harmony export filter */
+/* unused harmony export fold */
+/* unused harmony export foldBack */
+/* unused harmony export forAll */
+/* unused harmony export isEmpty */
+/* unused harmony export iterate */
+/* unused harmony export map */
+/* unused harmony export partition */
+/* unused harmony export findKey */
+/* unused harmony export tryFindKey */
+/* unused harmony export pick */
+/* unused harmony export tryPick */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Comparer__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ListClass__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Seq__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Symbol__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Util__ = __webpack_require__(25);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------
+// These functions belong to Seq.ts but are
+// implemented here to prevent cyclic dependencies
+function groupBy(f, xs) {
+    var keys = [];
+    var iter = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(xs);
+    var acc = create();
+    var cur = iter.next();
+    while (!cur.done) {
+        var k = f(cur.value);
+        var vs = tryFind(k, acc);
+        if (vs == null) {
+            keys.push(k);
+            acc = add(k, [cur.value], acc);
+        } else {
+            vs.push(cur.value);
+        }
+        cur = iter.next();
+    }
+    return keys.map(function (k) {
+        return [k, acc.get(k)];
+    });
+}
+function countBy(f, xs) {
+    return groupBy(f, xs).map(function (kv) {
+        return [kv[0], kv[1].length];
+    });
+}
+var MapTree = function MapTree(tag, data) {
+    __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck___default()(this, MapTree);
+
+    this.tag = tag | 0;
+    this.data = data;
+};
+function tree_sizeAux(acc, m) {
+    sizeAux: while (true) {
+        if (m.tag === 1) {
+            return acc + 1 | 0;
+        } else if (m.tag === 2) {
+            acc = tree_sizeAux(acc + 1, m.data[2]);
+            m = m.data[3];
+            continue sizeAux;
+        } else {
+            return acc | 0;
+        }
+    }
+}
+function tree_size(x) {
+    return tree_sizeAux(0, x);
+}
+function tree_empty() {
+    return new MapTree(0);
+}
+function tree_height(_arg1) {
+    return _arg1.tag === 1 ? 1 : _arg1.tag === 2 ? _arg1.data[4] : 0;
+}
+function tree_isEmpty(m) {
+    return m.tag === 0 ? true : false;
+}
+function tree_mk(l, k, v, r) {
+    var matchValue = l.tag === 0 ? r.tag === 0 ? 0 : 1 : 1;
+    switch (matchValue) {
+        case 0:
+            return new MapTree(1, [k, v]);
+        case 1:
+            var hl = tree_height(l) | 0;
+            var hr = tree_height(r) | 0;
+            var m = (hl < hr ? hr : hl) | 0;
+            return new MapTree(2, [k, v, l, r, m + 1]);
+    }
+    throw new Error("internal error: Map.tree_mk");
+}
+function tree_rebalance(t1, k, v, t2) {
+    var t1h = tree_height(t1);
+    var t2h = tree_height(t2);
+    if (t2h > t1h + 2) {
+        if (t2.tag === 2) {
+            if (tree_height(t2.data[2]) > t1h + 1) {
+                if (t2.data[2].tag === 2) {
+                    return tree_mk(tree_mk(t1, k, v, t2.data[2].data[2]), t2.data[2].data[0], t2.data[2].data[1], tree_mk(t2.data[2].data[3], t2.data[0], t2.data[1], t2.data[3]));
+                } else {
+                    throw new Error("rebalance");
+                }
+            } else {
+                return tree_mk(tree_mk(t1, k, v, t2.data[2]), t2.data[0], t2.data[1], t2.data[3]);
+            }
+        } else {
+            throw new Error("rebalance");
+        }
+    } else {
+        if (t1h > t2h + 2) {
+            if (t1.tag === 2) {
+                if (tree_height(t1.data[3]) > t2h + 1) {
+                    if (t1.data[3].tag === 2) {
+                        return tree_mk(tree_mk(t1.data[2], t1.data[0], t1.data[1], t1.data[3].data[2]), t1.data[3].data[0], t1.data[3].data[1], tree_mk(t1.data[3].data[3], k, v, t2));
+                    } else {
+                        throw new Error("rebalance");
+                    }
+                } else {
+                    return tree_mk(t1.data[2], t1.data[0], t1.data[1], tree_mk(t1.data[3], k, v, t2));
+                }
+            } else {
+                throw new Error("rebalance");
+            }
+        } else {
+            return tree_mk(t1, k, v, t2);
+        }
+    }
+}
+function tree_add(comparer, k, v, m) {
+    if (m.tag === 1) {
+        var c = comparer.Compare(k, m.data[0]);
+        if (c < 0) {
+            return new MapTree(2, [k, v, new MapTree(0), m, 2]);
+        } else if (c === 0) {
+            return new MapTree(1, [k, v]);
+        }
+        return new MapTree(2, [k, v, m, new MapTree(0), 2]);
+    } else if (m.tag === 2) {
+        var _c = comparer.Compare(k, m.data[0]);
+        if (_c < 0) {
+            return tree_rebalance(tree_add(comparer, k, v, m.data[2]), m.data[0], m.data[1], m.data[3]);
+        } else if (_c === 0) {
+            return new MapTree(2, [k, v, m.data[2], m.data[3], m.data[4]]);
+        }
+        return tree_rebalance(m.data[2], m.data[0], m.data[1], tree_add(comparer, k, v, m.data[3]));
+    }
+    return new MapTree(1, [k, v]);
+}
+function tree_find(comparer, k, m) {
+    var res = tree_tryFind(comparer, k, m);
+    if (res != null) {
+        return res;
+    }
+    throw new Error("key not found");
+}
+function tree_tryFind(comparer, k, m) {
+    tryFind: while (true) {
+        if (m.tag === 1) {
+            var c = comparer.Compare(k, m.data[0]) | 0;
+            if (c === 0) {
+                return m.data[1];
+            } else {
+                return null;
+            }
+        } else if (m.tag === 2) {
+            var c_1 = comparer.Compare(k, m.data[0]) | 0;
+            if (c_1 < 0) {
+                comparer = comparer;
+                k = k;
+                m = m.data[2];
+                continue tryFind;
+            } else if (c_1 === 0) {
+                return m.data[1];
+            } else {
+                comparer = comparer;
+                k = k;
+                m = m.data[3];
+                continue tryFind;
+            }
+        } else {
+            return null;
+        }
+    }
+}
+function tree_partition1(comparer, f, k, v, acc1, acc2) {
+    return f(k, v) ? [tree_add(comparer, k, v, acc1), acc2] : [acc1, tree_add(comparer, k, v, acc2)];
+}
+function tree_partitionAux(comparer, f, s, acc_0, acc_1) {
+    var acc = [acc_0, acc_1];
+    if (s.tag === 1) {
+        return tree_partition1(comparer, f, s.data[0], s.data[1], acc[0], acc[1]);
+    } else if (s.tag === 2) {
+        var acc_2 = tree_partitionAux(comparer, f, s.data[3], acc[0], acc[1]);
+        var acc_3 = tree_partition1(comparer, f, s.data[0], s.data[1], acc_2[0], acc_2[1]);
+        return tree_partitionAux(comparer, f, s.data[2], acc_3[0], acc_3[1]);
+    }
+    return acc;
+}
+function tree_partition(comparer, f, s) {
+    return tree_partitionAux(comparer, f, s, tree_empty(), tree_empty());
+}
+function tree_filter1(comparer, f, k, v, acc) {
+    return f(k, v) ? tree_add(comparer, k, v, acc) : acc;
+}
+function tree_filterAux(comparer, f, s, acc) {
+    return s.tag === 1 ? tree_filter1(comparer, f, s.data[0], s.data[1], acc) : s.tag === 2 ? tree_filterAux(comparer, f, s.data[3], tree_filter1(comparer, f, s.data[0], s.data[1], tree_filterAux(comparer, f, s.data[2], acc))) : acc;
+}
+function tree_filter(comparer, f, s) {
+    return tree_filterAux(comparer, f, s, tree_empty());
+}
+function tree_spliceOutSuccessor(m) {
+    if (m.tag === 1) {
+        return [m.data[0], m.data[1], new MapTree(0)];
+    } else if (m.tag === 2) {
+        if (m.data[2].tag === 0) {
+            return [m.data[0], m.data[1], m.data[3]];
+        } else {
+            var kvl = tree_spliceOutSuccessor(m.data[2]);
+            return [kvl[0], kvl[1], tree_mk(kvl[2], m.data[0], m.data[1], m.data[3])];
+        }
+    }
+    throw new Error("internal error: Map.spliceOutSuccessor");
+}
+function tree_remove(comparer, k, m) {
+    if (m.tag === 1) {
+        var c = comparer.Compare(k, m.data[0]);
+        if (c === 0) {
+            return new MapTree(0);
+        } else {
+            return m;
+        }
+    } else if (m.tag === 2) {
+        var _c2 = comparer.Compare(k, m.data[0]);
+        if (_c2 < 0) {
+            return tree_rebalance(tree_remove(comparer, k, m.data[2]), m.data[0], m.data[1], m.data[3]);
+        } else if (_c2 === 0) {
+            if (m.data[2].tag === 0) {
+                return m.data[3];
+            } else {
+                if (m.data[3].tag === 0) {
+                    return m.data[2];
+                } else {
+                    var input = tree_spliceOutSuccessor(m.data[3]);
+                    return tree_mk(m.data[2], input[0], input[1], input[2]);
+                }
+            }
+        } else {
+            return tree_rebalance(m.data[2], m.data[0], m.data[1], tree_remove(comparer, k, m.data[3]));
+        }
+    } else {
+        return tree_empty();
+    }
+}
+function tree_mem(comparer, k, m) {
+    mem: while (true) {
+        if (m.tag === 1) {
+            return comparer.Compare(k, m.data[0]) === 0;
+        } else if (m.tag === 2) {
+            var c = comparer.Compare(k, m.data[0]) | 0;
+            if (c < 0) {
+                comparer = comparer;
+                k = k;
+                m = m.data[2];
+                continue mem;
+            } else if (c === 0) {
+                return true;
+            } else {
+                comparer = comparer;
+                k = k;
+                m = m.data[3];
+                continue mem;
+            }
+        } else {
+            return false;
+        }
+    }
+}
+function tree_iter(f, m) {
+    if (m.tag === 1) {
+        f(m.data[0], m.data[1]);
+    } else if (m.tag === 2) {
+        tree_iter(f, m.data[2]);
+        f(m.data[0], m.data[1]);
+        tree_iter(f, m.data[3]);
+    }
+}
+function tree_tryPick(f, m) {
+    if (m.tag === 1) {
+        return f(m.data[0], m.data[1]);
+    } else if (m.tag === 2) {
+        var matchValue = tree_tryPick(f, m.data[2]);
+        if (matchValue == null) {
+            var matchValue_1 = f(m.data[0], m.data[1]);
+            if (matchValue_1 == null) {
+                return tree_tryPick(f, m.data[3]);
+            } else {
+                var res = matchValue_1;
+                return res;
+            }
+        } else {
+            return matchValue;
+        }
+    } else {
+        return null;
+    }
+}
+function tree_exists(f, m) {
+    return m.tag === 1 ? f(m.data[0], m.data[1]) : m.tag === 2 ? (tree_exists(f, m.data[2]) ? true : f(m.data[0], m.data[1])) ? true : tree_exists(f, m.data[3]) : false;
+}
+function tree_forall(f, m) {
+    return m.tag === 1 ? f(m.data[0], m.data[1]) : m.tag === 2 ? (tree_forall(f, m.data[2]) ? f(m.data[0], m.data[1]) : false) ? tree_forall(f, m.data[3]) : false : true;
+}
+function tree_mapi(f, m) {
+    return m.tag === 1 ? new MapTree(1, [m.data[0], f(m.data[0], m.data[1])]) : m.tag === 2 ? new MapTree(2, [m.data[0], f(m.data[0], m.data[1]), tree_mapi(f, m.data[2]), tree_mapi(f, m.data[3]), m.data[4]]) : tree_empty();
+}
+function tree_foldBack(f, m, x) {
+    return m.tag === 1 ? f(m.data[0], m.data[1], x) : m.tag === 2 ? tree_foldBack(f, m.data[2], f(m.data[0], m.data[1], tree_foldBack(f, m.data[3], x))) : x;
+}
+function tree_fold(f, x, m) {
+    return m.tag === 1 ? f(x, m.data[0], m.data[1]) : m.tag === 2 ? tree_fold(f, f(tree_fold(f, x, m.data[2]), m.data[0], m.data[1]), m.data[3]) : x;
+}
+// function tree_foldFromTo(
+//     comparer: IComparer<any>, lo: any, hi: any,
+//     f: (k:any, v: any, acc: any) => any, m: MapTree, x: any): any {
+//   if (m.tag === 1) {
+//     var cLoKey = comparer.Compare(lo, m.data[0]);
+//     var cKeyHi = comparer.Compare(m.data[0], hi);
+//     var x_1 = (cLoKey <= 0 ? cKeyHi <= 0 : false) ? f(m.data[0], m.data[1], x) : x;
+//     return x_1;
+//   } else if (m.tag === 2) {
+//     var cLoKey = comparer.Compare(lo, m.data[0]);
+//     var cKeyHi = comparer.Compare(m.data[0], hi);
+//     var x_1 = cLoKey < 0 ? tree_foldFromTo(comparer, lo, hi, f, m.data[2], x) : x;
+//     var x_2 = (cLoKey <= 0 ? cKeyHi <= 0 : false) ? f(m.data[0], m.data[1], x_1) : x_1;
+//     var x_3 = cKeyHi < 0 ? tree_foldFromTo(comparer, lo, hi, f, m.data[3], x_2) : x_2;
+//     return x_3;
+//   }
+//   return x;
+// }
+// function tree_foldSection(
+//     comparer: IComparer<any>, lo: any, hi: any,
+//     f: (k: any, v: any, acc: any) => any, m: MapTree, x: any) {
+//   return comparer.Compare(lo, hi) === 1 ? x : tree_foldFromTo(comparer, lo, hi, f, m, x);
+// }
+// function tree_loop(m: MapTree, acc: any): List<[any,any]> {
+//   return m.tag === 1
+//     ? new List([m.data[0], m.data[1]], acc)
+//     : m.tag === 2
+//       ? tree_loop(m.data[2], new List([m.data[0], m.data[1]], tree_loop(m.data[3], acc)))
+//       : acc;
+// }
+// function tree_toList(m: MapTree) {
+//   return tree_loop(m, new List());
+// }
+// function tree_toArray(m: MapTree) {
+//   return Array.from(tree_toList(m));
+// }
+// function tree_ofList(comparer: IComparer<any>, l: List<[any,any]>) {
+//   return Seq.fold((acc: MapTree, tupledArg: [any, any]) => {
+//     return tree_add(comparer, tupledArg[0], tupledArg[1], acc);
+//   }, tree_empty(), l);
+// }
+function tree_mkFromEnumerator(comparer, acc, e) {
+    var cur = e.next();
+    while (!cur.done) {
+        acc = tree_add(comparer, cur.value[0], cur.value[1], acc);
+        cur = e.next();
+    }
+    return acc;
+}
+// function tree_ofArray(comparer: IComparer<any>, arr: ArrayLike<[any,any]>) {
+//   var res = tree_empty();
+//   for (var i = 0; i <= arr.length - 1; i++) {
+//     res = tree_add(comparer, arr[i][0], arr[i][1], res);
+//   }
+//   return res;
+// }
+function tree_ofSeq(comparer, c) {
+    var ie = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(c);
+    return tree_mkFromEnumerator(comparer, tree_empty(), ie);
+}
+// function tree_copyToArray(s: MapTree, arr: ArrayLike<any>, i: number) {
+//   tree_iter((x, y) => { arr[i++] = [x, y]; }, s);
+// }
+function tree_collapseLHS(stack) {
+    if (stack.tail != null) {
+        if (stack.head.tag === 1) {
+            return stack;
+        } else if (stack.head.tag === 2) {
+            return tree_collapseLHS(Object(__WEBPACK_IMPORTED_MODULE_6__ListClass__["b" /* ofArray */])([stack.head.data[2], new MapTree(1, [stack.head.data[0], stack.head.data[1]]), stack.head.data[3]], stack.tail));
+        } else {
+            return tree_collapseLHS(stack.tail);
+        }
+    } else {
+        return new __WEBPACK_IMPORTED_MODULE_6__ListClass__["a" /* default */]();
+    }
+}
+function tree_mkIterator(s) {
+    return { stack: tree_collapseLHS(new __WEBPACK_IMPORTED_MODULE_6__ListClass__["a" /* default */](s, new __WEBPACK_IMPORTED_MODULE_6__ListClass__["a" /* default */]())), started: false };
+}
+function tree_moveNext(i) {
+    function current(it) {
+        if (it.stack.tail == null) {
+            return null;
+        } else if (it.stack.head.tag === 1) {
+            return [it.stack.head.data[0], it.stack.head.data[1]];
+        }
+        throw new Error("Please report error: Map iterator, unexpected stack for current");
+    }
+    if (i.started) {
+        if (i.stack.tail == null) {
+            return { done: true, value: null };
+        } else {
+            if (i.stack.head.tag === 1) {
+                i.stack = tree_collapseLHS(i.stack.tail);
+                return {
+                    done: i.stack.tail == null,
+                    value: current(i)
+                };
+            } else {
+                throw new Error("Please report error: Map iterator, unexpected stack for moveNext");
+            }
+        }
+    } else {
+        i.started = true;
+        return {
+            done: i.stack.tail == null,
+            value: current(i)
+        };
+    }
+}
+
+var FableMap = function () {
+    /** Do not call, use Map.create instead. */
+    function FableMap() {
+        __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_classCallCheck___default()(this, FableMap);
+
+        return;
+    }
+
+    __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(FableMap, [{
+        key: "ToString",
+        value: function ToString() {
+            return "map [" + __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_array_from___default()(this).map(function (x) {
+                return Object(__WEBPACK_IMPORTED_MODULE_9__Util__["l" /* toString */])(x);
+            }).join("; ") + "]";
+        }
+    }, {
+        key: "Equals",
+        value: function Equals(m2) {
+            return this.CompareTo(m2) === 0;
+        }
+    }, {
+        key: "CompareTo",
+        value: function CompareTo(m2) {
+            var _this = this;
+
+            return this === m2 ? 0 : Object(__WEBPACK_IMPORTED_MODULE_7__Seq__["a" /* compareWith */])(function (kvp1, kvp2) {
+                var c = _this.comparer.Compare(kvp1[0], kvp2[0]);
+                return c !== 0 ? c : Object(__WEBPACK_IMPORTED_MODULE_9__Util__["f" /* compare */])(kvp1[1], kvp2[1]);
+            }, this, m2);
+        }
+    }, {
+        key: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_symbol_iterator___default.a,
+        value: function value() {
+            var i = tree_mkIterator(this.tree);
+            return {
+                next: function next() {
+                    return tree_moveNext(i);
+                }
+            };
+        }
+    }, {
+        key: "entries",
+        value: function entries() {
+            return __WEBPACK_IMPORTED_MODULE_4_babel_runtime_core_js_get_iterator___default()(this);
+        }
+    }, {
+        key: "keys",
+        value: function keys() {
+            return Object(__WEBPACK_IMPORTED_MODULE_7__Seq__["d" /* map */])(function (kv) {
+                return kv[0];
+            }, this);
+        }
+    }, {
+        key: "values",
+        value: function values() {
+            return Object(__WEBPACK_IMPORTED_MODULE_7__Seq__["d" /* map */])(function (kv) {
+                return kv[1];
+            }, this);
+        }
+    }, {
+        key: "get",
+        value: function get(k) {
+            return tree_find(this.comparer, k, this.tree);
+        }
+    }, {
+        key: "has",
+        value: function has(k) {
+            return tree_mem(this.comparer, k, this.tree);
+        }
+        /** Mutating method */
+
+    }, {
+        key: "set",
+        value: function set(k, v) {
+            this.tree = tree_add(this.comparer, k, v, this.tree);
+        }
+        /** Mutating method */
+
+    }, {
+        key: "delete",
+        value: function _delete(k) {
+            // TODO: Is calculating the size twice is more performant than calling tree_mem?
+            var oldSize = tree_size(this.tree);
+            this.tree = tree_remove(this.comparer, k, this.tree);
+            return oldSize > tree_size(this.tree);
+        }
+        /** Mutating method */
+
+    }, {
+        key: "clear",
+        value: function clear() {
+            this.tree = tree_empty();
+        }
+    }, {
+        key: __WEBPACK_IMPORTED_MODULE_8__Symbol__["a" /* default */].reflection,
+        value: function value() {
+            return {
+                type: "Microsoft.FSharp.Collections.FSharpMap",
+                interfaces: ["System.IEquatable", "System.IComparable", "System.Collections.Generic.IDictionary"]
+            };
+        }
+    }, {
+        key: "size",
+        get: function get() {
+            return tree_size(this.tree);
+        }
+    }]);
+
+    return FableMap;
+}();
+
+/* unused harmony default export */ var _unused_webpack_default_export = (FableMap);
+
+function from(comparer, tree) {
+    var map = new FableMap();
+    map.tree = tree;
+    map.comparer = comparer || new __WEBPACK_IMPORTED_MODULE_5__Comparer__["a" /* default */]();
+    return map;
+}
+function create(ie, comparer) {
+    comparer = comparer || new __WEBPACK_IMPORTED_MODULE_5__Comparer__["a" /* default */]();
+    return from(comparer, ie ? tree_ofSeq(comparer, ie) : tree_empty());
+}
+function add(k, v, map) {
+    return from(map.comparer, tree_add(map.comparer, k, v, map.tree));
+}
+function remove(item, map) {
+    return from(map.comparer, tree_remove(map.comparer, item, map.tree));
+}
+function containsValue(v, map) {
+    return Object(__WEBPACK_IMPORTED_MODULE_7__Seq__["b" /* fold */])(function (acc, k) {
+        return acc || Object(__WEBPACK_IMPORTED_MODULE_9__Util__["i" /* equals */])(map.get(k), v);
+    }, false, map.keys());
+}
+function tryGetValue(map, key, defaultValue) {
+    return map.has(key) ? [true, map.get(key)] : [false, defaultValue];
+}
+function exists(f, map) {
+    return tree_exists(f, map.tree);
+}
+function find(k, map) {
+    return tree_find(map.comparer, k, map.tree);
+}
+function tryFind(k, map) {
+    return tree_tryFind(map.comparer, k, map.tree);
+}
+function filter(f, map) {
+    return from(map.comparer, tree_filter(map.comparer, f, map.tree));
+}
+function fold(f, seed, map) {
+    return tree_fold(f, seed, map.tree);
+}
+function foldBack(f, map, seed) {
+    return tree_foldBack(f, map.tree, seed);
+}
+function forAll(f, map) {
+    return tree_forall(f, map.tree);
+}
+function isEmpty(map) {
+    return tree_isEmpty(map.tree);
+}
+function iterate(f, map) {
+    tree_iter(f, map.tree);
+}
+function map(f, map) {
+    return from(map.comparer, tree_mapi(f, map.tree));
+}
+function partition(f, map) {
+    var rs = tree_partition(map.comparer, f, map.tree);
+    return [from(map.comparer, rs[0]), from(map.comparer, rs[1])];
+}
+function findKey(f, map) {
+    return Object(__WEBPACK_IMPORTED_MODULE_7__Seq__["e" /* pick */])(function (kv) {
+        return f(kv[0], kv[1]) ? kv[0] : null;
+    }, map);
+}
+function tryFindKey(f, map) {
+    return Object(__WEBPACK_IMPORTED_MODULE_7__Seq__["i" /* tryPick */])(function (kv) {
+        return f(kv[0], kv[1]) ? kv[0] : null;
+    }, map);
+}
+function pick(f, map) {
+    var res = tryPick(f, map);
+    if (res != null) {
+        return res;
+    }
+    throw new Error("key not found");
+}
+function tryPick(f, map) {
+    return tree_tryPick(f, map.tree);
+}
+
+/***/ }),
+/* 150 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export fromEqualityComparer */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Symbol__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Util__ = __webpack_require__(25);
+
+
+
+
+
+var Comparer = function () {
+    function Comparer(f) {
+        __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default()(this, Comparer);
+
+        this.Compare = f || __WEBPACK_IMPORTED_MODULE_3__Util__["f" /* compare */];
+    }
+
+    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default()(Comparer, [{
+        key: __WEBPACK_IMPORTED_MODULE_2__Symbol__["a" /* default */].reflection,
+        value: function value() {
+            return { interfaces: ["System.IComparer"] };
+        }
+    }]);
+
+    return Comparer;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Comparer);
+
+function fromEqualityComparer(comparer) {
+    // Sometimes IEqualityComparer also implements IComparer
+    if (typeof comparer.Compare === "function") {
+        return new Comparer(comparer.Compare);
+    } else {
+        return new Comparer(function (x, y) {
+            var xhash = comparer.GetHashCode(x);
+            var yhash = comparer.GetHashCode(y);
+            if (xhash === yhash) {
+                return comparer.Equals(x, y) ? 0 : -1;
+            } else {
+                return xhash < yhash ? -1 : 1;
+            }
+        });
+    }
+}
+
+/***/ }),
+/* 151 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export errorValue */
+/* unused harmony export beginning */
+/* unused harmony export errorLine */
+/* unused harmony export message */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return error; });
+/* harmony export (immutable) */ __webpack_exports__["c"] = unpack;
+/* unused harmony export parse */
+/* harmony export (immutable) */ __webpack_exports__["b"] = preparse;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Combinators_fs__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Seq__ = __webpack_require__(139);
+
+
+
+
+
+
+
+
+var errorValue = function () {
+    function errorValue(tag, data) {
+        __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_classCallCheck___default()(this, errorValue);
+
+        this.tag = tag;
+        this.data = data;
+    }
+
+    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_createClass___default()(errorValue, [{
+        key: __WEBPACK_IMPORTED_MODULE_2__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["a" /* default */].reflection,
+        value: function value() {
+            return {
+                type: "Error.errorValue",
+                interfaces: ["FSharpUnion", "System.IEquatable", "System.IComparable"],
+                cases: [["Beginning", "string"], ["ErrorLine", "number"], ["Message", "string"], ["Error", errorValue, errorValue]]
+            };
+        }
+    }, {
+        key: "Equals",
+        value: function Equals(other) {
+            return this === other || this.tag === other.tag && Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["i" /* equals */])(this.data, other.data);
+        }
+    }, {
+        key: "CompareTo",
+        value: function CompareTo(other) {
+            return Object(__WEBPACK_IMPORTED_MODULE_3__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Util__["h" /* compareUnions */])(this, other) | 0;
+        }
+    }]);
+
+    return errorValue;
+}();
+Object(__WEBPACK_IMPORTED_MODULE_2__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Symbol__["b" /* setType */])("Error.errorValue", errorValue);
+var beginning = function () {
+    var b = Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["e" /* matchString */])("Parser error in line ");
+    return Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["j" /* op_LessQmarkGreater */])()(Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["g" /* op_BarGreaterGreater */])(b, function (arg0) {
+        return new errorValue(0, arg0);
+    }), "Beginning");
+}();
+var errorLine = function () {
+    var d = __WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["c" /* matchInteger */];
+    return Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["j" /* op_LessQmarkGreater */])()(Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["g" /* op_BarGreaterGreater */])(d, function (arg0) {
+        return new errorValue(1, arg0);
+    }), "ErrorLine");
+}();
+var message = function () {
+    var s = Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["b" /* matchChar */])(":");
+    var m = Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["a" /* chooseAny */])(Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["a" /* append */])(Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["d" /* ofArray */])(["'", "$", "`", "<", ">", "{", "}", "|", "\\", "\n"]), Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["a" /* append */])(Object(__WEBPACK_IMPORTED_MODULE_6__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Seq__["h" /* toList */])(Object(__WEBPACK_IMPORTED_MODULE_6__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Seq__["f" /* rangeChar */])("a", "z")), Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["a" /* append */])(Object(__WEBPACK_IMPORTED_MODULE_6__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Seq__["h" /* toList */])(Object(__WEBPACK_IMPORTED_MODULE_6__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Seq__["f" /* rangeChar */])("A", "Z")), Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["a" /* append */])(Object(__WEBPACK_IMPORTED_MODULE_6__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Seq__["h" /* toList */])(Object(__WEBPACK_IMPORTED_MODULE_6__nuget_packages_fable_core_1_2_0_beta_003_fable_core_Seq__["f" /* rangeChar */])("0", "9")), Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["a" /* append */])(Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["d" /* ofArray */])([" "]), Object(__WEBPACK_IMPORTED_MODULE_5__nuget_packages_fable_core_1_2_0_beta_003_fable_core_List__["d" /* ofArray */])(["_"])))))));
+    return Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["j" /* op_LessQmarkGreater */])()(Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["g" /* op_BarGreaterGreater */])(Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["i" /* op_GreaterGreaterDot */])(Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["i" /* op_GreaterGreaterDot */])(s, __WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["f" /* oneOrMoreSpaces */]), Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["d" /* matchOneOrMoreCharacters */])(m)), function (arg0) {
+        return new errorValue(2, arg0);
+    }), "Message");
+}();
+var error = Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["j" /* op_LessQmarkGreater */])()(Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["g" /* op_BarGreaterGreater */])(Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["h" /* op_DotGreaterGreaterDot */])()(Object(__WEBPACK_IMPORTED_MODULE_4__Combinators_fs__["i" /* op_GreaterGreaterDot */])(beginning, errorLine), message), function (tupledArg) {
+    return new errorValue(3, [tupledArg[0], tupledArg[1]]);
+}), "Error");
+function unpack(result) {
+    if (result.tag === 0) {
+        var value = result.data[0];
+        var input = result.data[1];
+        return value;
+    } else {
+        throw new Error("C:/Users/User/Desktop/FYP/VERIED/src/Renderer/Error.fs", 37, 10);
+    }
+}
+function parse(elm_0, elm_1) {
+    var elm = [elm_0, elm_1];
+    var $var1 = elm[0].tag === 1 ? elm[1].tag === 2 ? [0, elm[1].data, elm[0].data] : [1] : [1];
+
+    switch ($var1[0]) {
+        case 0:
+            return [$var1[2], $var1[1]];
+
+        case 1:
+            throw new Error("C:/Users/User/Desktop/FYP/VERIED/src/Renderer/Error.fs", 41, 10);
+    }
+}
+function preparse(value) {
+    if (value.tag === 3) {
+        return parse(value.data[0], value.data[1]);
+    } else {
+        throw new Error("C:/Users/User/Desktop/FYP/VERIED/src/Renderer/Error.fs", 44, 10);
+    }
+}
 
 /***/ })
 /******/ ]);

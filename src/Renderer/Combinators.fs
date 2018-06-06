@@ -77,10 +77,10 @@ let printResult result = //print result of the parsing
     match result with
     | Success (value,input) -> 
         printfn "%A" value
-    | Failure (label,error,parserPos) -> 
-        let error_line = parserPos.current_line
-        let column_position = parserPos.column
-        let line_position = parserPos.line
+    | Failure (label,error,parser_position) -> 
+        let error_line = parser_position.current_line
+        let column_position = parser_position.column
+        let line_position = parser_position.line
         let failure = sprintf "%*s^%s" column_position "" error
         printfn "Line:%i Col:%i Error parsing %s\n%s\n%s" line_position column_position label error_line failure 
 let getLabel parser = //return label

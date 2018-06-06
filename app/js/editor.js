@@ -234,7 +234,7 @@ amdRequire(['vs/editor/editor.main'], function () {
     automaticLayout: true,
     lineNumbers: "on"
   });
-
+  
   // var mevent = new CustomEvent("monaco-ready", { "detail": "ready now!" });
   // document.getElementById("test").innerText = window.editor.getValue()
   // // Dispatch/Trigger/Fire the event

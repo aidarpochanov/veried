@@ -10,8 +10,18 @@ open Yosys
 open Description
 open System
 open System.Text.RegularExpressions
+open Combinators
+open Error
 
 // let readLines filePath = System.IO.File.ReadAllLines(filePath);
+
+let errorProcessing er = 
+    let a = run error er
+    let result = unpack a |> preparse
+    result
+    
+
+
 let printToConsole(c: string) = 
         let nodeConsole = check().getConsole
         let myConsole = check().myConsole(nodeConsole)
@@ -60,10 +70,11 @@ let init() =
         let work() = 
             let command = "design -reset; read_verilog input.v; proc; opt_clean; show -stretch"
             let command2 = "help write_json"
+            ed().getRidOfError()
             let code = ed().getValue()
             // let a = code.Replace(" n", "s") 
             // printToConsole(code)
-            // printToConsole("asdasd")
+            // printToConsole("asdasd")s
 
             Synthesizer().setErrorMessage
             Synthesizer().writeFile("input.v")
@@ -71,9 +82,15 @@ let init() =
             let dotfile: string = Synthesizer().read_file("show.dot")
             let mutable report = ""
             report <- Synthesizer().getErrorMessage
-            if System.String.IsNullOrEmpty report then report <- "No errors found in your code!"
-            if report = "No errors found in your code!" then Browser.document.getElementById("panel").style.color <- "green" else Browser.document.getElementById("panel").style.color <- "red"
             report <- report.Replace("input.v:", "")
+            if (System.String.IsNullOrEmpty report) then 
+                report <- "No errors found in your code!"
+                Browser.document.getElementById("panel").style.color <- "green"
+            else 
+                Browser.document.getElementById("panel").style.color <- "red"
+                let e = errorProcessing report
+                ed().setError(fst e, snd e)
+            
             Browser.document.getElementById("panel").innerText <- report
             let replacementDotfile = processInput(dotfile)
             // let svg = readLines "C:\\Users\\User\\Desktop\\FYP\\VERIED\\svg.txt"
@@ -84,8 +101,7 @@ let init() =
             printToConsole(svgText)
             // printToConsole(svg)
             Browser.document.getElementById("popup").style.visibility <- "hidden"
-            
-            
+                  
         Browser.document.getElementById("popup").style.visibility <- "visible"
         Synthesizer().setTimeout
 

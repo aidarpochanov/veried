@@ -7,3 +7,5 @@ nuget Fable.Import.Browser
 nuget Fable.Import.Node
 nuget Fable.Import.Electron
 nuget Fable.PowerPack
+nuget NUnit
+nuget FsUnit
