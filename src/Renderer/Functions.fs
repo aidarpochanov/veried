@@ -119,14 +119,14 @@ let init() =
             Browser.document.getElementById("panel").innerText <- report
             let replacementDotfile = processInput(dotfile)
             // let svg = readLines "C:\\Users\\User\\Desktop\\FYP\\VERIED\\svg.txt"
-            printToConsole(replacementDotfile)
+            // printToConsole(replacementDotfile)
             let svgText: string = Synthesizer().getSvg(replacementDotfile)
             Synthesizer().dotIntoSvg(replacementDotfile)
             // Browser.document.getElementById("svg").innerHTML <- svgText
             // printToConsole(dotfile)
             // printToConsole(svg)
             Browser.document.getElementById("popup").style.visibility <- "hidden"
-                  
+
         Browser.document.getElementById("popup").style.visibility <- "visible"
         Synthesizer().setTimeout
 
@@ -134,11 +134,19 @@ let init() =
 
     ys?verbose <- true
     ys?echo <- true
-
     previewBtn.addEventListener_click(fun _ ->
         synth()
     )
-
-
+    // let timer = new Timers.Timer(5000.)
+    // let event = Async.AwaitEvent (timer.Elapsed) |> Async.Ignore
+    
+    // printToConsole(DateTime.Now.ToString "yyyy/MM/dd")
+    // timer.Start()
+    // printToConsole("A-OK")
+    // while true do
+    //     // Async.RunSynchronously event
+    //     // synth()
+    //     printToConsole(DateTime.Now.ToString "yyyy/MM/dd")
+    
     
 

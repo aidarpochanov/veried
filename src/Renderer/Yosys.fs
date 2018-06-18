@@ -39,7 +39,7 @@ type Synthesizer() =
     [<Emit("YosysJS.dot_to_svg($1);")>]
     member __.getSvg(file: string) = jsNative
 
-    [<Emit("window.setTimeout(work, 1);")>]
+    [<Emit("window.setTimeout(work, 50);")>]
     member __.setTimeout with get() = jsNative
 
     [<Emit("YosysJS.create('ys', ysReady);")>]

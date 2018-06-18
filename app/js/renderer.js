@@ -6014,14 +6014,13 @@ function init() {
 
             document.getElementById("panel").innerText = report;
             var replacementDotfile = processInput(dotfile);
-            printToConsole(replacementDotfile);
             var svgText = YosysJS.dot_to_svg(replacementDotfile);
             YosysJS.dot_into_svg(replacementDotfile, "svg");
             document.getElementById("popup").style.visibility = "hidden";
         };
 
         document.getElementById("popup").style.visibility = "visible";
-        return window.setTimeout(work, 1);
+        return window.setTimeout(work, 50);
     };
 
     var ys = YosysJS.create("ys", ysReady);
