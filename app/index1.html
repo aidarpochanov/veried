@@ -36,8 +36,9 @@
         <div class="topnav">
             <button class="btn" id="save"><i class="fa fa-save"></i></button>
             <button class="btn" id="explore"><i class="fa fa-folder"></i></button>
-            
+            <!-- <button class="btn" id="btn" onclick="des()"><i class="fa fa-play"></i></button> -->
             <div style="float: right;">
+                <button class="btn" onclick="test()"><i class="fa fa-check"></i></button>
                 <button class="btn" id="btn" onclick="des()"><i class="fa fa-play"></i></button>
                 <button class="btn" id="zoomIn" onclick="zoomIn()">Zoom In</button>
                 <button class="btn" id="zoomOut" onclick="zoomOut()">Zoom Out</button>
@@ -45,6 +46,7 @@
         </div>
         
         <iframe id="ys" style="width: 800px; height: 200px; display: none"></iframe><p/>
+        <iframe id="test" style="width: 800px; height: 200px; display: none"></iframe><p/>
         <div id="panel" class="panel bottom">
             Status of the code is displayed here
         </div>
@@ -87,5 +89,5 @@
         </div>       
         <script src="js/renderer.js"></script>
         <script src="js/saveload.js"></script>
-        
+        <script src="js/testing.js"></script>
     </body></html>
