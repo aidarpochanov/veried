@@ -1,0 +1,2 @@
+# VeriEd
+# About the project 
