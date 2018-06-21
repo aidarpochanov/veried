@@ -20,7 +20,7 @@ The application code is developed in 'F#' which is further transpiled to 'JavaSc
 
 ## Using the application
 1. Install the requirements mentioned above.
-2. Download or clone the VeriEd repository.
+2. Clone the VeriEd repository.
 3. Use command-line interpreter to find the root folder.
 4. Install JavaScript dependencies using 'yarn install' or 'npm install'
 5. Install .NET dependencies using 'dotnet restore'
